@@ -1,0 +1,13 @@
+@import "@/shared/styles/variables";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+
+    img {
+        width: 130px;
+        height: 130px;
+    }
+}

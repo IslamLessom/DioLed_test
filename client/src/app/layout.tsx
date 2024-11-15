@@ -7,6 +7,7 @@ import Sider from "antd/es/layout/Sider";
 import { BurgerButton } from "@/features/burger-button/BurgerButton";
 import "@/shared/styles/globals.scss";
 import "./layout.scss";
+import HeaderComponent from "@/widgets/header/Header";
 
 export default function RootLayout({
   children,
@@ -35,15 +36,16 @@ export default function RootLayout({
         <Layout style={{ minHeight: "100vh" }}>
           <Header
             style={{
-              display: "flex",
-              alignItems: "center",
               position: "fixed",
+              lineHeight: "1",
               width: "100%",
+              height: "90px !important",
               zIndex: 3,
+              backgroundColor: "#ffffff",
             }}
           >
             <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-            <span style={{ marginLeft: "20px" }}>Header</span>
+            <HeaderComponent />
           </Header>
           <Layout className="layout" style={{ marginTop: "64px" }}>
             <div

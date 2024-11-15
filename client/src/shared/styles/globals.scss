@@ -1,19 +1,18 @@
-@import 'variables';
-@import 'mixins';
-@import 'reset';
+@import "variables";
+@import "mixins";
+@import "reset";
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: $text-color;
   background: $background-color;
-  line-height: 1.5;
 }
 
 .container {
   max-width: $container-width;
   margin: 0 auto;
   padding: 0 15px;
-  
+
   @include tablet {
     max-width: 100%;
   }
@@ -27,4 +26,3 @@ body {
 .text-primary {
   color: $primary-color;
 }
-
