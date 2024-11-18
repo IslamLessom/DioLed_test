@@ -7,22 +7,33 @@ import {
 } from "@ant-design/icons";
 import { Badge } from "antd";
 import styles from "./Stub.module.scss";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { CiShoppingCart } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
+import { IoPodiumOutline } from "react-icons/io5";
+import { CiHeart } from "react-icons/ci";
 
 const Stub = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <div className={styles.stub}>
-      <Badge count={5}>
-        <HeartOutlined />
-      </Badge>
-      <Badge count={5}>
-        <BarChartOutlined />
-      </Badge>
-      <UserOutlined />
+      {!isMobile && (
+        <>
+          <Badge count={5}>
+            <CiHeart />
+          </Badge>
+          <Badge count={5}>
+            <IoPodiumOutline />
+          </Badge>
+          <CiUser />
+        </>
+      )}
       <div className={styles.stub__cart}>
         <Badge count={5}>
-          <ShoppingOutlined />
+          <CiShoppingCart />
         </Badge>
-        <p className={styles.stub__cart_price}>1000 руб</p>
+        {!isMobile && <p className={styles.stub__cart_price}>1000 руб</p>}
       </div>
     </div>
   );

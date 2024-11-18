@@ -1,3 +1,6 @@
+@import "@/shared/styles/mixins";
+@import "@/shared/styles/variables";
+
 .location {
     display: flex;
     flex-direction: column;
@@ -18,5 +21,8 @@
     hr {
         padding: 0;
         margin: 0;
+        @include tablet {
+            display: none;
+        }
     }
 }

@@ -1,17 +1,17 @@
 @mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
   }
-  
-  @mixin mobile {
-    @media (max-width: $mobile) {
-      @content;
-    }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
   }
-  
-  @mixin tablet {
-    @media (max-width: $tablet) {
-      @content;
-    }
-  }
+}

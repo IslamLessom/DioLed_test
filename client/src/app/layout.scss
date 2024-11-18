@@ -1,3 +1,6 @@
+@import "@/shared/styles/mixins";
+@import "@/shared/styles/variables";
+
 .layout {
   min-height: 100vh !important;
   position: relative;
@@ -22,7 +25,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .mobile-hidden {
     display: none !important;
   }
@@ -32,7 +35,7 @@
   }
 }
 
-@media (min-width: 769px) {
+@include mobile {
   .ant-layout-sider {
     position: relative !important;
     height: 100% !important;
@@ -47,7 +50,7 @@
   .ant-layout-sider {
     transition: transform 0.3s ease;
 
-    @media (max-width: 768px) {
+    @include mobile {
       position: fixed;
       left: 0;
       top: 64px;

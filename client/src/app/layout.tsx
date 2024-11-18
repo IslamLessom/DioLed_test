@@ -42,6 +42,10 @@ export default function RootLayout({
               height: "90px !important",
               zIndex: 3,
               backgroundColor: "#ffffff",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "0px 10px",
             }}
           >
             <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />

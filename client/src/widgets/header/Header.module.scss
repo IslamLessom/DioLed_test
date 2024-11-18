@@ -1,13 +1,28 @@
 @import "@/shared/styles/variables";
-
+@import "@/shared/styles/mixins";
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: $header-height;
+    width: 100%;
+    padding: 10px;
+
+    @include mobile {
+        width: 85%;
+    }
 
     img {
         width: 130px;
         height: 130px;
+    }
+
+    .header__search {
+        text-align: center;
+        @include tablet {
+            span {
+                width: 85%;
+            }
+        }
     }
 }
