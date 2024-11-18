@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
@@ -8,6 +8,7 @@ import { BurgerButton } from "@/features/burger-button/BurgerButton";
 import "@/shared/styles/globals.scss";
 import "./layout.scss";
 import HeaderComponent from "@/widgets/header/Header";
+import Sidebar from "@/widgets/sidebar/ui/Sidebar";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const siderRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -39,8 +41,8 @@ export default function RootLayout({
               position: "fixed",
               lineHeight: "1",
               width: "100%",
-              height: "90px !important",
-              zIndex: 3,
+              height: "90px",
+              zIndex: 999,
               backgroundColor: "#ffffff",
               display: "flex",
               justifyContent: "center",
@@ -51,17 +53,27 @@ export default function RootLayout({
             <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
             <HeaderComponent />
           </Header>
-          <Layout className="layout" style={{ marginTop: "64px" }}>
+          <Layout
+            className="layout"
+            style={{
+              marginTop: "90px",
+              minHeight: "calc(100vh - 90px - 64px)",
+            }}
+          >
             <div
               className={`overlay ${isMenuOpen ? "visible" : ""}`}
               onClick={() => setIsMenuOpen(false)}
             />
             <Sider
-              width={isMenuOpen ? "40%" : "25%"}
-              style={{ height: "100vh !important" }}
+              ref={siderRef}
+              width={isMenuOpen ? "60%" : "25%"}
+              style={{
+                height: "100vh ",
+                backgroundColor: "#f7f7f7 ",
+              }}
               className={isMenuOpen ? "mobile-visible" : "mobile-hidden"}
             >
-              Sider
+              <Sidebar />
             </Sider>
             <Content style={{ padding: "20px", backgroundColor: "red" }}>
               {children}

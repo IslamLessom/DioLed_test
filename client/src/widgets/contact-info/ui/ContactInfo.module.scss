@@ -1,0 +1,25 @@
+@import "@/shared/styles/variables.scss";
+@import "@/shared/styles/mixins.scss";
+
+.phone__number {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone__number_text {
+    margin-bottom: 5px;
+}
+
+.phone__mail {
+    font-size: 14px;
+    color: #999;
+    margin: 0 !important;
+}
+
+.phone__button {
+    margin-left: 10px;
+
+    @include tablet {
+        display: none;
+    }
+}
