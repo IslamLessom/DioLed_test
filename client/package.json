@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.5.1",
-    "@types/styled-components": "^5.1.34",
     "antd": "^5.22.1",
     "classnames": "^2.5.1",
     "next": "15.0.3",

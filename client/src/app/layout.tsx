@@ -9,6 +9,7 @@ import "@/shared/styles/globals.scss";
 import "./layout.scss";
 import HeaderComponent from "@/widgets/header/Header";
 import Sidebar from "@/widgets/sidebar/ui/Sidebar";
+import FooterComponent from "@/widgets/footer/ui/Footer";
 
 export default function RootLayout({
   children,
@@ -79,7 +80,9 @@ export default function RootLayout({
               {children}
             </Content>
           </Layout>
-          <Footer>Footer</Footer>
+          <Footer>
+            <FooterComponent />
+          </Footer>
         </Layout>
       </body>
     </html>

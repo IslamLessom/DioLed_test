@@ -3,7 +3,7 @@ import MenuComponent from "./comonents/menu/Menu";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <div>
       <MenuComponent />
     </div>
   );

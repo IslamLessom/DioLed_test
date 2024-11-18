@@ -83,7 +83,7 @@ const MenuComponent: React.FC = () => {
   };
 
   return (
-    <div className={styles.menu}>
+    <nav className={styles.menu}>
       <h2>Каталог мебели</h2>
       <Menu
         onClick={onClick}
@@ -92,7 +92,7 @@ const MenuComponent: React.FC = () => {
         mode="inline"
         items={items}
       />
-    </div>
+    </nav>
   );
 };
 
