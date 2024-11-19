@@ -1,14 +1,26 @@
+@import "@/shared/styles/variables";
+@import "@/shared/styles/mixins";
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @include mobile {
+        flex-direction: column;
+        text-align: center;
+    }
     .footer__contacts {
         display: flex;
+        @include mobile {
+            width: 100%;
+        }
     }
     .footer__logo__contacts {
         img {
             width: 150px;
             height: 80px;
+        }
+        @include mobile {
+            width: 100%;
         }
     }
 
@@ -19,15 +31,30 @@
         svg {
             font-size: 30px;
         }
+        @include mobile {
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
     }
     .footer__info__links {
         display: flex;
         margin-top: 20px;
         gap: 60px;
+        @include mobile {
+            justify-content: center;
+            margin: 20px;
+        }
         .footer__info__links__column {
             p {
                 margin: 8px 0px;
             }
+        }
+    }
+
+    .footer__info {
+        @include mobile {
+            width: 100%;
         }
     }
     .footer__copyright {
@@ -36,6 +63,9 @@
         }
         p {
             margin: 8px 0px;
+        }
+        @include mobile {
+            width: 100%;
         }
     }
 }

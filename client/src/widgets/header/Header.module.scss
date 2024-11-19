@@ -1,27 +1,43 @@
 @import "@/shared/styles/variables";
 @import "@/shared/styles/mixins";
+
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    background: #fff;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: $header-height;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
-    padding: 10px;
+    height: $header-height - 60px;
+    .header__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: $header-height;
+        width: 100%;
+        padding: 0px 20px;
+        margin-top: 30px;
+        gap: 20px;
 
-    @include mobile {
-        width: 85%;
-    }
+        @include mobile {
+            width: 85%;
+        }
 
-    img {
-        width: 130px;
-        height: 130px;
-    }
+        img {
+            width: 130px;
+            height: 90px;
+        }
 
-    .header__search {
-        text-align: center;
-        @include tablet {
-            span {
-                width: 85%;
+        .header__search {
+            text-align: center;
+            @include tablet {
+                span {
+                    width: 85%;
+                }
             }
         }
     }

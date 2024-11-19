@@ -78,15 +78,15 @@ const items: MenuItem[] = [
 ];
 
 const MenuComponent: React.FC = () => {
-  const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
-  };
+  //const onClick: MenuProps["onClick"] = (e) => {
+  // console.log("click ", e);
+  //};
 
   return (
     <nav className={styles.menu}>
       <h2>Каталог мебели</h2>
       <Menu
-        onClick={onClick}
+        //onClick={onClick}
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"

@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
-import { BurgerButton } from "@/features/burger-button/BurgerButton";
 import "@/shared/styles/globals.scss";
 import "./layout.scss";
 import HeaderComponent from "@/widgets/header/Header";
@@ -48,17 +47,15 @@ export default function RootLayout({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              padding: "0px 10px",
+              padding: "0px",
             }}
           >
-            <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-            <HeaderComponent />
+            <HeaderComponent isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           </Header>
           <Layout
             className="layout"
             style={{
               marginTop: "90px",
-              minHeight: "calc(100vh - 90px - 64px)",
             }}
           >
             <div
@@ -66,19 +63,15 @@ export default function RootLayout({
               onClick={() => setIsMenuOpen(false)}
             />
             <Sider
-              ref={siderRef}
               width={isMenuOpen ? "60%" : "25%"}
               style={{
-                height: "100vh ",
-                backgroundColor: "#f7f7f7 ",
+                backgroundColor: "#f7f7f7",
               }}
               className={isMenuOpen ? "mobile-visible" : "mobile-hidden"}
             >
               <Sidebar />
             </Sider>
-            <Content style={{ padding: "20px", backgroundColor: "red" }}>
-              {children}
-            </Content>
+            <Content className="content">{children}</Content>
           </Layout>
           <Footer>
             <FooterComponent />

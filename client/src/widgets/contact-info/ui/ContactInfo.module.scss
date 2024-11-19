@@ -4,6 +4,9 @@
 .phone__number {
     display: flex;
     flex-direction: column;
+    @include mobile {
+        width: 100%;
+    }
 }
 
 .phone__number_text {

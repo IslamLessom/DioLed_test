@@ -1,10 +1,13 @@
 import React from "react";
 import MenuComponent from "./comonents/menu/Menu";
+import Liders from "./comonents/liders/Liders";
+import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className={styles.sidebar}>
       <MenuComponent />
+      <Liders />
     </div>
   );
 };
