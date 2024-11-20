@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Layout } from "antd";
+import { Carousel, Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import "@/shared/styles/globals.scss";
@@ -9,6 +9,8 @@ import "./layout.scss";
 import HeaderComponent from "@/widgets/header/Header";
 import Sidebar from "@/widgets/sidebar/ui/Sidebar";
 import FooterComponent from "@/widgets/footer/ui/Footer";
+import BannerCarousel from "@/widgets/carousel/ui/banner-carousel/BannerCarousel";
+import StatusBox from "@/shared/ui/StatusBox/ui/StatusBox";
 
 export default function RootLayout({
   children,
@@ -52,12 +54,7 @@ export default function RootLayout({
           >
             <HeaderComponent isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           </Header>
-          <Layout
-            className="layout"
-            style={{
-              marginTop: "90px",
-            }}
-          >
+          <Layout className="layout">
             <div
               className={`overlay ${isMenuOpen ? "visible" : ""}`}
               onClick={() => setIsMenuOpen(false)}
@@ -71,7 +68,11 @@ export default function RootLayout({
             >
               <Sidebar />
             </Sider>
-            <Content className="content">{children}</Content>
+            <Content className="content">
+              <BannerCarousel />
+              <StatusBox />
+              {children}
+            </Content>
           </Layout>
           <Footer>
             <FooterComponent />

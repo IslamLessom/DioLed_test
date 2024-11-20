@@ -4,11 +4,15 @@
 .layout {
   display: flex;
   min-height: 100vh !important;
+  margin-top: 90px;
+  @include mobile {
+    margin-top: 20px;
+  }
 
   .content {
     margin-top: 80px;
-    background-color: red;
     width: 100%;
+    margin-right: 15px;
   }
 
   .overlay {
