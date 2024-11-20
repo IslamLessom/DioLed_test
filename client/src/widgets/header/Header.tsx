@@ -7,6 +7,7 @@ import Stub from "./ui/components/other-features/Stub";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import NavMenu from "../nav-menu/ui/NavMenu";
 import { BurgerButton } from "@/features/burger-button/BurgerButton";
+import Image from "next/image";
 
 interface HeaderComponentProps {
   isMenuOpen: boolean;
@@ -25,7 +26,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
         <div className={styles.header__burger}>
           <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </div>
-        <img src="logo.svg" alt="logo" />
+        <Image src="/logo.svg" alt="logo" width={100} height={100} />
         <div className={styles.header__search}>
           <SearchComponents />
         </div>

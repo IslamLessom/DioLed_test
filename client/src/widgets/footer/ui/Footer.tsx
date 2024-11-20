@@ -2,11 +2,12 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import { ContactInfo } from "@/widgets/contact-info/ui/ContactInfo";
 import { FaVk, FaTelegram } from "react-icons/fa";
+import Image from "next/image";
 const FooterComponent = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footer__logo__contacts}>
-        <img src="logo.svg" alt="logo" />
+        <Image src="/logo.svg" alt="logo" width={100} height={100} />
         <div className={styles.footer__contacts}>
           <ContactInfo />
         </div>
