@@ -1,0 +1,88 @@
+// components/Reviews/Reviews.module.scss
+.container {
+    padding: 40px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.underline {
+    width: 240px;
+    height: 3px;
+    background: #ff9c00;
+    margin-bottom: 40px;
+}
+
+.carouselWrapper {
+    margin: 0 -12px;
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    :global {
+        .ant-carousel {
+            .slick-slide {
+                padding: 0 12px;
+            }
+
+            .slick-dots {
+                bottom: -30px;
+
+                li {
+                    width: 8px;
+                    height: 8px;
+                    margin: 0 4px;
+
+                    button {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        background: #d9d9d9;
+                        opacity: 0.4;
+                    }
+
+                    &.slick-active button {
+                        background: #ff9c00;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .slick-track {
+                display: flex;
+                align-items: stretch;
+            }
+
+            .slick-slide > div {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.slideItem {
+    padding: 4px 0 20px;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .underline {
+        width: 180px;
+        margin-bottom: 24px;
+    }
+}
