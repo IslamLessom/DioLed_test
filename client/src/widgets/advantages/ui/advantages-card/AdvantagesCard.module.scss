@@ -1,0 +1,70 @@
+@import "@/shared/styles/mixins.scss";
+@import "@/shared/styles/variables.scss";
+
+.card {
+    height: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: none;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+        .icon {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.icon {
+    font-size: 32px;
+    color: #52c41a;
+    transition: transform 0.3s ease;
+}
+
+.content {
+    flex: 1;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #262626;
+    margin: 0 0 12px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #595959;
+    margin: 0;
+}
+
+@include mobile {
+    .card {
+        padding: 16px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .icon {
+        font-size: 28px;
+    }
+}

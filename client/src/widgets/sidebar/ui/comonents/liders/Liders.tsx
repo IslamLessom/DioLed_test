@@ -18,8 +18,10 @@ const Liders = () => {
             <p>4.5</p>
           </div>
           <div className={style.card__options}>
-            <CiHeart />
-            <IoPodiumOutline />
+            <div className={style.card__options__icons}>
+              <CiHeart />
+              <IoPodiumOutline />
+            </div>
             <Button>Подробнее</Button>
           </div>
         </div>
@@ -34,8 +36,10 @@ const Liders = () => {
             <p>4.5</p>
           </div>
           <div className={style.card__options}>
-            <CiHeart />
-            <IoPodiumOutline />
+            <div className={style.card__options__icons}>
+              <CiHeart />
+              <IoPodiumOutline />
+            </div>
             <Button>Подробнее</Button>
           </div>
         </div>
@@ -50,8 +54,10 @@ const Liders = () => {
             <p>4.5</p>
           </div>
           <div className={style.card__options}>
-            <CiHeart />
-            <IoPodiumOutline />
+            <div className={style.card__options__icons}>
+              <CiHeart />
+              <IoPodiumOutline />
+            </div>
             <Button>Подробнее</Button>
           </div>
         </div>

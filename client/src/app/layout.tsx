@@ -11,6 +11,7 @@ import Sidebar from "@/widgets/sidebar/ui/Sidebar";
 import FooterComponent from "@/widgets/footer/ui/Footer";
 import BannerCarousel from "@/widgets/carousel/ui/banner-carousel/BannerCarousel";
 import StatusBox from "@/shared/ui/StatusBox/ui/StatusBox";
+import Advantages from "@/widgets/advantages/ui/advantages/Advantages";
 
 export default function RootLayout({
   children,
