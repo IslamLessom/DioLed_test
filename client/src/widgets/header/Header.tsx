@@ -8,6 +8,7 @@ import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import NavMenu from "../nav-menu/ui/NavMenu";
 import { BurgerButton } from "@/features/burger-button/BurgerButton";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeaderComponentProps {
   isMenuOpen: boolean;
@@ -26,7 +27,9 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
         <div className={styles.header__burger}>
           <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </div>
-        <Image src="/logo.svg" alt="logo" width={100} height={100} />
+        <Link href={"/"}>
+          <Image src="/logo.svg" alt="logo" width={100} height={100} />
+        </Link>
         <div className={styles.header__search}>
           <SearchComponents />
         </div>

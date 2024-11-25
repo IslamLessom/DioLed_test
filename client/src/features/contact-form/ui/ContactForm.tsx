@@ -3,7 +3,6 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import { PhoneOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "./ContactForm.module.scss";
 
 const { TextArea } = Input;

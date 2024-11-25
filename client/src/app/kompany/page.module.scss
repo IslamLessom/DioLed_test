@@ -1,0 +1,78 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
+.about {
+    margin-top: 20px;
+    .title {
+        margin-left: 40px;
+        margin-bottom: 20px;
+    }
+    .about__banner {
+        height: 250px;
+        width: 100%;
+        border-radius: 15px;
+        @include mixins.mobile {
+            margin-top: 30px;
+        }
+    }
+    .about__description {
+        margin: 20px 0px;
+
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        @include mixins.mobile {
+            flex-direction: column;
+        }
+    }
+    .about__description_container {
+        background-color: vars.$container_bac;
+        padding: 30px;
+        border-radius: 10px;
+        line-height: 25px;
+        p {
+            margin: 15px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    }
+    .about__video {
+        iframe {
+            border-radius: 10px;
+        }
+    }
+    .about__history_container {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .about__history {
+        background-color: vars.$container_bac;
+        margin: 0 40px;
+        padding: 30px;
+        border-radius: 15px;
+        @include mixins.mobile {
+            margin: 0;
+        }
+    }
+    .about__history_description {
+        line-height: 1.5rem;
+        font-weight: 500;
+    }
+    .about__history_date {
+        background-color: white;
+        padding: 10px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        justify-content: center;
+        margin-bottom: 15px;
+        font-weight: 700;
+        svg {
+            font-size: 22px;
+        }
+    }
+}

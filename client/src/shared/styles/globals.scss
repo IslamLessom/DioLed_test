@@ -1,28 +1,23 @@
-@import "variables";
-@import "mixins";
-@import "reset";
+@use "variables" as vars;
+@use "mixins" as mixins;
+@use "reset";
 
 body {
   font-family: "Roboto", sans-serif;
-  color: $text-color;
-  background: $background-color;
+  color: vars.$text-color;
+  background: vars.$background-color;
 }
 
 .container {
-  max-width: $container-width;
+  max-width: vars.$container-width;
   margin: 0 auto;
   padding: 0 15px;
 
-  @include tablet {
+  @include mixins.tablet {
     max-width: 100%;
   }
 }
 
-// Утилитарные классы
-.flex-center {
-  @include flex-center;
-}
-
 .text-primary {
-  color: $primary-color;
+  color: vars.$primary-color;
 }

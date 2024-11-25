@@ -1,17 +1,17 @@
-@import "@/shared/styles/variables";
-@import "@/shared/styles/mixins";
+@use "@/shared/styles/variables";
+@use "@/shared/styles/mixins" as mixins;
 
 .search {
     width: 90% !important;
 }
 
 .search__icon {
-    @include mobile {
+    @include mixins.mobile {
         width: 40px;
         height: 40px;
     }
     svg {
-        @include mobile {
+        @include mixins.mobile {
             width: 40px;
             height: 40px;
         }

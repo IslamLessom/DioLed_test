@@ -3,14 +3,15 @@ $primary-color: #1677ff;
 $secondary-color: #666;
 $background-color: #fff;
 $text-color: #333;
+$container_bac: #f6f6f6;
 
 // Размеры
 $container-width: 1200px;
 $header-height: 120px;
 
 // Медиа-запросы
-$mobile: 768px;
-$tablet: 1024px;
+$mobile: 768px !default;
+$tablet: 1024px !default;
 
 // z-индексы
 $z-dropdown: 1000;

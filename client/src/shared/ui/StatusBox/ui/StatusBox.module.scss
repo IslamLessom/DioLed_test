@@ -1,5 +1,5 @@
-@import "@/shared/styles/mixins.scss";
-@import "@/shared/styles/variables.scss";
+@use "@/shared/styles/mixins.scss" as mixins;
+@use "@/shared/styles/variables.scss";
 
 .statusBox {
     display: grid;
@@ -10,7 +10,7 @@
     height: 90px;
     width: 100%;
 
-    @include mobile {
+    @include mixins.mobile {
         height: 120px;
     }
     .statusBox__item {
@@ -22,7 +22,7 @@
         gap: 10px;
         height: 80px;
         border-radius: 10px;
-        @include mobile {
+        @include mixins.mobile {
             height: 140px;
             width: 100%;
             flex-direction: column;
@@ -30,7 +30,7 @@
         }
         svg {
             font-size: 50px;
-            @include mobile {
+            @include mixins.mobile {
                 height: 30px;
             }
         }

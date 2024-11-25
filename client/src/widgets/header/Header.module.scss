@@ -1,5 +1,5 @@
-@import "@/shared/styles/variables";
-@import "@/shared/styles/mixins";
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
 
 .header {
     position: fixed;
@@ -12,18 +12,18 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: $header-height - 60px;
+    height: vars.$header-height - 60px;
     .header__content {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: $header-height;
+        height: vars.$header-height;
         width: 100%;
         padding: 0px 20px;
         margin-top: 30px;
         gap: 20px;
 
-        @include mobile {
+        @include mixins.mobile {
             width: 85%;
         }
 
@@ -34,7 +34,7 @@
 
         .header__search {
             text-align: center;
-            @include tablet {
+            @include mixins.tablet {
                 span {
                     width: 85%;
                 }

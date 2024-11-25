@@ -1,5 +1,5 @@
-@import "@/shared/styles/mixins";
-@import "@/shared/styles/variables";
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/variables";
 
 .location {
     display: flex;
@@ -21,7 +21,7 @@
     hr {
         padding: 0;
         margin: 0;
-        @include tablet {
+        @include mixins.tablet {
             display: none;
         }
     }

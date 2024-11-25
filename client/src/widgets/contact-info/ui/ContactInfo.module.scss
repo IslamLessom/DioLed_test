@@ -1,10 +1,10 @@
-@import "@/shared/styles/variables.scss";
-@import "@/shared/styles/mixins.scss";
+@use "@/shared/styles/variables.scss";
+@use "@/shared/styles/mixins.scss" as mixins;
 
 .phone__number {
     display: flex;
     flex-direction: column;
-    @include mobile {
+    @include mixins.mobile {
         width: 100%;
     }
 }
@@ -22,7 +22,7 @@
 .phone__button {
     margin-left: 10px;
 
-    @include tablet {
+    @include mixins.tablet {
         display: none;
     }
 }

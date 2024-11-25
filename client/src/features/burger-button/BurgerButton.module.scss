@@ -1,5 +1,5 @@
-@import "@/shared/styles/variables";
-@import "@/shared/styles/mixins";
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as mixins;
 
 .burgerButton {
   display: none;
@@ -10,7 +10,7 @@
   background: transparent;
   cursor: pointer;
 
-  @include mobile {
+  @include mixins.mobile {
     display: flex;
     flex-direction: column;
     justify-content: space-around;

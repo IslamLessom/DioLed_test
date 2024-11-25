@@ -1,5 +1,5 @@
-@import "@/shared/styles/mixins.scss";
-@import "@/shared/styles/variables.scss";
+@use "@/shared/styles/mixins.scss" as mixins;
+@use "@/shared/styles/variables.scss";
 .container {
     padding: 40px 24px;
     max-width: 1200px;
@@ -56,7 +56,7 @@
     margin: 0;
 }
 
-@include mobile {
+@include mixins.mobile {
     .container {
         padding: 24px 16px;
     }

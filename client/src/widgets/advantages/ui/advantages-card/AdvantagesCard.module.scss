@@ -1,5 +1,5 @@
-@import "@/shared/styles/mixins.scss";
-@import "@/shared/styles/variables.scss";
+@use "@/shared/styles/mixins.scss" as mixins;
+@use "@/shared/styles/variables.scss";
 
 .card {
     height: 100%;
@@ -51,7 +51,7 @@
     margin: 0;
 }
 
-@include mobile {
+@include mixins.mobile {
     .card {
         padding: 16px;
     }
