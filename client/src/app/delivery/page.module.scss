@@ -32,6 +32,13 @@
             display: flex;
             justify-content: center;
         }
+
+        @include mixins.tablet {
+            padding: 10px;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+        }
     }
     .delivery__sail {
         width: 100%;
@@ -45,6 +52,9 @@
             padding: 10px;
             display: flex;
             justify-content: center;
+        }
+        @include mixins.tablet {
+            height: 100%;
         }
     }
     .delivery__pricy_about {
