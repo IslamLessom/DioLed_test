@@ -10,7 +10,10 @@ export default function Home() {
       <FurnitureGrid />
       <ReviewForm />
       <Advantages />
-      <ContactForm />
+      <ContactForm
+        title="Остались вопросы"
+        description="Позвоните или напишите нашим менеджерам, они помогут грамотными советами по выбору именно той мебели, которая подойдет вашему помещению больше всего."
+      />
       <SocialButton />
     </>
   );

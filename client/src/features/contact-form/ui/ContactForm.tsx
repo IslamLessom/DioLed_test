@@ -4,10 +4,11 @@ import { Button, Form, Input } from "antd";
 import { PhoneOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import styles from "./ContactForm.module.scss";
+import { ContactFormProps } from "../model/type";
 
 const { TextArea } = Input;
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC<ContactFormProps> = ({ title, description }) => {
   const onFinish = (values: any) => {
     console.log("Form values:", values);
   };
@@ -16,12 +17,8 @@ const ContactForm: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.leftSection}>
-          <h2 className={styles.title}>Остались вопросы</h2>
-          <p className={styles.description}>
-            Позвоните или напишите нашим менеджерам, они помогут грамотными
-            советами по выбору именно той мебели, которая подойдет вашему
-            помещению больше всего.
-          </p>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.description}>{description}</p>
           <a href="tel:+74991107109" className={styles.phone}>
             <PhoneOutlined className={styles.phoneIcon} />
             +7 (499) 110-71-09
