@@ -59,7 +59,7 @@ const About = () => {
       </div>
       <div className={styles.about__video}>
         <iframe
-          width="720"
+          width="100%"
           height="405"
           src="https://rutube.ru/play/embed/509a5cb47db939e99e69c759f7788920/"
           frameBorder="0"
