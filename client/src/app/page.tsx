@@ -4,9 +4,11 @@ import Advantages from "@/widgets/advantages/ui/advantages/Advantages";
 import ContactForm from "@/features/contact-form/ui/ContactForm";
 import SocialButton from "@/shared/ui/social-button/ui/SocialButton";
 import "./page.css";
+import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
 export default function Home() {
   return (
     <>
+      <TitleInPage title="Официальный интернет-магазин мебели DioLed" />
       <FurnitureGrid />
       <ReviewForm />
       <Advantages />

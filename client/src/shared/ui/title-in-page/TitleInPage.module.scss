@@ -1,0 +1,14 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
+.about__title {
+    margin-bottom: 20px;
+    @include mixins.mobile {
+        margin-top: 30px;
+    }
+    hr {
+        width: 100px;
+        margin-top: 10px;
+        border-top: 2px solid red;
+    }
+}

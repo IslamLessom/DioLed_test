@@ -2,10 +2,12 @@ import Image from "next/image";
 import React from "react";
 import ContactForm from "@/features/contact-form/ui/ContactForm";
 import styles from "./page.module.scss";
+import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
 
 const Delivery = () => {
   return (
     <div className={styles.delivery}>
+      <TitleInPage title="Доставка" />
       <Image
         className={styles.delivery__banner}
         src="/fabric_banner.jpg"
@@ -59,7 +61,6 @@ const Delivery = () => {
           </p>
         </div>
       </div>
-
       <ContactForm
         title="Сборка мебели - обратный звонок"
         description="При возникновении вопросов по сборке, оставьте заявку и мы свяжемся с вами в ближайшее время."
