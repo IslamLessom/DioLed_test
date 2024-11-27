@@ -23,6 +23,12 @@
             font-size: 20px;
             margin-bottom: 10px;
         }
+        .contacts__phone {
+            display: flex;
+            @include mixins.tablet {
+                flex-direction: column;
+            }
+        }
         .contacts__time {
             line-height: 1.5rem;
             font-size: 18px;

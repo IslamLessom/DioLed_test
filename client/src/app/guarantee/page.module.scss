@@ -28,6 +28,7 @@
             max-width: 200px;
             @include mixins.mobile {
                 text-align: center;
+                height: 150px;
             }
 
             .feature-icon {

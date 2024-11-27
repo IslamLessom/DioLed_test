@@ -13,15 +13,24 @@ const Contacts = () => {
           <p>время московское</p>
         </div>
         <div className={styles.contacts__number}>
-          <p>
-            <b>+7 (499)270-27-90</b> - Мосвка
-          </p>
-          <p>
-            <b>+7 (499)270-27-90</b> - Тех-поддержка
-          </p>
-          <p>
-            <b>+7 (499)270-27-90</b> - Менеджер
-          </p>
+          <div className={styles.contacts__phone}>
+            <p>
+              <b>+7 (499)270-27-90</b>
+            </p>
+            <p>-Мосвка</p>
+          </div>
+          <div className={styles.contacts__phone}>
+            <p>
+              <b>+7 (499)270-27-90</b>
+            </p>
+            <p>-Тех-поддержка</p>
+          </div>
+          <div className={styles.contacts__phone}>
+            <p>
+              <b>+7 (499)270-27-90</b>
+            </p>
+            <p> -Менеджер</p>
+          </div>
         </div>
         <Button>Задать вопрос</Button>
         <div className={styles.contacts__adress}>
