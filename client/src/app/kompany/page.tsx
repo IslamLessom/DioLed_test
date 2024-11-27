@@ -59,11 +59,12 @@ const About = () => {
       </div>
       <div className={styles.about__video}>
         <iframe
-          width="100%"
-          height="450"
-          src="https://rutube.ru/play/embed/69f0db3799e2e7835a2989b17dd919c1"
+          width="720"
+          height="405"
+          src="https://rutube.ru/play/embed/509a5cb47db939e99e69c759f7788920/"
           frameBorder="0"
           allow="clipboard-write; autoplay"
+          allowFullScreen
         ></iframe>
       </div>
       <div className={styles.about__history_container}>
