@@ -41,7 +41,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
         <PhoneComponent />
         <Stub />
       </div>
-      {!isMobile && <NavMenu />}
+      <NavMenu />
     </div>
   );
 };

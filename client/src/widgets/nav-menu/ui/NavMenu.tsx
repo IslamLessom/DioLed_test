@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-import type { MenuProps } from "antd";
 import { Menu } from "antd";
-import { items } from "./model/constants";
-import styles from "./NavMenu.module.scss";
+import { itemsNavMenu } from "./model/constants";
 import { useScrollDirection } from "@/shared/hooks/useScrollDirection";
 import Link from "next/link";
+
+import type { MenuProps } from "antd";
+import styles from "./NavMenu.module.scss";
 
 const NavMenu: React.FC = () => {
   const [current, setCurrent] = useState("mail");
@@ -37,7 +38,7 @@ const NavMenu: React.FC = () => {
         onClick={onClick}
         selectedKeys={[current]}
         mode="horizontal"
-        items={renderMenuItems(items)}
+        items={renderMenuItems(itemsNavMenu)}
       />
     </div>
   );

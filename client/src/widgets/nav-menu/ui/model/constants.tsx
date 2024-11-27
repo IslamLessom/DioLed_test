@@ -1,6 +1,6 @@
 import type { MenuItem } from "./types";
 
-export const items: MenuItem[] = [
+export const itemsNavMenu: MenuItem[] = [
   {
     label: "Каталог",
     key: "",
