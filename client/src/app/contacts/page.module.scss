@@ -1,0 +1,121 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
+.contacts {
+    margin: 40px 20px;
+    h1 {
+        margin-bottom: 30px;
+        font-size: 35px;
+    }
+    display: grid;
+    grid-template-columns: 49% 49%;
+    @include mixins.tablet {
+        grid-template-columns: 98%;
+        text-align: center;
+    }
+    .contacts__container {
+        button {
+            width: 300px;
+            height: 80px;
+            border-radius: 20px;
+            background: #52c41a;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .contacts__time {
+            line-height: 1.5rem;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .contacts__number {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .contacts__adress {
+            font-size: 16px;
+            p {
+                padding-bottom: 10px;
+            }
+        }
+    }
+    .contacts__blocks {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @include mixins.tablet {
+            margin-top: 30px;
+        }
+        .contacts__block_demonstration {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 300px;
+            @include mixins.tablet {
+                padding: 15px;
+            }
+            .contacts__title {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                p {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                svg {
+                    font-size: 130px;
+                    color: #52c41a;
+                }
+            }
+            .contacts_demo {
+                font-size: 17px;
+                font-weight: 500;
+                color: #52c41a;
+                margin-top: 40px;
+                @include mixins.tablet {
+                    margin-top: 15px;
+                }
+            }
+            .contacts__description {
+                font-size: 19px;
+            }
+        }
+        .contacts__block_consultation {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 300px;
+            @include mixins.tablet {
+                padding: 15px;
+            }
+            .contacts__title {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                p {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                svg {
+                    font-size: 130px;
+                    color: #52c41a;
+                }
+            }
+            .contacts_demo {
+                font-size: 17px;
+                font-weight: 500;
+                color: #52c41a;
+                margin-top: 40px;
+                @include mixins.tablet {
+                    margin-top: 15px;
+                }
+            }
+            .contacts__description {
+                font-size: 19px;
+            }
+        }
+    }
+}
