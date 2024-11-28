@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./page.module.scss";
 import { Carousel } from "antd";
 import Image from "next/image";
-import { YMaps, Map, Placemark } from "react-yandex-maps";
+import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 
 const ShowRoom = () => {
   const position = [55.545003, 37.586113]; // Пример координат (Москва)
