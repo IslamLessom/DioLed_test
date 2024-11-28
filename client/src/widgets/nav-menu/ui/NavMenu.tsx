@@ -13,7 +13,6 @@ const NavMenu: React.FC = () => {
   const isVisible = useScrollDirection();
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
   };
 
