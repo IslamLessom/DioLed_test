@@ -1,7 +1,12 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
 .cart {
     .cart_container {
         display: grid;
         grid-template-columns: 60% 38%;
         gap: 20px;
+        @include mixins.mobile {
+            grid-template-columns: 100%;
+        }
     }
 }

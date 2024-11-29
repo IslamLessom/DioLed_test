@@ -38,12 +38,14 @@ export const CartPage = () => {
               </div>
             </div>
           </div>
-          <p className={styles.price}>
-            <b>40 000</b>
-          </p>
-          <p className={styles.summa}>
-            <b>80 000 руб</b>
-          </p>
+          <div className={styles.selected_info}>
+            <p className={styles.price}>
+              <b>40 000</b>
+            </p>
+            <p className={styles.summa}>
+              <b>80 000 руб</b>
+            </p>
+          </div>
         </div>
       </Card>
     </div>

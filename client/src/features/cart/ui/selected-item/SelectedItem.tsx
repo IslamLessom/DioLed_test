@@ -4,8 +4,11 @@ import React from "react";
 import styles from "./SelectedItem.module.scss";
 import { Card, Checkbox, CheckboxProps } from "antd";
 import { CartPage } from "../cart-page/CartPage";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 
 export const SelectedItem = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const onChange: CheckboxProps["onChange"] = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
@@ -22,17 +25,23 @@ export const SelectedItem = () => {
           className={styles.selected__card}
         >
           <Card
-            title={<Checkbox onChange={onChange}>Выбрать все</Checkbox>}
+            title={
+              !isMobile && <Checkbox onChange={onChange}>Выбрать все</Checkbox>
+            }
             bordered={false}
             className={styles.selected__card}
           >
-            <div className={styles.selected__card_item}>
-              <p className={styles.sekected__card_item_name}>
-                Наименование товара и описание
-              </p>
-              <p>Цена</p>
-              <p>Сумма</p>
-            </div>
+            {!isMobile ? (
+              <div className={styles.selected__card_item}>
+                <p className={styles.sekected__card_item_name}>
+                  Наименование товара и описание
+                </p>
+                <p>Цена</p>
+                <p>Сумма</p>
+              </div>
+            ) : (
+              <Checkbox onChange={onChange}>Выбрать все</Checkbox>
+            )}
           </Card>
           <CartPage />
           <CartPage />

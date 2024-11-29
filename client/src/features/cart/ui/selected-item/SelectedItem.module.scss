@@ -1,3 +1,5 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
 .selected {
     .selected__conteiner {
         display: flex;
@@ -8,6 +10,7 @@
                 display: grid;
                 grid-template-columns: 53% 13% 33%;
                 text-align: right;
+
                 .sekected__card_item_name {
                     text-align: left;
                 }

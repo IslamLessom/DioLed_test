@@ -1,3 +1,6 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
 .selected__card {
     width: 100%;
     margin-top: 30px;
@@ -6,14 +9,23 @@
     .selected__card_item {
         display: grid;
         grid-template-columns: 53% 13% 33%;
+        @include mixins.mobile {
+            grid-template-columns: 100%;
+        }
         .selected__card_item_description {
             display: flex;
             gap: 10px;
+            .selected__checbox_container {
+            }
             .selected__card_item_description_content {
                 display: flex;
                 gap: 20px;
+
                 img {
                     border-radius: 10px;
+                }
+                @include mixins.mobile {
+                    align-items: center;
                 }
                 .selected__card_item_description_content_desc {
                     display: flex;
@@ -36,14 +48,40 @@
             }
         }
     }
-    .price {
-        text-align: right;
-        font-size: 17px;
-    }
-    .summa {
-        text-align: right;
-        font-size: 20px;
+    .selected_info {
+        @include mixins.mobile {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .price {
+            text-align: right;
+            font-size: 17px;
+            @include mixins.mobile {
+                ::before {
+                    content: "Цена";
+                    font-size: 14px;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                }
+            }
+        }
+        .summa {
+            @include mixins.mobile {
+                ::before {
+                    content: "Сумма";
+                    font-size: 14px;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                }
+            }
+            text-align: right;
+            font-size: 20px;
 
-        color: #ff943e;
+            color: #ff943e;
+        }
     }
 }
