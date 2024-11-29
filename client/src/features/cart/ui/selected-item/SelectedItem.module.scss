@@ -1,0 +1,19 @@
+.selected {
+    .selected__conteiner {
+        display: flex;
+        .selected__card {
+            box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            .selected__card_item {
+                display: grid;
+                grid-template-columns: 53% 13% 33%;
+                text-align: right;
+                .sekected__card_item_name {
+                    text-align: left;
+                }
+            }
+        }
+        .selected__container_title {
+        }
+    }
+}

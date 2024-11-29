@@ -12,6 +12,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
+import Link from "next/link";
 
 const Stub = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -31,7 +32,9 @@ const Stub = () => {
       )}
       <div className={styles.stub__cart}>
         <Badge count={5}>
-          <CiShoppingCart />
+          <Link href="/basket">
+            <CiShoppingCart />
+          </Link>
         </Badge>
         {!isMobile && <p className={styles.stub__cart_price}>1000 руб</p>}
       </div>

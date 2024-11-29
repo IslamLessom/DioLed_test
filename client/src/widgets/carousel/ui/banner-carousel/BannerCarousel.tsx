@@ -12,6 +12,7 @@ const BannerCarousel = () => {
       {!isMobile && (
         <div className={styles.bannerCarousel}>
           <Carousel
+            draggable={true}
             autoplay
             autoplaySpeed={3000}
             dotPosition="bottom"
