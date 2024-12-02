@@ -8,11 +8,16 @@
             width: 100%;
             .selected__card_item {
                 display: grid;
-                grid-template-columns: 53% 13% 33%;
+                grid-template-columns: 50% 50%;
                 text-align: right;
 
                 .sekected__card_item_name {
                     text-align: left;
+                }
+                .sekected__card_item_name_container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
                 }
             }
         }

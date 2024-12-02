@@ -4,7 +4,7 @@
 .form {
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1) !important;
     width: 90%;
-    @include mixins.mobile {
+    @include mixins.tablet {
         width: 100%;
     }
     .form__title {

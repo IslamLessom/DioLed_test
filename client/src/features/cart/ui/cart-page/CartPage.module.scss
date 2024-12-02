@@ -8,24 +8,31 @@
 
     .selected__card_item {
         display: grid;
-        grid-template-columns: 53% 13% 33%;
-        @include mixins.mobile {
+        grid-template-columns: 50% 50%;
+        @include mixins.tablet {
             grid-template-columns: 100%;
         }
         .selected__card_item_description {
             display: flex;
             gap: 10px;
+            @include mixins.tablet {
+                gap: 2px;
+            }
             .selected__checbox_container {
             }
             .selected__card_item_description_content {
                 display: flex;
                 gap: 20px;
+                @include mixins.tablet {
+                    gap: 10px;
+                }
 
                 img {
                     border-radius: 10px;
                 }
-                @include mixins.mobile {
+                @include mixins.tablet {
                     align-items: center;
+                    padding: 0px;
                 }
                 .selected__card_item_description_content_desc {
                     display: flex;
@@ -49,7 +56,11 @@
         }
     }
     .selected_info {
-        @include mixins.mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @include mixins.tablet {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -58,7 +69,7 @@
         .price {
             text-align: right;
             font-size: 17px;
-            @include mixins.mobile {
+            @include mixins.tablet {
                 ::before {
                     content: "Цена";
                     font-size: 14px;
@@ -69,7 +80,7 @@
             }
         }
         .summa {
-            @include mixins.mobile {
+            @include mixins.tablet {
                 ::before {
                     content: "Сумма";
                     font-size: 14px;
