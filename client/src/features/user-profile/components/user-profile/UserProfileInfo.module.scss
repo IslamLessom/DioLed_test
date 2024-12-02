@@ -1,0 +1,58 @@
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/variables" as vars;
+
+.profile {
+    display: grid;
+    grid-template-columns: 32% 65%;
+    gap: 15px;
+    align-items: start;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    @include mixins.mobile {
+        grid-template-columns: 100%;
+        margin-top: 40px;
+    }
+    img {
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+    .profile__info {
+        background-color: vars.$container_bac;
+        height: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .profile__delivery_list {
+        h2 {
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+        height: 87%;
+        .profile__delivery_list__container {
+            background-color: vars.$container_bac;
+            height: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 18px;
+            @include mixins.mobile {
+                text-align: center;
+            }
+            .profile__delivery_list__container__actibve {
+                color: green;
+            }
+        }
+    }
+}

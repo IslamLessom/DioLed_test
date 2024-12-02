@@ -27,7 +27,9 @@ const Stub = () => {
           <Badge count={5}>
             <IoPodiumOutline />
           </Badge>
-          <CiUser />
+          <Link href="profile">
+            <CiUser />
+          </Link>
         </>
       )}
       <div className={styles.stub__cart}>
