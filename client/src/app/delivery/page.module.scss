@@ -2,10 +2,9 @@
 @use "@/shared/styles/mixins" as mixins;
 
 .delivery {
-    margin-top: 10px;
     .delivery__banner {
         width: 100%;
-        height: 200px;
+        height: 220px;
         border-radius: 10px;
         @include mixins.mobile {
             margin-top: 40px;
