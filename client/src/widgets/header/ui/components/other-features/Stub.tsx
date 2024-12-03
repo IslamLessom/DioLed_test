@@ -26,9 +26,11 @@ const Stub = () => {
               <CiHeart />
             </Badge>
           </Link>
-          <Badge count={5}>
-            <IoPodiumOutline />
-          </Badge>
+          <Link href="/comparison">
+            <Badge count={5}>
+              <IoPodiumOutline />
+            </Badge>
+          </Link>
           <Link href="/profile">
             <CiUser />
           </Link>

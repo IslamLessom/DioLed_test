@@ -1,0 +1,12 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
+.filtered {
+    display: flex;
+    gap: 20px;
+    @include mixins.mobile {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: left;
+    }
+}

@@ -1,0 +1,30 @@
+.checkboxSelect {
+    width: 150px;
+
+    .ant-select-selector {
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .dropdownContent {
+        padding: 8px;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 4px 8px;
+            font-size: 14px;
+
+            &:hover {
+                background-color: #f5f5f5;
+                border-radius: 4px;
+            }
+        }
+    }
+}
