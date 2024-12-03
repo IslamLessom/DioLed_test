@@ -1,0 +1,39 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
+.filter {
+    display: flex;
+    gap: 10px;
+    @include mixins.mobile {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+    }
+
+    button {
+        background-color: #6daf45;
+        color: white;
+        height: 35px;
+        width: 165px;
+        @include mixins.mobile {
+            width: 160px;
+        }
+        @include mixins.tablet {
+            width: 160px;
+        }
+    }
+    svg {
+        color: white;
+        font-size: 19px;
+    }
+    .filter__delete {
+        margin-left: -10px;
+        height: 15px;
+        width: 15px;
+        background-color: red;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

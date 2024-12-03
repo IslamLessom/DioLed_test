@@ -1,0 +1,38 @@
+@use "@/shared/styles/variables" as vars;
+@use "@/shared/styles/mixins" as mixins;
+
+.auth {
+    @include mixins.mobile {
+        margin-top: 30px;
+    }
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .auth__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .auth__title {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .auth__input {
+        margin-bottom: 10px;
+        width: 50%;
+    }
+    .auth__button_container {
+        width: 100%;
+    }
+    .auth__button {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .auth__input_password {
+        width: 50%;
+    }
+    .auth__description {
+        text-align: center;
+    }
+}

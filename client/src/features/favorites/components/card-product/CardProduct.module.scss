@@ -1,0 +1,38 @@
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/variables" as vars;
+.product_card {
+    margin-top: 20px;
+    .product_card__container {
+        display: grid;
+        grid-template-columns: 40% 59%;
+        background-color: white;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        @include mixins.mobile {
+            grid-template-columns: 100%;
+        }
+        .product_card__info {
+            margin-left: 20px;
+            .info {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            .product_card__info_container {
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                @include mixins.mobile {
+                    margin-bottom: 30px;
+                }
+                svg {
+                    font-size: 30px;
+                    color: #f16530;
+                }
+            }
+        }
+    }
+}

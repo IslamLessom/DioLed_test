@@ -1,0 +1,47 @@
+export const mockData = [
+  {
+    id: 1,
+    name: "LOFT светильник CALM",
+    style: "Современный, Лофт",
+    application:
+      "Для спальни, Для гостиной, Для прихожей, Для магазина, Для кафе и ресторанов",
+    width: "41",
+    height: "E14",
+    lampMaterial: "Стекло",
+    material: "Металл",
+    count: "1",
+    countLamp: "1",
+    size: "15",
+    diametr: "12",
+  },
+  {
+    id: 2,
+    name: "LOFT светильник CALM",
+    style: "Современный, Лофт",
+    application:
+      "Для спальни, Для гостиной, Для прихожей, Для магазина, Для кафе и ресторанов",
+    width: "41",
+    height: "E14",
+    lampMaterial: "Стекло",
+    material: "Металл",
+    count: "1",
+    countLamp: "1",
+    size: "15",
+    diametr: "12",
+  },
+  {
+    id: 3,
+    name: "LOFT светильник CALM",
+    style: "Современный, Лофт",
+    application:
+      "Для спальни, Для гостиной, Для прихожей, Для магазина, Для кафе и ресторанов",
+    width: "41",
+    height: "E14",
+    lampMaterial: "Стекло",
+    material: "Металл",
+    count: "1",
+    countLamp: "1",
+    size: "15",
+    diametr: "12",
+  },
+];

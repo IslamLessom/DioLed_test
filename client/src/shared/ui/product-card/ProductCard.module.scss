@@ -1,0 +1,43 @@
+.card {
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    img {
+        height: 150px;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}
+.card__info {
+    padding: 10px;
+    svg {
+        font-size: 20px;
+    }
+}
+.card__stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+.card__options {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media (max-width: 1300px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    svg {
+        font-size: 25px;
+    }
+}
+.card__options__icons {
+    display: flex;
+    align-self: center;
+    gap: 10px;
+}

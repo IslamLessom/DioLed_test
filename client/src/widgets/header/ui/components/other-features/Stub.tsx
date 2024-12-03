@@ -21,13 +21,15 @@ const Stub = () => {
     <div className={styles.stub}>
       {!isMobile && (
         <>
-          <Badge count={5}>
-            <CiHeart />
-          </Badge>
+          <Link href="/favorites">
+            <Badge count={5}>
+              <CiHeart />
+            </Badge>
+          </Link>
           <Badge count={5}>
             <IoPodiumOutline />
           </Badge>
-          <Link href="profile">
+          <Link href="/profile">
             <CiUser />
           </Link>
         </>
