@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CiHeart, CiStar } from "react-icons/ci";
+import { CiHeart, CiShoppingCart, CiStar } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { Button } from "antd";
 import Image from "next/image";
@@ -22,6 +22,7 @@ const ProductCard = () => {
           <div className={styles.card__options__icons}>
             <CiHeart />
             <IoPodiumOutline />
+            <CiShoppingCart />
           </div>
           <Button>Подробнее</Button>
         </div>

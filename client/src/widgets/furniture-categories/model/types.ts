@@ -3,4 +3,5 @@ export interface FurnitureCategory {
   title: string;
   image: string;
   price: number;
+  href: string;
 }
