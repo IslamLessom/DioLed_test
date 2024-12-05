@@ -1,0 +1,22 @@
+.product__function {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .product__function__rating {
+        svg {
+            font-size: 17px;
+        }
+    }
+    .product__function__general {
+        svg {
+            font-size: 25px;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.title {
+    margin-bottom: 10px !important;
+}

@@ -1,0 +1,14 @@
+.product {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    .product__card_container {
+        padding: 20px;
+        h2 {
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        img {
+            height: 500px;
+        }
+    }
+}

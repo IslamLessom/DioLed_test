@@ -1,11 +1,15 @@
 "use client";
-import React, { useState } from "react";
-import styles from "./page.module.scss";
+import React, { useEffect, useState } from "react";
 import ProductCard from "@/shared/ui/product-card/ProductCard";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+import styles from "./page.module.scss";
 
 const Category = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const pathname = usePathname(); // Получаем текущий путь
 
   const products = [
     { id: 1, name: "Товар 1", price: 13322 },
@@ -24,7 +28,9 @@ const Category = () => {
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <ProductCard />
+          <Link href={`${pathname}/${product.id}`}>
+            <ProductCard />
+          </Link>
           <div
             className={`${styles.category__card__description} ${
               hoveredIndex === index ? styles.visible : ""

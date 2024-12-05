@@ -1,10 +1,4 @@
 import React from "react";
-import {
-  BarChartOutlined,
-  HeartOutlined,
-  ShoppingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
 import { Badge } from "antd";
 import styles from "./Stub.module.scss";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";

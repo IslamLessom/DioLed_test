@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.5",
-    "antd": "^5.22.1",
+    "antd": "^5.22.3",
     "classnames": "^2.5.1",
     "next": "15.0.3",
     "react": "^18.2.0",

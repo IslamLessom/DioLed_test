@@ -1,0 +1,73 @@
+.productInfo {
+    padding: 20px;
+
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .priceSection {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .originalPrice,
+        .discountPrice {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+
+            .price {
+                color: #ff4d4f;
+            }
+
+            .originalPrice .price {
+                text-decoration: line-through;
+                color: #999;
+            }
+
+            .discountPrice .price {
+                color: #52c41a;
+            }
+        }
+    }
+
+    .cashback {
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #595959;
+
+        .cashbackAmount {
+            color: #fadb14;
+            font-weight: 700;
+        }
+    }
+
+    .buttonGroup {
+        display: flex;
+        gap: 10px;
+
+        .buyButton {
+            background-color: #52c41a;
+            color: white;
+            border-color: #52c41a;
+        }
+
+        .buyOneClickButton {
+            background-color: #1890ff;
+            color: white;
+            border-color: #1890ff;
+        }
+
+        .priceDropButton {
+            color: #1890ff;
+            text-decoration: underline;
+        }
+    }
+}
