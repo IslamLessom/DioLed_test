@@ -1,0 +1,29 @@
+.status {
+    .status__title {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .status__container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .status__container__menu {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            gap: 20px;
+            .status__container__menu__box {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 15px;
+                svg {
+                    font-size: 20px;
+                    color: green;
+                }
+            }
+            .status__container__menu__continer {
+                color: grey;
+            }
+        }
+    }
+}

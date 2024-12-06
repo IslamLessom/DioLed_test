@@ -1,0 +1,13 @@
+.layout {
+    .layout__left_sidebar {
+        background-color: white;
+    }
+    .layout__content {
+        background-color: white;
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+    .layout__right_sidebar {
+        background-color: white;
+    }
+}

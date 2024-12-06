@@ -1,0 +1,42 @@
+.order_card {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.6);
+    margin: 10px;
+    padding: 5px;
+    height: 85px;
+    border-radius: 10px;
+    .card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 5px 0px;
+        justify-content: space-around;
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+        }
+        .card__info {
+            .card__info_container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .card__info_container_number {
+                    position: relative;
+                    padding-left: 10px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: -5px;
+                        top: 50%;
+                        margin-right: 10px;
+                        transform: translateY(-50%);
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: green;
+                    }
+                }
+            }
+        }
+    }
+}
