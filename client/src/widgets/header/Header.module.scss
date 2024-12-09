@@ -25,11 +25,17 @@
 
         @include mixins.mobile {
             width: 85%;
+            svg {
+                width: 32px;
+            }
         }
 
         img {
             width: 130px;
             height: 90px;
+            @include mixins.mobile {
+                width: 100px;
+            }
         }
 
         .header__search {
