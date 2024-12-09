@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProductCard from "@/shared/ui/product-card/ProductCard";
+import ProductCard from "@/shared/ui/ProductCard/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

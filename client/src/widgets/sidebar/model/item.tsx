@@ -1,4 +1,4 @@
-import { MenuItem } from "@/widgets/nav-menu/ui/model/types";
+import { MenuItem } from "@/widgets/NavMenu/ui/model/types";
 
 import {
   AppstoreOutlined,

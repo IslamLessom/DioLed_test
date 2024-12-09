@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.scss";
-import { ContactInfo } from "@/widgets/contact-info/ui/ContactInfo";
+import { ContactInfo } from "@/widgets/ContactInfo/ContactInfo";
 import { FaVk, FaTelegram } from "react-icons/fa";
 import Image from "next/image";
 const FooterComponent = () => {

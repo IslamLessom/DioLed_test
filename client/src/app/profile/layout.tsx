@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import "@/shared/styles/globals.scss";
-import HeaderComponent from "@/widgets/header/Header";
-import FooterComponent from "@/widgets/footer/ui/Footer";
+import HeaderComponent from "@/widgets/Header/Header";
+import FooterComponent from "@/widgets/Footer/ui/Footer";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import { Layout } from "antd";
 import "./layout.scss";

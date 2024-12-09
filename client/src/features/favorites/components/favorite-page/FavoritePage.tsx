@@ -1,4 +1,4 @@
-import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
+import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
 import React from "react";
 import FilterProduct from "../filter-product/FilterProduct";
 import CardProduct from "../card-product/CardProduct";

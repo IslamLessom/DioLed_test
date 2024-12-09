@@ -1,6 +1,6 @@
 import React from "react";
-import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
-import { CartItem } from "@/features/cart/ui/cart-item/CartItem";
+import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
+import { CartItem } from "@/features/Cart/ui/cart-item/CartItem";
 
 const Basket = () => {
   return (

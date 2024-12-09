@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./page.module.scss";
-import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
+import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
 import Image from "next/image";
-import ContactForm from "@/features/contact-form/ui/ContactForm";
+import ContactForm from "@/features/ContactForm/ui/ContactForm";
 
 const Designers = () => {
   return (

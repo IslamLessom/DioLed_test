@@ -4,7 +4,7 @@ import { Row, Col, Card } from "antd";
 
 import styles from "./Advantages.module.scss";
 import { advantages } from "../../model";
-import AdvantagesCard from "../advantages-card/AdvantagesCard";
+import AdvantagesCard from "../AdvantagesCard/AdvantagesCard";
 
 const Advantages: React.FC = () => {
   return (

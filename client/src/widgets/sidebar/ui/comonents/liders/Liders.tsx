@@ -4,7 +4,7 @@ import { CiHeart, CiStar } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { Button } from "antd";
 import Image from "next/image";
-import ProductCard from "@/shared/ui/product-card/ProductCard";
+import ProductCard from "@/shared/ui/ProductCard/ProductCard";
 const Liders = () => {
   return (
     <div className={style.lider}>

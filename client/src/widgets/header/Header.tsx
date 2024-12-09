@@ -5,8 +5,8 @@ import PhoneComponent from "./ui/components/phone/Phone";
 import Location from "./ui/components/location/Location";
 import Stub from "./ui/components/other-features/Stub";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
-import NavMenu from "../nav-menu/ui/NavMenu";
-import { BurgerButton } from "@/features/burger-button/BurgerButton";
+import NavMenu from "../NavMenu/ui/NavMenu";
+import { BurgerButton } from "@/features/BurgerButton/BurgerButton";
 import Image from "next/image";
 import Link from "next/link";
 
