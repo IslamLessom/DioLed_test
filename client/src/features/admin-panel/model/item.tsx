@@ -1,4 +1,7 @@
 import { LayoutProfile } from "../components";
+import { AdminDetail } from "../ui/admin-deteil/AdminDetail";
+import AdminListShop from "../ui/admin-list-shop/AdminListShop";
+import AdminAllProduct from "../ui/AdminAllProducts/AdminAllProduct";
 
 export const adminPanel = [
   {
@@ -7,7 +10,14 @@ export const adminPanel = [
     children: (
       <>
         {" "}
-        <LayoutProfile />
+        <LayoutProfile
+          children={
+            <div style={{ display: "grid", gridTemplateColumns: "30% 70%" }}>
+              <AdminListShop />
+              <AdminDetail />
+            </div>
+          }
+        />
       </>
     ),
   },
@@ -16,7 +26,13 @@ export const adminPanel = [
     label: "Товары",
     children: (
       <>
-        <LayoutProfile />
+        <LayoutProfile
+          children={
+            <>
+              <AdminAllProduct />
+            </>
+          }
+        />
       </>
     ),
   },
