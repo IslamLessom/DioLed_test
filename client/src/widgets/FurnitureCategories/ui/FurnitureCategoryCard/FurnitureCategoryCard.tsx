@@ -30,6 +30,7 @@ export const FurnitureCategoryCard = ({
       >
         <div className={styles.content}>
           <h3 className={styles.title}>{category.title}</h3>
+
           <div className={styles.price}>от {category.price} руб.</div>
         </div>
       </Card>
