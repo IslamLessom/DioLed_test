@@ -1,6 +1,6 @@
 import React from "react";
-import MenuComponent from "./comonents/menu/Menu";
-import Liders from "./comonents/liders/Liders";
+import MenuComponent from "./comonents/Menu/Menu";
+import Liders from "./comonents/Liders/Liders";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import styles from "./Sidebar.module.scss";
 

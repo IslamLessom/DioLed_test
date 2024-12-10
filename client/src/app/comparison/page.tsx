@@ -1,5 +1,5 @@
 import React from "react";
-import ComparisonPage from "@/features/comparison/components/comparison-page/ComparisonPage";
+import ComparisonPage from "@/features/Comparison/components/comparison-page/ComparisonPage";
 
 const Comparison = () => {
   return (

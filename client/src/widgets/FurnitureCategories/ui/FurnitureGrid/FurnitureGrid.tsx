@@ -1,5 +1,5 @@
 import { Row, Col } from "antd";
-import { FurnitureCategoryCard } from "../furniture-category-card/FurnitureCategoryCard";
+import { FurnitureCategoryCard } from "../FurnitureCategoryCard/FurnitureCategoryCard";
 import { FURNITURE_CATEGORIES } from "@/shared/config/furniture-categories";
 import styles from "./FurnitureGrid.module.scss";
 

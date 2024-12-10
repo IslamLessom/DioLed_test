@@ -2,7 +2,7 @@
 import React from "react";
 import { Button, Select } from "antd";
 import styles from "./Filtered.module.scss";
-import CheckboxSelect from "@/shared/ui/checkbox-select/CheckboxSelect";
+import CheckboxSelect from "@/shared/ui/CheckboxSelect/CheckboxSelect";
 const Filtered = () => {
   const options = [
     { label: "Элемент 1", value: "item1" },

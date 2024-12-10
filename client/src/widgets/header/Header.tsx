@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Header.module.scss";
-import SearchComponents from "./ui/components/search/Search";
-import PhoneComponent from "./ui/components/phone/Phone";
-import Location from "./ui/components/location/Location";
-import Stub from "./ui/components/other-features/Stub";
+import SearchComponents from "./ui/components/Search/Search";
+import PhoneComponent from "./ui/components/Phone/Phone";
+import Location from "./ui/components/Location/Location";
+import Stub from "./ui/components/OtherFeatures/Stub";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import NavMenu from "../NavMenu/ui/NavMenu";
 import { BurgerButton } from "@/features/BurgerButton/BurgerButton";

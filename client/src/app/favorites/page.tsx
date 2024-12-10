@@ -1,4 +1,4 @@
-import FavoritePage from "@/features/favorites/components/favorite-page/FavoritePage";
+import FavoritePage from "@/features/Favorites/components/favorite-page/FavoritePage";
 import React from "react";
 
 const Favorites = () => {
