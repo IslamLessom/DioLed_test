@@ -1,4 +1,4 @@
-import { FurnitureCategory } from "@/widgets/furniture-categories/model/types";
+import { FurnitureCategory } from "@/widgets/FurnitureCategories/model/types";
 
 export const FURNITURE_CATEGORIES: FurnitureCategory[] = [
   {

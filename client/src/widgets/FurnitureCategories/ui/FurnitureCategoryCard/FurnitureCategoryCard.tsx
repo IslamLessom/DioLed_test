@@ -1,7 +1,7 @@
 "use client";
 import { Card } from "antd";
 import Image from "next/image";
-import { FurnitureCategory } from "@/widgets/furniture-categories/model/types";
+import { FurnitureCategory } from "@/widgets/FurnitureCategories/model/types";
 import styles from "./FurnitureCategoruCard.module.scss";
 import Link from "next/link";
 
