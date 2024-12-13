@@ -8,7 +8,9 @@
     "resolveJsonModule": true,
     "strict": true,
     "outDir": "./dist",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "checkJs": false,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
