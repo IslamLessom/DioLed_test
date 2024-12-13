@@ -1,20 +1,17 @@
-// src/config/config.js
+import { Sequelize } from "sequelize";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url); // Получаем путь к текущему файлу
-const __dirname = path.dirname(__filename); // Вычисляем директорию текущего файла
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-export default {
-  development: {
-    username: "ruslanmakiev",
-    password: null,
-    database: "dioled",
-    host: "localhost",
-    dialect: "postgres",
-    define: {
-      underscored: true,
-    },
-    models: [path.join(__dirname, "../src/models")], // Правильный путь к моделям
+const sequelize = new Sequelize("dioled", "ruslanmakiev", null, {
+  host: "localhost",
+  dialect: "postgres",
+  define: {
+    underscored: true,
   },
-};
+  models: [path.join(__dirname, "../src/models")],
+});
+
+export default sequelize;
