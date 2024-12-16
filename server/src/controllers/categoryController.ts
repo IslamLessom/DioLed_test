@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 import { Category } from "../models/category";
 
 export const getCategory = async (req: Request, res: Response) => {
@@ -14,8 +14,8 @@ export const getCategory = async (req: Request, res: Response) => {
 };
 
 export const postCategory = async (req: Request, res: Response) => {
+  const { category_name } = req.body;
   try {
-    const { category_name } = req.body;
     const newCategory = await Category.create({ category_name });
     res.status(201).json(newCategory);
   } catch (error) {
@@ -27,9 +27,9 @@ export const postCategory = async (req: Request, res: Response) => {
 };
 
 export const getCategoryId = async (req: Request, res: Response) => {
+  const categoryId = parseInt(req.params.id);
+  const category = await Category.findByPk(categoryId);
   try {
-    const categoryId = parseInt(req.params.id);
-    const category = await Category.findByPk(categoryId);
     if (category) {
       res.status(200).json(category);
     } else {
@@ -44,10 +44,9 @@ export const getCategoryId = async (req: Request, res: Response) => {
 };
 
 export const editCategory = async (req: Request, res: Response) => {
+  const categoryId = parseInt(req.params.id);
+  const { category_name } = req.body;
   try {
-    const categoryId = parseInt(req.params.id);
-    const { category_name } = req.body;
-
     const [updated] = await Category.update(
       { category_name },
       { where: { id: categoryId } }
@@ -67,10 +66,9 @@ export const editCategory = async (req: Request, res: Response) => {
 };
 
 export const deleteCategory = async (req: Request, res: Response) => {
+  const categoryId = parseInt(req.params.id);
+  const deleted = await Category.destroy({ where: { id: categoryId } });
   try {
-    const categoryId = parseInt(req.params.id);
-
-    const deleted = await Category.destroy({ where: { id: categoryId } });
     if (deleted) {
       res.status(204).send();
     } else {

@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import { Category } from "../models/category";
 import {
   deleteCategory,
   editCategory,
@@ -8,9 +7,9 @@ import {
   postCategory,
 } from "../controllers/categoryController";
 
-const categoryRouter = express.Router();
+const router = express.Router();
 
-categoryRouter.get("/", async (req: Request, res: Response) => {
+router.get("/cat", async (req: Request, res: Response) => {
   try {
     await getCategory(req, res);
   } catch (error) {
@@ -18,7 +17,7 @@ categoryRouter.get("/", async (req: Request, res: Response) => {
   }
 });
 
-categoryRouter.post("/", async (req: Request, res: Response) => {
+router.post("/", async (req: Request, res: Response) => {
   try {
     await postCategory(req, res);
   } catch (error) {
@@ -26,7 +25,7 @@ categoryRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
-categoryRouter.get("/:id", async (req: Request, res: Response) => {
+router.get("/:id", async (req: Request, res: Response) => {
   try {
     await getCategoryId(req, res);
   } catch (error) {
@@ -34,7 +33,7 @@ categoryRouter.get("/:id", async (req: Request, res: Response) => {
   }
 });
 
-categoryRouter.put("/:id", async (req: Request, res: Response) => {
+router.put("/:id", async (req: Request, res: Response) => {
   try {
     await editCategory(req, res);
   } catch (error) {
@@ -42,7 +41,7 @@ categoryRouter.put("/:id", async (req: Request, res: Response) => {
   }
 });
 
-categoryRouter.delete("/:id", async (req: Request, res: Response) => {
+router.delete("/:id", async (req: Request, res: Response) => {
   try {
     await deleteCategory(req, res);
   } catch (error) {
@@ -50,4 +49,4 @@ categoryRouter.delete("/:id", async (req: Request, res: Response) => {
   }
 });
 
-export default categoryRouter;
+export default router;
