@@ -6,7 +6,6 @@ categoryRouter.get("/", (req, res) => {
   // Логика для получения всех категорий
   res.send("List of categories");
 });
-
 // Пример маршрута для создания новой категории
 categoryRouter.post("/", (req, res) => {
   // Логика для добавления новой категории
