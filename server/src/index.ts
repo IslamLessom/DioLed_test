@@ -2,8 +2,8 @@ import express from "express";
 import sequelize from "./config/config";
 import { initializeUserModel } from "./models/user";
 
-import categoryRouter from "./controllers/categoryRouter";
 import authRoutes from "./routes/authRoutes";
+import categoryRouter from "./routes/categoryRouter";
 
 const app = express();
 const PORT = process.env.PORT || 8001;
