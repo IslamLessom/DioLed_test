@@ -1,14 +1,13 @@
 import React from "react";
-import { FaFileCsv } from "react-icons/fa";
 import styles from "./AdminSidebarRight.module.scss";
 import { MdDeleteSweep, MdFormatListBulletedAdd } from "react-icons/md";
+import { CsvFormaterButton } from "@/shared/ui/CsvFormaterButton/CsvFormaterButton";
 const AdminSudebarRight = () => {
   return (
     <div className={styles.sudebar_right}>
       <p>Экспорт</p>
       <div className={styles.csv}>
-        <FaFileCsv />
-        CSV
+        <CsvFormaterButton />
       </div>
       <div className={styles.csv}>
         <MdDeleteSweep />

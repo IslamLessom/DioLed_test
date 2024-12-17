@@ -1,19 +1,32 @@
 import { Model, DataTypes, Optional } from "sequelize";
 import { Sequelize } from "sequelize/types";
-import { Category } from "./category";
-import { Favorite } from "./favorite";
-import { Cart } from "./cart";
-import { OrderItem } from "./orderItem";
-import { Comparison } from "./comparison";
 
 interface ProductAttributes {
-  id: number;
-  product_name: string;
-  description?: string;
-  price: number;
-  stock_quantity: number;
-  image_url?: string;
-  category_id: number;
+  id?: number; // Можно сделать необязательным
+  product_name?: string; // Наименование элемента
+  drawing?: string; // Чертёж
+  material?: string; // Материал
+  mounting_type?: string; // Тип монтажа
+  type?: string; // Тип
+  connection?: string; // Подключение
+  luminous_flux?: string; // Световой поток
+  power_consumption_per_meter?: string; // Потребляемая мощность на 1м
+  luminous_flux_per_meter?: string; // Световой поток на 1м
+  socket_type?: string; // Тип цоколя
+  lamp_type?: string; // Тип лампы
+  color_rendering?: string; // Цветопередача
+  beam_angle?: string; // Угол света
+  ip_rating?: string; // Степень защиты IP
+  output_voltage?: string; // Выходное напряжение
+  light_source?: string; // Источник света
+  power?: string; // Мощность
+  color?: string; // Цвет
+  color_temperature?: string; // Цветовая температура
+  dimming?: string; // Диммирование
+  base_price?: number; // Базовая цена
+  announcement_image_url?: string; // Картинка для анонса (путь)
+  additional_images?: string; // Картинки [MORE_PHOTO]
+  barcode?: string; // Штрихкод
 }
 
 interface ProductCreationAttributes extends Optional<ProductAttributes, "id"> {}
@@ -24,63 +37,140 @@ export class Product
 {
   public id!: number;
   public product_name!: string;
-  public description?: string;
-  public price!: number;
-  public stock_quantity!: number;
-  public image_url?: string;
-  public category_id!: number;
+  public drawing?: string;
+  public material?: string;
+  public mounting_type?: string;
+  public type?: string;
+  public connection?: string;
+  public luminous_flux?: string;
+  public power_consumption_per_meter?: string;
+  public luminous_flux_per_meter?: string;
+  public socket_type?: string;
+  public lamp_type?: string;
+  public color_rendering?: string;
+  public beam_angle?: string;
+  public ip_rating!: string;
+  public output_voltage!: string;
+  public light_source!: string;
+  public power!: string;
+  public color!: string;
+  public color_temperature!: string;
+  public dimming!: string;
+  public base_price!: number;
+  public announcement_image_url!: string;
+  public additional_images!: string;
+  public barcode!: string;
 
-  static associate(models: any) {
-    Product.belongsTo(models.Category, { foreignKey: "category_id" });
-    Product.hasMany(models.Favorite, { foreignKey: "product_id" });
-    Product.hasMany(models.Cart, { foreignKey: "product_id" });
-    Product.hasMany(models.OrderItem, { foreignKey: "product_id" });
-    Product.hasMany(models.Comparison, { foreignKey: "product_id1" });
-    Product.hasMany(models.Comparison, { foreignKey: "product_id2" });
-  }
-}
-
-export const initializeProductModel = (sequelize: Sequelize) => {
-  Product.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      product_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      price: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      },
-      stock_quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      image_url: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      category_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Categories",
-          key: "id",
+  static initialize(sequelize: Sequelize) {
+    Product.init(
+      {
+        id: {
+          type: DataTypes.INTEGER,
+          autoIncrement: true,
+          primaryKey: true,
+          allowNull: true, // Сделано необязательным
+        },
+        product_name: {
+          type: DataTypes.STRING,
+          allowNull: true, // Сделано необязательным
+        },
+        drawing: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        material: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        mounting_type: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        type: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        connection: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        luminous_flux: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        power_consumption_per_meter: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        luminous_flux_per_meter: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        socket_type: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        lamp_type: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        color_rendering: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        beam_angle: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        ip_rating: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        output_voltage: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        light_source: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        power: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        color: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        color_temperature: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        dimming: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        base_price: {
+          type: DataTypes.FLOAT,
+          allowNull: true,
+        },
+        announcement_image_url: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        additional_images: {
+          type: DataTypes.TEXT,
+          allowNull: true,
+        },
+        barcode: {
+          type: DataTypes.STRING,
+          allowNull: true,
         },
       },
-    },
-    {
-      sequelize,
-      modelName: "Product",
-      tableName: "products",
-      timestamps: true,
-    }
-  );
-};
+      {
+        sequelize,
+        modelName: "Product",
+      }
+    );
+  }
+}

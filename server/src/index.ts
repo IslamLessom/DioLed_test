@@ -1,7 +1,8 @@
 import express from "express";
 import sequelize from "./config/config";
-import { initializeUserModel } from "./models/user";
-import { initializeCategoryModel } from "./models/category";
+import { initializeModels } from "./models/iniatializeModels";
+import uploadRoutes from "./uploads/uploadHandler";
+import cors from "cors";
 
 import authRoutes from "./routes/authRoutes";
 import categoryRouter from "./routes/categoryRouter";
@@ -9,13 +10,14 @@ import categoryRouter from "./routes/categoryRouter";
 const app = express();
 const PORT = process.env.PORT || 8001;
 
+app.use(cors());
 app.use(express.json());
 
-initializeUserModel(sequelize);
-initializeCategoryModel(sequelize);
+initializeModels();
 
 app.use("/", categoryRouter);
 app.use("/", authRoutes);
+app.use("/", uploadRoutes);
 
 sequelize
   .sync()
