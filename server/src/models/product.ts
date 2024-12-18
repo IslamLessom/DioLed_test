@@ -1,5 +1,4 @@
-import { Model, DataTypes, Optional } from "sequelize";
-import { Sequelize } from "sequelize/types";
+import { Model, DataTypes, Optional, Sequelize } from "sequelize";
 
 interface ProductAttributes {
   id?: number; // Можно сделать необязательным
@@ -25,7 +24,7 @@ interface ProductAttributes {
   dimming?: string; // Диммирование
   base_price?: number; // Базовая цена
   announcement_image_url?: string; // Картинка для анонса (путь)
-  additional_images?: string; // Картинки [MORE_PHOTO]
+  additional_images?: string[]; // Картинки [MORE_PHOTO]
   barcode?: string; // Штрихкод
 }
 
@@ -36,7 +35,7 @@ export class Product
   implements ProductAttributes
 {
   public id!: number;
-  public product_name!: string;
+  public product_name?: string;
   public drawing?: string;
   public material?: string;
   public mounting_type?: string;
@@ -49,16 +48,16 @@ export class Product
   public lamp_type?: string;
   public color_rendering?: string;
   public beam_angle?: string;
-  public ip_rating!: string;
-  public output_voltage!: string;
-  public light_source!: string;
-  public power!: string;
-  public color!: string;
-  public color_temperature!: string;
-  public dimming!: string;
-  public base_price!: number;
-  public announcement_image_url!: string;
-  public additional_images!: string;
+  public ip_rating?: string;
+  public output_voltage?: string;
+  public light_source?: string;
+  public power?: string;
+  public color?: string;
+  public color_temperature?: string;
+  public dimming?: string;
+  public base_price?: number;
+  public announcement_image_url?: string;
+  public additional_images!: string[];
   public barcode!: string;
 
   static initialize(sequelize: Sequelize) {
@@ -68,7 +67,7 @@ export class Product
           type: DataTypes.INTEGER,
           autoIncrement: true,
           primaryKey: true,
-          allowNull: true, // Сделано необязательным
+          allowNull: true,
         },
         product_name: {
           type: DataTypes.STRING,
@@ -124,11 +123,11 @@ export class Product
         },
         ip_rating: {
           type: DataTypes.STRING,
-          allowNull: true,
+          allowNull: true, // Сделано необязательным
         },
         output_voltage: {
           type: DataTypes.STRING,
-          allowNull: true,
+          allowNull: true, // Сделано необязательным
         },
         light_source: {
           type: DataTypes.STRING,
@@ -159,12 +158,13 @@ export class Product
           allowNull: true,
         },
         additional_images: {
-          type: DataTypes.TEXT,
+          type: DataTypes.JSONB,
           allowNull: true,
         },
         barcode: {
           type: DataTypes.STRING,
           allowNull: true,
+          unique: false,
         },
       },
       {
@@ -172,5 +172,9 @@ export class Product
         modelName: "Product",
       }
     );
+
+    Product.sync(); // Синхронизация модели с базой данных (можно убрать в продакшене)
+
+    return Product;
   }
 }
