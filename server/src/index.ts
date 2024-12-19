@@ -13,12 +13,15 @@ const PORT = process.env.PORT || 8001;
 app.use(cors());
 app.use(express.json());
 
+// Инициализация моделей
 initializeModels();
 
+// Роуты
 app.use("/", categoryRouter);
 app.use("/", authRoutes);
 app.use("/", uploadRoutes);
 
+// Синхронизация и запуск сервера
 sequelize
   .sync()
   .then(() => {
@@ -27,5 +30,5 @@ sequelize
     });
   })
   .catch((error: Error) =>
-    console.error("Unable to connect to the database a:", error)
+    console.error("Unable to connect to the database:", error)
   );

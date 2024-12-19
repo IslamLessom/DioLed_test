@@ -1,14 +1,38 @@
-import { Sequelize } from "sequelize";
+interface DbConfig {
+  [key: string]: any;
+}
 
-const sequelize = new Sequelize({
-  username: "ruslanmakiev",
-  password: "",
-  database: "dioled",
-  host: "127.0.0.1",
-  dialect: "postgres",
-  define: {
-    underscored: true,
+const config: DbConfig = {
+  development: {
+    username: "ruslanmakiev",
+    password: "",
+    database: "dioled",
+    host: "127.0.0.1",
+    dialect: "postgres",
+    define: {
+      underscored: true,
+    },
   },
-});
+  test: {
+    username: "ruslanmakiev",
+    password: "",
+    database: "dioled_test",
+    host: "127.0.0.1",
+    dialect: "postgres",
+    define: {
+      underscored: true,
+    },
+  },
+  production: {
+    username: "ruslanmakiev",
+    password: "",
+    database: "dioled",
+    host: "127.0.0.1",
+    dialect: "postgres",
+    define: {
+      underscored: true,
+    },
+  },
+};
 
-export default sequelize;
+export default config;
