@@ -1,180 +1,118 @@
 import { Model, DataTypes, Optional, Sequelize } from "sequelize";
 
 interface ProductAttributes {
-  id?: number; // Можно сделать необязательным
-  product_name?: string; // Наименование элемента
-  drawing?: string; // Чертёж
-  material?: string; // Материал
-  mounting_type?: string; // Тип монтажа
-  type?: string; // Тип
-  connection?: string; // Подключение
-  luminous_flux?: string; // Световой поток
-  power_consumption_per_meter?: string; // Потребляемая мощность на 1м
-  luminous_flux_per_meter?: string; // Световой поток на 1м
-  socket_type?: string; // Тип цоколя
-  lamp_type?: string; // Тип лампы
-  color_rendering?: string; // Цветопередача
-  beam_angle?: string; // Угол света
-  ip_rating?: string; // Степень защиты IP
-  output_voltage?: string; // Выходное напряжение
-  light_source?: string; // Источник света
-  power?: string; // Мощность
-  color?: string; // Цвет
-  color_temperature?: string; // Цветовая температура
-  dimming?: string; // Диммирование
-  base_price?: number; // Базовая цена
-  announcement_image_url?: string; // Картинка для анонса (путь)
-  additional_images?: string[]; // Картинки [MORE_PHOTO]
-  barcode?: string; // Штрихкод
+  id: number;
+  product_name: string;
+  drawing: string;
+  material: string;
+  mounting_type: string;
+  type: string;
+  connection: string;
+  luminous_flux: string;
+  power_consumption_per_meter: string;
+  luminous_flux_per_meter: string;
+  socket_type: string;
+  lamp_type: string;
+  color_rendering: string;
+  beam_angle: string;
+  ip_rating: string;
+  output_voltage: string;
+  light_source: string;
+  power: string;
+  color: string;
+  color_temperature: string;
+  dimming: string;
+  base_price: number;
+  announcement_image_url: string;
+  additional_images: string[];
+  barcode: string;
 }
 
 interface ProductCreationAttributes extends Optional<ProductAttributes, "id"> {}
 
-export class Product
+class Product
   extends Model<ProductAttributes, ProductCreationAttributes>
   implements ProductAttributes
 {
   public id!: number;
-  public product_name?: string;
-  public drawing?: string;
-  public material?: string;
-  public mounting_type?: string;
-  public type?: string;
-  public connection?: string;
-  public luminous_flux?: string;
-  public power_consumption_per_meter?: string;
-  public luminous_flux_per_meter?: string;
-  public socket_type?: string;
-  public lamp_type?: string;
-  public color_rendering?: string;
-  public beam_angle?: string;
-  public ip_rating?: string;
-  public output_voltage?: string;
-  public light_source?: string;
-  public power?: string;
-  public color?: string;
-  public color_temperature?: string;
-  public dimming?: string;
-  public base_price?: number;
-  public announcement_image_url?: string;
+  public product_name!: string;
+  public drawing!: string;
+  public material!: string;
+  public mounting_type!: string;
+  public type!: string;
+  public connection!: string;
+  public luminous_flux!: string;
+  public power_consumption_per_meter!: string;
+  public luminous_flux_per_meter!: string;
+  public socket_type!: string;
+  public lamp_type!: string;
+  public color_rendering!: string;
+  public beam_angle!: string;
+  public ip_rating!: string;
+  public output_voltage!: string;
+  public light_source!: string;
+  public power!: string;
+  public color!: string;
+  public color_temperature!: string;
+  public dimming!: string;
+  public base_price!: number;
+  public announcement_image_url!: string;
   public additional_images!: string[];
   public barcode!: string;
-
-  static initialize(sequelize: Sequelize) {
-    Product.init(
-      {
-        id: {
-          type: DataTypes.INTEGER,
-          autoIncrement: true,
-          primaryKey: true,
-          allowNull: true,
-        },
-        product_name: {
-          type: DataTypes.STRING,
-          allowNull: true, // Сделано необязательным
-        },
-        drawing: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        material: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        mounting_type: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        type: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        connection: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        luminous_flux: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        power_consumption_per_meter: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        luminous_flux_per_meter: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        socket_type: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        lamp_type: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        color_rendering: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        beam_angle: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        ip_rating: {
-          type: DataTypes.STRING,
-          allowNull: true, // Сделано необязательным
-        },
-        output_voltage: {
-          type: DataTypes.STRING,
-          allowNull: true, // Сделано необязательным
-        },
-        light_source: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        power: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        color: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        color_temperature: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        dimming: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        base_price: {
-          type: DataTypes.FLOAT,
-          allowNull: true,
-        },
-        announcement_image_url: {
-          type: DataTypes.STRING,
-          allowNull: true,
-        },
-        additional_images: {
-          type: DataTypes.JSONB,
-          allowNull: true,
-        },
-        barcode: {
-          type: DataTypes.STRING,
-          allowNull: true,
-          unique: false,
-        },
-      },
-      {
-        sequelize,
-        modelName: "Product",
-      }
-    );
-
-    Product.sync(); // Синхронизация модели с базой данных (можно убрать в продакшене)
-
-    return Product;
-  }
 }
+
+const initializeProductModel = (sequelize: Sequelize) => {
+  Product.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      product_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      drawing: DataTypes.STRING,
+      material: DataTypes.STRING,
+      mounting_type: DataTypes.STRING,
+      type: DataTypes.STRING,
+      connection: DataTypes.STRING,
+      luminous_flux: DataTypes.STRING,
+      power_consumption_per_meter: DataTypes.STRING,
+      luminous_flux_per_meter: DataTypes.STRING,
+      socket_type: DataTypes.STRING,
+      lamp_type: DataTypes.STRING,
+      color_rendering: DataTypes.STRING,
+      beam_angle: DataTypes.STRING,
+      ip_rating: DataTypes.STRING,
+      output_voltage: DataTypes.STRING,
+      light_source: DataTypes.STRING,
+      power: DataTypes.STRING,
+      color: DataTypes.STRING,
+      color_temperature: DataTypes.STRING,
+      dimming: DataTypes.STRING,
+      base_price: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
+      announcement_image_url: DataTypes.STRING,
+      additional_images: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: [],
+      },
+      barcode: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Product",
+      tableName: "products",
+      underscored: true,
+      timestamps: true,
+    }
+  );
+
+  return Product;
+};
+
+export { initializeProductModel, Product };

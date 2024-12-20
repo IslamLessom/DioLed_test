@@ -1,3 +1,5 @@
+import { Sequelize } from "sequelize";
+
 interface DbConfig {
   [key: string]: any;
 }
@@ -11,6 +13,9 @@ const config: DbConfig = {
     dialect: "postgres",
     define: {
       underscored: true,
+      timestamps: true,
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     },
   },
   test: {
@@ -21,6 +26,9 @@ const config: DbConfig = {
     dialect: "postgres",
     define: {
       underscored: true,
+      timestamps: true,
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     },
   },
   production: {
@@ -31,8 +39,24 @@ const config: DbConfig = {
     dialect: "postgres",
     define: {
       underscored: true,
+      timestamps: true,
+      createdAt: "created_at",
+      updatedAt: "updated_at",
     },
   },
 };
 
+const env = process.env.NODE_ENV || "development";
+const dbConfig = config[env];
+
+const sequelize = new Sequelize({
+  database: dbConfig.database,
+  username: dbConfig.username,
+  password: dbConfig.password,
+  host: dbConfig.host,
+  dialect: dbConfig.dialect,
+  define: dbConfig.define,
+});
+
 export default config;
+export { sequelize };

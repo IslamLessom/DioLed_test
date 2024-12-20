@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import multer from "multer";
 import fs from "fs";
 import csvParser from "csv-parser";
-import { Product } from "../models/product"; // Импортируйте вашу модель продукта
+import { Product } from "../models/product";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -91,7 +91,7 @@ router.post(
     fs.createReadStream(csvFilePath)
       .pipe(
         csvParser({
-          separator: ";", // Указываем правильный разделитель
+          separator: ";", // Указываем правильный раз��елитель
           quote: '"', // Указываем кавычки для значений
           skipEmptyLines: true, // Пропускать пустые строки
           mapHeaders: ({ header }) => header.trim(), // Убираем пробелы вокруг заголовков
@@ -135,7 +135,7 @@ router.post(
       })
       .on("end", async () => {
         try {
-          // Стандартизируем данные перед сохранением
+          // Стандартизируем данные пе��ед сохранением
           const standardizedData = standardizeData(jsonData);
 
           // Логирование стандартизированных данных для отладки

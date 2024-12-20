@@ -58,6 +58,9 @@ const initializeUserModel = (sequelize: Sequelize) => {
     {
       sequelize,
       modelName: "User",
+      tableName: "users",
+      underscored: true,
+      timestamps: true,
     }
   );
 
