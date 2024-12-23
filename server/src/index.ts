@@ -6,7 +6,7 @@ import cors from "cors";
 
 import authRoutes from "./routes/authRoutes";
 import categoryRouter from "./routes/categoryRouter";
-
+import exportRouter from "./routes/exportRouter";
 const app = express();
 const PORT = process.env.PORT || 8001;
 
@@ -17,11 +17,11 @@ app.use(express.json());
 initializeModels();
 
 // Роуты
-app.use("/", categoryRouter);
 app.use("/", authRoutes);
 app.use("/", uploadRoutes);
+app.use("/", exportRouter);
 
-// Синхронизация и запуск сервера
+// Синхронизация и зфапуск сервера
 sequelize
   .sync()
   .then(() => {

@@ -10,11 +10,5 @@ import { initializeProductModel } from "./product";
 
 export const initializeModels = () => {
   initializeUserModel(sequelize);
-  initializeCategoryModel(sequelize);
-  initializeCartModel(sequelize);
-  initializeFavoriteModel(sequelize);
-  initializeOrderItemModel(sequelize);
-  initializeOrderModel(sequelize);
-  initializeComparisonModel(sequelize);
   initializeProductModel(sequelize);
 };

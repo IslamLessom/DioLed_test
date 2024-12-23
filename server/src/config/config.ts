@@ -17,6 +17,9 @@ const config: DbConfig = {
       createdAt: "created_at",
       updatedAt: "updated_at",
     },
+    migrations: {
+      path: "src/migrations",
+    },
   },
   test: {
     username: "ruslanmakiev",

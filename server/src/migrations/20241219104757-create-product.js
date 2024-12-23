@@ -1,18 +1,17 @@
+// path/to/migrations/20230315000000-create-product.js
 "use strict";
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Products", {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable("products", {
       id: {
-        allowNull: false,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
       },
       product_name: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       drawing: {
         type: Sequelize.STRING,
@@ -99,26 +98,27 @@ module.exports = {
         allowNull: true,
       },
       additional_images: {
-        type: Sequelize.JSONB,
-        allowNull: true,
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        defaultValue: [],
       },
       barcode: {
         type: Sequelize.STRING,
         allowNull: true,
-        unique: false,
       },
-      createdAt: {
-        allowNull: false,
+      created_at: {
         type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
-      updatedAt: {
-        allowNull: false,
+      updated_at: {
         type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
     });
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Products");
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable("products");
   },
 };
