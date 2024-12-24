@@ -1,14 +1,14 @@
+import { Request, Response } from "express";
 import { Sequelize } from "sequelize";
 import { createObjectCsvStringifier } from "csv-writer";
 import { Product } from "../models/product"; // Импортируйте вашу модель Product
-import { Response } from "express";
 
-const exportProductsToCsv = async (
-  sequelize: Sequelize,
+// Функция для экспорта продуктов в CSV
+export const exportProductsToCsv = async (
+  req: Request,
   res: Response
 ): Promise<void> => {
   try {
-    // Получаем данные из базы данных
     console.log("Начинаем экспорт продуктов");
     const products = await Product.findAll({ raw: true });
     console.log("Полученные продукты:", products);
@@ -18,8 +18,6 @@ const exportProductsToCsv = async (
       res.status(204).send("Нет данных для экспорта."); // Возвращаем статус No Content
       return;
     }
-
-    console.log("Полученные продукты:", products); // Логируем полученные данные
 
     // Настройка csv-writer для создания строки CSV
     const csvStringifier = createObjectCsvStringifier({
@@ -68,5 +66,3 @@ const exportProductsToCsv = async (
     res.status(500).send("Ошибка при экспорте данных."); // Возвращаем статус ошибки
   }
 };
-
-export default exportProductsToCsv;
