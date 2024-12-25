@@ -9,12 +9,9 @@ export const exportProductsToCsv = async (
   res: Response
 ): Promise<void> => {
   try {
-    console.log("Начинаем экспорт продуктов");
     const products = await Product.findAll({ raw: true });
-    console.log("Полученные продукты:", products);
 
     if (!products || products.length === 0) {
-      console.log("Нет доступных продуктов для экспорта.");
       res.status(204).send("Нет данных для экспорта."); // Возвращаем статус No Content
       return;
     }
@@ -62,7 +59,6 @@ export const exportProductsToCsv = async (
     // Отправка CSV данных в ответе
     res.send(csvData);
   } catch (error) {
-    console.error("Ошибка при экспорте данных:", error);
     res.status(500).send("Ошибка при экспорте данных."); // Возвращаем статус ошибки
   }
 };

@@ -2,12 +2,11 @@
 
 import OrderStatus from "@/features/UserProfile/components/order-status/OrderStatus";
 import UserProfileInfo from "@/features/UserProfile/components/user-profile/UserProfileInfo";
-import React, { useState } from "react";
+import React from "react";
 import Auth from "../auth/page";
 import { AdminPage } from "@/features/AdminPanel/ui/admin-page/AdminPage";
 
 const Profile = () => {
-  const [visible, setVisible] = useState(true);
   return (
     <div>
       <p>1 - вход </p>

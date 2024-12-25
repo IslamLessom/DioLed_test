@@ -2,6 +2,7 @@ import { Model, DataTypes, Optional, Sequelize } from "sequelize";
 
 interface ProductAttributes {
   id: number;
+  category_id?: number;
   product_name: string;
   drawing: string;
   material: string;
@@ -35,6 +36,7 @@ class Product
   implements ProductAttributes
 {
   public id!: number;
+  public category_id!: number;
   public product_name!: string;
   public drawing!: string;
   public material!: string;
@@ -68,6 +70,14 @@ const initializeProductModel = (sequelize: Sequelize) => {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
+      },
+      category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+          model: "categories",
+          key: "id",
+        },
       },
       product_name: {
         type: DataTypes.STRING,

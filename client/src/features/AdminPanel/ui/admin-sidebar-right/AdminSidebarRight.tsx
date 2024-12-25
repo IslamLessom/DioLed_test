@@ -11,10 +11,11 @@ const AdminSudebarRight = () => {
       <div className={styles.csv}>
         <CsvFormaterButton />
       </div>
-      <p>Экспорт</p>
+      <p>Экспорт CSV</p>
       <div className={styles.csv}>
         <CsvFormaterExportButton />
       </div>
+
       <div className={styles.csv}>
         <MdDeleteSweep />
         Удалить товары

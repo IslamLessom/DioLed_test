@@ -23,7 +23,7 @@ export const CsvFormaterButton: React.FC = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8001/upload-csv", {
+      const response = await fetch("http://localhost:8001/upload-file", {
         method: "POST",
         body: formData,
       });
@@ -42,7 +42,6 @@ export const CsvFormaterButton: React.FC = () => {
 
   return (
     <div>
-      <FaFileCsv />
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Загрузить</button>
