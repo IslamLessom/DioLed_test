@@ -1,24 +1,14 @@
 import express, { Request, Response } from "express";
 import multer from "multer";
-import fs from "fs";
 import csvParser from "csv-parser";
 import { Product } from "../models/product";
-import path from "path";
-import { fileURLToPath } from "url";
 import { parseStringPromise } from "xml2js";
+import { Readable } from "stream";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const router = express.Router();
-const upload = multer({ dest: path.join(__dirname, "../uploads/") });
 
-const removeBOM = (filePath: any) => {
-  const buffer = fs.readFileSync(filePath);
-  if (buffer[0] === 0xef && buffer[1] === 0xbb && buffer[2] === 0xbf) {
-    return buffer.slice(3); // Убираем BOM
-  }
-  return buffer;
-};
+// Настройка multer для хранения файла в памяти
+const upload = multer({ storage: multer.memoryStorage() });
 
 const standardFields = {
   product_name: "",
@@ -59,13 +49,10 @@ function standardizeData(dataArray: any) {
   });
 }
 
-// Функция для парсинга XML-файла
-const parseXmlFile = async (filePath: string): Promise<any[]> => {
-  const data = await fs.promises.readFile(filePath, "utf8");
-  const result = await parseStringPromise(data);
-
-  // Предполагаем, что данные о продуктах находятся в определенной структуре
-  const products = result.products.product; // Измените путь в зависимости от структуры вашего XML
+// Функция для парсинга XML-данных
+const parseXmlData = async (xmlData: string): Promise<any[]> => {
+  const result = await parseStringPromise(xmlData);
+  const products = result.products.product;
   return products.map((product: any) => ({
     product_name: product.product_name[0],
     drawing: product.drawing ? product.drawing[0] : "",
@@ -114,19 +101,14 @@ router.post(
       return;
     }
 
-    const fileExtension = path.extname(req.file.originalname).toLowerCase();
-    const filePath = path.join(__dirname, "../uploads", req.file.filename);
+    const fileExtension = req.file.originalname.split(".").pop()?.toLowerCase();
     let jsonData: any[] = [];
 
-    // Удаление BOM для CSV
-    const cleanedFile = removeBOM(filePath);
-    fs.writeFileSync(filePath, cleanedFile); // Записываем очищенный файл обратно
-
     try {
-      if (fileExtension === ".csv") {
-        // Чтение и парсинг CSV
+      if (fileExtension === "csv") {
+        // Обработка CSV
         await new Promise((resolve, reject) => {
-          fs.createReadStream(filePath)
+          Readable.from(req.file.buffer)
             .pipe(
               csvParser({
                 separator: ";",
@@ -137,12 +119,13 @@ router.post(
               })
             )
             .on("data", (row) => jsonData.push(row))
-            .on("end", () => resolve(null))
+            .on("end", resolve)
             .on("error", reject);
         });
-      } else if (fileExtension === ".xml") {
-        // Парсинг XML
-        jsonData = await parseXmlFile(filePath);
+      } else if (fileExtension === "xml") {
+        // Обработка XML
+        const xmlData = req.file.buffer.toString("utf8");
+        jsonData = await parseXmlData(xmlData);
       } else {
         res.status(400).json({ error: "Неподдерживаемый формат файла" });
         return;
@@ -182,7 +165,7 @@ router.post(
       });
 
       res.status(200).json({
-        message: "Файл успешно загружен и данные сохранены в базе данных",
+        message: "Данные успешно обработаны и сохранены в базе данных",
         dataCount: standardizedData.length,
       });
     } catch (error) {

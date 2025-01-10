@@ -29,4 +29,3 @@ modelFiles.forEach((modelFile) => {
 });
 
 console.log("Migrations generated for all models.");
-ф;
