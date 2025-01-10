@@ -4,6 +4,7 @@ import csvParser from "csv-parser";
 import { Product } from "../models/product";
 import { parseStringPromise } from "xml2js";
 import { Readable } from "stream";
+import { Op } from "sequelize";
 
 const router = express.Router();
 
@@ -131,44 +132,58 @@ router.post(
         return;
       }
 
-      // Стандартизируем данные перед сохранением
+      // Стандартизируем данные
       const standardizedData = standardizeData(jsonData);
 
-      // Сохранение данных в базу данных
-      await Product.bulkCreate(standardizedData, {
-        updateOnDuplicate: [
-          "product_name",
-          "drawing",
-          "material",
-          "mounting_type",
-          "type",
-          "connection",
-          "luminous_flux",
-          "power_consumption_per_meter",
-          "luminous_flux_per_meter",
-          "socket_type",
-          "lamp_type",
-          "color_rendering",
-          "beam_angle",
-          "ip_rating",
-          "output_voltage",
-          "light_source",
-          "power",
-          "color",
-          "color_temperature",
-          "dimming",
-          "base_price",
-          "announcement_image_url",
-          "additional_images",
-          "barcode",
-        ],
+      // Получаем все баркоды из загруженных данных
+      const barcodes = standardizedData
+        .map((item) => item.barcode)
+        .filter(Boolean);
+
+      // Получаем существующие товары из базы данных по баркодам
+      const existingProducts = await Product.findAll({
+        where: {
+          barcode: {
+            [Op.in]: barcodes,
+          },
+        },
       });
+
+      // Создаем Map для быстрого доступа к существующим товарам по баркоду
+      const existingProductsMap = new Map(
+        existingProducts.map((product) => [product.barcode, product])
+      );
+
+      // Разделяем данные на обновления и новые записи
+      const updates = [];
+      const newRecords = [];
+
+      for (const item of standardizedData) {
+        if (existingProductsMap.has(item.barcode)) {
+          updates.push(item);
+        } else {
+          newRecords.push(item);
+        }
+      }
+
+      // Обновляем существующие товары
+      for (const update of updates) {
+        await Product.update(update, {
+          where: { barcode: update.barcode },
+        });
+      }
+
+      // Добавляем новые товары
+      if (newRecords.length > 0) {
+        await Product.bulkCreate(newRecords);
+      }
 
       res.status(200).json({
         message: "Данные успешно обработаны и сохранены в базе данных",
-        dataCount: standardizedData.length,
+        updatedCount: updates.length,
+        newCount: newRecords.length,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Ошибка при обработке файла:", error);
       res.status(500).json({
         error: `Ошибка при обработке файла: ${error.message}`,
