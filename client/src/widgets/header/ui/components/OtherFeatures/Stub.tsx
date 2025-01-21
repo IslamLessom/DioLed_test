@@ -10,24 +10,32 @@ import Link from "next/link";
 
 const Stub = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(max-width: 968px)");
+  const isPriceBusket = useMediaQuery("(max-width: 1208px)");
 
   return (
     <div className={styles.stub}>
       {!isMobile && (
         <>
-          <Link href="/favorites">
-            <Badge count={5}>
-              <CiHeart />
-            </Badge>
-          </Link>
-          <Link href="/comparison">
-            <Badge count={5}>
-              <IoPodiumOutline />
-            </Badge>
-          </Link>
-          <Link href="/profile">
-            <CiUser />
-          </Link>
+          {" "}
+          {!isTablet && (
+            <>
+              <Link href="/favorites">
+                <Badge count={5}>
+                  <CiHeart />
+                </Badge>
+              </Link>
+
+              <Link href="/comparison">
+                <Badge count={5}>
+                  <IoPodiumOutline />
+                </Badge>
+              </Link>
+              <Link href="/profile">
+                <CiUser />
+              </Link>
+            </>
+          )}
         </>
       )}
       <div className={styles.stub__cart}>
@@ -36,7 +44,7 @@ const Stub = () => {
             <CiShoppingCart />
           </Link>
         </Badge>
-        {!isMobile && <p className={styles.stub__cart_price}>1000 руб</p>}
+        {!isPriceBusket && <p className={styles.stub__cart_price}>1000 руб</p>}
       </div>
     </div>
   );

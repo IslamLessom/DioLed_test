@@ -20,6 +20,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
   toggleMenu,
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(max-width: 968px)");
 
   return (
     <div className={styles.header}>

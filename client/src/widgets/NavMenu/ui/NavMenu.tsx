@@ -10,7 +10,6 @@ import styles from "./NavMenu.module.scss";
 
 const NavMenu: React.FC = () => {
   const [current, setCurrent] = useState("mail");
-  const isVisible = useScrollDirection();
 
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
@@ -32,7 +31,7 @@ const NavMenu: React.FC = () => {
   };
 
   return (
-    <div className={`${styles.navMenu} ${!isVisible ? styles.hidden : ""}`}>
+    <div className={`${styles.navMenu}`}>
       <Menu
         onClick={onClick}
         selectedKeys={[current]}
