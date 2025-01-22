@@ -11,11 +11,11 @@ const ProductPage = () => {
       <div className={styles.product__card_container}>
         <PruductInfo />
         <ProductDescription />
-        <ProductSimilar products={products} />
       </div>
       <div className={styles.product__pay_container}>
         <ProductPayForm />
       </div>
+      <ProductSimilar products={products} />
     </div>
   );
 };

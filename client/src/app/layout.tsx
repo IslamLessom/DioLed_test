@@ -62,7 +62,7 @@ export default function RootLayout({
             <Sider
               width={isMenuOpen ? "60%" : "25%"}
               style={{
-                backgroundColor: "#f7f7f7",
+                backgroundColor: "rgb(245 245 245)",
               }}
               className={isMenuOpen ? "mobile-visible" : "mobile-hidden"}
             >

@@ -1,6 +1,13 @@
+@use "@/shared/styles/mixins.scss" as mixins;
+@use "@/shared/styles/variables.scss";
+
 .product {
     display: grid;
     grid-template-columns: 60% 40%;
+    @include mixins.mobile {
+        display: flex;
+        flex-direction: column;
+    }
     .product__card_container {
         padding: 20px;
         h2 {
@@ -9,6 +16,16 @@
         }
         img {
             height: 500px;
+            @include mixins.mobile {
+                height: 280px;
+            }
         }
+        @include mixins.mobile {
+            padding: 0;
+            padding-bottom: 10px;
+        }
+    }
+
+    .product__pay_container {
     }
 }

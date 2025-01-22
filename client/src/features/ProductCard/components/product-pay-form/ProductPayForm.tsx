@@ -4,10 +4,10 @@ import ProductFormBuy from "./product-form-buy/ProductFormBuy";
 
 const ProductPayForm = () => {
   return (
-    <div>
+    <>
       <ProductFormInfo />
       <ProductFormBuy />
-    </div>
+    </>
   );
 };
 

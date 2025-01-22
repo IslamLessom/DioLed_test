@@ -4,10 +4,12 @@ import { Carousel, Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import ProductSimilarCard from "../product-similar-card/ProductSimilarCard";
 import styles from "./ProductSimilar.module.scss";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 
 const ProductSimilar = ({ products }: any) => {
   const [current, setCurrent] = useState(0);
   const carouselRef = useRef<any>(null); // Ссылка на компонент Carousel
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   const handleNext = () => {
     if (carouselRef.current) {
@@ -35,7 +37,7 @@ const ProductSimilar = ({ products }: any) => {
       <Carousel
         ref={carouselRef} // Передаем ссылку на Carousel
         className={styles.carousel}
-        slidesToShow={3}
+        slidesToShow={!isMobile ? 2 : 1}
         beforeChange={(from, to) => setCurrent(to)}
         afterChange={onChange}
         centerMode

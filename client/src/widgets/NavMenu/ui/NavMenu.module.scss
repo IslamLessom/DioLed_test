@@ -22,6 +22,10 @@
     :global {
         .ant-menu {
             width: 100%;
+            max-width: 1500px;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
             border-bottom: none !important;
             background: none !important;
         }

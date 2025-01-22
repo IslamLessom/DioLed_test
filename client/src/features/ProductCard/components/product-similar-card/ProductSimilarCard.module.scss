@@ -12,7 +12,8 @@
     margin-bottom: 20px;
     height: 250px;
     img {
-        height: 200px !important;
+        height: 150px !important;
+        max-height: 150px;
     }
 }
 
@@ -22,6 +23,9 @@
 
 .cardContent {
     text-align: center;
+    p {
+        white-space: nowrap;
+    }
 }
 
 .price {

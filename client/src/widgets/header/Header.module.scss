@@ -12,7 +12,10 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    max-width: 1500px;
     padding: 20px;
+    height: 60px;
+    margin: 0 auto;
     height: vars.$header-height - 60px;
     .header__content {
         display: flex;

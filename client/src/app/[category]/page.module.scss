@@ -7,15 +7,27 @@
     flex-flow: row wrap;
     min-width: 0;
     row-gap: 24px;
-    gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
+
+    @media (max-width: 758px) {
+        justify-content: center;
+    }
 
     @include mixins.tablet {
         margin-top: 40px;
     }
     .category__card {
-        width: 300px;
+        width: 32%;
+        max-width: 365px;
         position: relative;
+
+        @include mixins.tablet {
+            width: 45%;
+        }
+
+        @include mixins.mobile {
+            width: 100%;
+        }
 
         .category__card__description {
             position: absolute;

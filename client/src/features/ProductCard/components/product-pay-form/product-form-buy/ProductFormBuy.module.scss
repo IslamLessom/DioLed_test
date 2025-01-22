@@ -1,3 +1,6 @@
+@use "@/shared/styles/mixins.scss" as mixins;
+@use "@/shared/styles/variables.scss";
+
 .productInfo {
     padding: 20px;
 
@@ -9,6 +12,11 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+
+    @include mixins.mobile {
+        margin-top: 10px;
+        height: 150px;
+    }
     .priceSection {
         margin-bottom: 15px;
         display: flex;

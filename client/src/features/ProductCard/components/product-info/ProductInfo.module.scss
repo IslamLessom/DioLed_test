@@ -1,3 +1,6 @@
+@use "@/shared/styles/mixins.scss" as mixins;
+@use "@/shared/styles/variables.scss";
+
 .product__function {
     display: flex;
     justify-content: space-between;
@@ -19,4 +22,7 @@
 
 .title {
     margin-bottom: 10px !important;
+    @include mixins.mobile {
+        margin-top: 40px;
+    }
 }
