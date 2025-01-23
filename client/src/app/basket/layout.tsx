@@ -53,7 +53,9 @@ export default function BusketLayout({
             className={`overlay ${isMenuOpen ? "visible" : ""}`}
             onClick={() => setIsMenuOpen(false)}
           />
-          <Content className="content">{children}</Content>
+          <Content style={{ padding: "0px" }} className="content">
+            {children}
+          </Content>
         </Layout>
         <Footer>
           <FooterComponent />

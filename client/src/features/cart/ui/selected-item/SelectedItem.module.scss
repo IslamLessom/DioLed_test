@@ -1,11 +1,32 @@
 @use "@/shared/styles/variables" as vars;
 @use "@/shared/styles/mixins" as mixins;
+
 .selected {
     .selected__conteiner {
         display: flex;
+        flex-direction: column; // Добавлено для вертикального выравнивания
+
+        .selected__card_general {
+            // Стили для общего контейнера карточки
+            padding: 16px; // Пример отступов
+            background-color: #fff; // Цвет фона
+            border-radius: 8px; // Закругленные углы
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1); // Тень
+
+            @include mixins.mobile {
+                padding: 0;
+            }
+        }
+
         .selected__card {
-            box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
             width: 100%;
+            padding: 16px; // Пример отступа
+
+            .checkbox {
+                margin-bottom: 10px;
+            }
+
             .selected__card_item {
                 display: grid;
                 grid-template-columns: 50% 50%;
@@ -13,7 +34,9 @@
 
                 .sekected__card_item_name {
                     text-align: left;
+                    font-size: 15px;
                 }
+
                 .sekected__card_item_name_container {
                     display: flex;
                     align-items: center;
@@ -21,7 +44,17 @@
                 }
             }
         }
+
         .selected__container_title {
+            font-size: 20px; // Размер шрифта заголовка
+            font-weight: bold; // Жирный шрифт
+            margin-bottom: 16px; // Отступ снизу
+
+            @include mixins.mobile {
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-left: 8px;
+            }
         }
     }
 }

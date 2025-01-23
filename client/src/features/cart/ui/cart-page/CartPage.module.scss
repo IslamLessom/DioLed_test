@@ -1,98 +1,104 @@
 @use "@/shared/styles/variables" as vars;
 @use "@/shared/styles/mixins" as mixins;
 
-.selected__card {
-    width: 100%;
-    margin-top: 30px;
-    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1) !important;
+.card_page__container {
+    .selected__card {
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1) !important;
+        padding: 10px;
 
-    .selected__card_item {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        @include mixins.tablet {
-            grid-template-columns: 100%;
-        }
-        .selected__card_item_description {
-            display: flex;
-            gap: 10px;
+        .selected__card_item {
+            display: grid;
+            grid-template-columns: 50% 50%;
+
             @include mixins.tablet {
-                gap: 2px;
+                grid-template-columns: 100%;
             }
-            .selected__checbox_container {
-            }
-            .selected__card_item_description_content {
+            .selected__card_item_description {
                 display: flex;
-                gap: 20px;
+                gap: 10px;
                 @include mixins.tablet {
-                    gap: 10px;
+                    gap: 15px;
                 }
-
-                img {
-                    border-radius: 10px;
+                .selected__checbox_container {
                 }
-                @include mixins.tablet {
-                    align-items: center;
-                    padding: 0px;
-                }
-                .selected__card_item_description_content_desc {
+                .selected__card_item_description_content {
                     display: flex;
-                    flex-direction: column;
-                    align-items: self-start;
-                    justify-content: flex-start;
-                    gap: 5px;
-                    .item_name {
-                        font-size: 18px;
-                    }
-                    .item_desc {
-                        font-size: 15px;
-                    }
-                    .item_settings {
-                        display: flex;
-                        align-items: center;
+                    gap: 20px;
+                    @include mixins.tablet {
                         gap: 10px;
                     }
+
+                    img {
+                        border-radius: 10px;
+                    }
+                    @include mixins.tablet {
+                        align-items: center;
+                        padding: 0px;
+                    }
+                    .selected__card_item_description_content_desc {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: self-start;
+                        justify-content: flex-start;
+                        gap: 5px;
+                        .item_name {
+                            font-size: 18px;
+                        }
+                        .item_desc {
+                            font-size: 15px;
+                        }
+                        .item_settings {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                    }
                 }
             }
         }
-    }
-    .selected_info {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        @include mixins.tablet {
+        .selected_info {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        .price {
-            text-align: right;
-            font-size: 17px;
-            @include mixins.tablet {
-                ::before {
-                    content: "Цена";
-                    font-size: 14px;
-                    display: flex;
-                    flex-direction: column;
-                    text-align: left;
-                }
-            }
-        }
-        .summa {
-            @include mixins.tablet {
-                ::before {
-                    content: "Сумма";
-                    font-size: 14px;
-                    display: flex;
-                    flex-direction: column;
-                    text-align: left;
-                }
-            }
-            text-align: right;
-            font-size: 20px;
+            justify-content: space-around;
 
-            color: #ff943e;
+            @include mixins.tablet {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-top: 10px;
+                margin-left: 30px;
+                gap: 20px;
+            }
+            .price {
+                text-align: right;
+                font-size: 17px;
+                @include mixins.tablet {
+                    ::before {
+                        content: "Цена";
+                        font-size: 14px;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: left;
+                    }
+                }
+            }
+            .summa {
+                @include mixins.tablet {
+                    ::before {
+                        content: "Сумма";
+                        font-size: 14px;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: left;
+                    }
+                }
+                text-align: right;
+                font-size: 20px;
+
+                color: #ff943e;
+            }
         }
     }
 }

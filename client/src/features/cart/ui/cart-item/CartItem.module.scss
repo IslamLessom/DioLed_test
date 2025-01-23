@@ -1,10 +1,18 @@
 @use "@/shared/styles/variables" as vars;
 @use "@/shared/styles/mixins" as mixins;
 .cart {
+    width: 100vw;
+    h1 {
+        margin-left: 10px;
+    }
+    hr {
+        margin-left: 10px;
+    }
     .cart_container {
         display: grid;
         grid-template-columns: 60% 38%;
         gap: 20px;
+        justify-content: center;
         @include mixins.tablet {
             grid-template-columns: 100%;
         }

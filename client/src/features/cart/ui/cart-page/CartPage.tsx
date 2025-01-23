@@ -6,8 +6,8 @@ import { CiTrash } from "react-icons/ci";
 
 export const CartPage = () => {
   return (
-    <div>
-      <Card bordered={false} className={styles.selected__card}>
+    <div className={styles.card_page__container}>
+      <div className={styles.selected__card}>
         <div className={styles.selected__card_item}>
           <div className={styles.selected__card_item_description}>
             <Checkbox />
@@ -47,7 +47,7 @@ export const CartPage = () => {
             </p>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 };

@@ -4,9 +4,9 @@ import { CartItem } from "@/features/Cart/ui/cart-item/CartItem";
 
 const Basket = () => {
   return (
-    <div>
+    <>
       <CartItem />
-    </div>
+    </>
   );
 };
 

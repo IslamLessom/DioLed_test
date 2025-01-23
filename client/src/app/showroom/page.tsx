@@ -11,13 +11,19 @@ const ShowRoom = () => {
   return (
     <div className={styles.showroom}>
       <div className={styles.showroom_container}>
-        <h1 className={styles.title}>Шоурум DioLed</h1>
-        <p className={styles.description}>
-          Добро пожаловать в шоурум DioLed! Мы предлагаем широкий ассортимент
-          современных люстр, которые идеально впишутся в любой интерьер. В нашем
-          магазине вы найдете освещение для дома, офиса и любых коммерческих
-          помещений. Приезжайте, чтобы увидеть коллекцию вживую!
-        </p>
+        <div className={styles.title}>
+          <h1>Шоурум DioLed</h1>
+          <hr />
+        </div>
+        <div className={styles.container_description}>
+          <p className={styles.description}>
+            Добро пожаловать в шоурум DioLed! Мы предлагаем широкий ассортимент
+            современных люстр, которые идеально впишутся в любой интерьер. В
+            нашем магазине вы найдете освещение для дома, офиса и любых
+            коммерческих помещений. Приезжайте, чтобы увидеть коллекцию вживую!
+          </p>
+          <Image src="/bra.jpg" alt="Lustro" width={100} height={100} />
+        </div>
 
         <div className={styles.carousel_container}>
           <Carousel draggable={true}>
