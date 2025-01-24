@@ -1,0 +1,14 @@
+.formContainer {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    input {
+        width: 200px;
+    }
+    button {
+        text-align: left;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+}

@@ -1,15 +1,36 @@
 .orderStatus {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    gap: 30px;
     padding: 20px;
-    background-color: #f9f9f9;
-
+    height: 323px;
+    width: 1235px;
+    border: 2px solid #e5d9d0;
+    padding: 24px;
+    border-radius: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    .orderStatus__title {
+        border: 1px solid #198b52;
+        border-radius: 20px;
+        width: 140px;
+        font-family: "Helvetica";
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 22px;
+        color: #198b52;
+        width: 155px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .timeline {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        width: 100%;
         max-width: 1200px;
         position: relative;
 

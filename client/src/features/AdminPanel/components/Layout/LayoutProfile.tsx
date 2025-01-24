@@ -10,7 +10,7 @@ import styles from "./LayoutProfile.module.scss";
 
 export const LayoutProfile = ({ children }: any) => {
   return (
-    <Layout className={styles.layout}>
+    <Layout style={{ width: "100vw" }} className={styles.layout}>
       <Sider className={styles.layout__left_sidebar} width="15%">
         <AdminSidebar />
       </Sider>

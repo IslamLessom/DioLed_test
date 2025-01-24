@@ -45,6 +45,7 @@ const OrderStatus = () => {
 
   return (
     <div className={styles.orderStatus}>
+      <div className={styles.orderStatus__title}>Статус заказа</div>
       <div className={styles.timeline}>
         {statuses.map((status, index) => (
           <div

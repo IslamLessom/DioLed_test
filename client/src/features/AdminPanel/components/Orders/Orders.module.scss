@@ -1,7 +1,8 @@
 .orders {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
+    margin-left: 10px;
     .orders__add_order {
         display: flex;
         align-items: center;

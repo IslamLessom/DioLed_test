@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { FaFileCsv } from "react-icons/fa";
-
+import styles from "./CsvFormaterButton.module.scss";
 export const CsvFormaterButton: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [message, setMessage] = useState<string>("");
@@ -42,7 +42,7 @@ export const CsvFormaterButton: React.FC = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Загрузить</button>
       </form>

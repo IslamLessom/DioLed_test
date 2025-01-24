@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { FaFileCsv } from "react-icons/fa";
+import styles from "./CsvFormaterExportButton.module.scss";
 
 export const CsvFormaterExportButton: React.FC = () => {
   const [message, setMessage] = useState<string>("");
@@ -32,7 +33,7 @@ export const CsvFormaterExportButton: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.exportContainer}>
       <FaFileCsv />
       <button onClick={handleExport}>Экспортировать в CSV</button>
       {message && <p>{message}</p>}
