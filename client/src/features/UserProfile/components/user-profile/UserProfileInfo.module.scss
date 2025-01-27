@@ -61,7 +61,7 @@
             height: 396px;
 
             @media (max-width: 600px) {
-                width: 250px !important;
+                width: 85% !important;
             }
         }
         .profile__info {
@@ -101,7 +101,7 @@
         }
 
         @media (max-width: 600px) {
-            width: 250px !important;
+            width: 85% !important;
         }
         .profile__delivery_list__title {
             border: 1px solid #198b52;
@@ -133,7 +133,7 @@
                 height: 280px !important;
                 width: 700px !important;
                 @include mixins.tablet {
-                    width: 200px !important;
+                    width: 250px !important;
                 }
             }
 
@@ -142,7 +142,7 @@
                 width: 300px !important;
                 height: 300px !important;
                 @media (max-width: 600px) {
-                    width: 250px !important;
+                    width: 85% !important;
                 }
                 img {
                     width: 193px;

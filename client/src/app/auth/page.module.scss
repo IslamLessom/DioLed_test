@@ -1,38 +1,82 @@
 @use "@/shared/styles/variables" as vars;
 @use "@/shared/styles/mixins" as mixins;
-
-.auth {
-    @include mixins.mobile {
-        margin-top: 30px;
-    }
-    width: 100%;
+.authContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100vw;
+    background-color: #f5f5f5 !important;
+    align-items: center;
+    justify-items: center;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
-    .auth__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .auth__title {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    .auth__input {
-        margin-bottom: 10px;
-        width: 50%;
-    }
-    .auth__button_container {
+    background-image: url("../../../public/Vector133.png");
+    background-repeat: no-repeat;
+    position: relative !important;
+    z-index: 5 !important;
+    height: 100%;
+    @include mixins.tablet {
+        grid-template-columns: 100%;
         width: 100%;
     }
-    .auth__button {
+    .imagebody {
+        height: 800px;
+        width: 100%;
+        border-radius: 18px;
+        image-rendering: optimizeQuality;
+        position: relative;
+        z-index: 2;
+        @include mixins.tablet {
+            display: none;
+            grid-template-columns: 100%;
+        }
+    }
+    .auth {
+        @include mixins.mobile {
+            margin-top: 30px;
+        }
+        width: 100%;
         display: flex;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .auth__input_password {
-        width: 50%;
-    }
-    .auth__description {
-        text-align: center;
+        background-color: #ffffff00 !important;
+        border: none !important;
+        @include mixins.tablet {
+            justify-content: center;
+        }
+        .auth__container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+        .auth__title {
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: Helvetica;
+            font-size: 55px;
+            line-height: 63px;
+            font-weight: 400;
+        }
+        .auth__input {
+            margin-bottom: 10px;
+            width: 100%;
+            border-radius: 32px;
+            height: 44px;
+            font-size: 32;
+        }
+        .auth__button_container {
+            width: 100%;
+        }
+        .auth__button {
+            display: flex;
+            width: 100%;
+            height: 56px;
+            border-radius: 32px;
+            font-size: 20px;
+        }
+        .auth__input_password {
+            width: 50%;
+        }
+        .auth__description {
+            text-align: left;
+        }
     }
 }
