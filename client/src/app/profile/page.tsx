@@ -10,11 +10,8 @@ import { AdminPage } from "@/features/AdminPanel/ui/admin-page/AdminPage";
 const Profile = () => {
   return (
     <div className={styles.profileContainer}>
-      <Auth />
-      {/* 
       <UserProfileInfo />
       <OrderStatus />
-       */}
       {/*
       <p>3 - админ видит эту страницу</p>
       <AdminPage />

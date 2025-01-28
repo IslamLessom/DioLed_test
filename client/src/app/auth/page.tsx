@@ -1,64 +1,47 @@
 "use client";
 
-import React, { useState } from "react";
-import { Button, Card, Input } from "antd";
-import Link from "next/link";
-
+import React from "react";
+import LoginForm from "../../features/Auth/LoginForm/LoginForm";
+import RegisterForm from "../../features/Auth/RegisterForm/RegisterForm";
+import useAuth from "../../features/Auth/useAuth";
+import { Button, Card } from "antd";
 import styles from "./page.module.scss";
 import Image from "next/image";
 
-const Auth = () => {
-  const [isLogin, setIsLogin] = useState(true);
+const AuthPage = () => {
+  const { isLoginMode, toggleMode, handleLogin, handleRegister } = useAuth();
 
-  const toggleMode = () => {
-    setIsLogin(!isLogin);
-  };
   return (
     <div className={styles.authContainer}>
       <Card className={styles.auth}>
-        <h1 className={styles.auth__title}>Личный кабинет </h1>
-        <div className={styles.auth__container}>
-          <Input className={styles.auth__input} placeholder="Введите почту" />
-          {!isLogin && (
-            <Input className={styles.auth__input} placeholder="Введите имя" />
-          )}
-          <Input.Password
-            className={styles.auth__input}
-            placeholder="Введите пароль"
-          />
-          {!isLogin && (
-            <Input.Password
-              className={styles.auth__input_password}
-              placeholder="Повторите пароль"
-            />
-          )}
-        </div>
-        <div className={styles.auth__button_container}>
-          <Button
-            className={styles.auth__button}
-            type="primary"
-            style={{ marginTop: "10px" }}
-          >
-            {isLogin ? "Войти" : "Зарегистрироваться"}
-          </Button>
-        </div>
-        <p className={styles.auth__description} style={{ marginTop: "10px" }}>
-          {isLogin ? (
-            <>
+        <h1 className={styles.auth__title}>Личный кабинет</h1>
+        {isLoginMode ? (
+          <>
+            <LoginForm onLogin={handleLogin} />
+            <p
+              className={styles.auth__description}
+              style={{ marginTop: "10px" }}
+            >
               Нет аккаунта?{" "}
               <Button type="link" onClick={toggleMode}>
                 Зарегистрируйтесь
               </Button>
-            </>
-          ) : (
-            <>
+            </p>
+          </>
+        ) : (
+          <>
+            <RegisterForm onRegister={handleRegister} />
+            <p
+              className={styles.auth__description}
+              style={{ marginTop: "10px" }}
+            >
               Уже есть аккаунт?{" "}
               <Button type="link" onClick={toggleMode}>
-                <Link href="/profile">Войдите</Link>
+                Войдите
               </Button>
-            </>
-          )}
-        </p>
+            </p>
+          </>
+        )}
       </Card>
       <div className={styles.div}>
         <Image
@@ -73,4 +56,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default AuthPage;
