@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input } from "antd";
 import styles from "./RegisterForm.module.scss";
-import useAuth from "../useAuth";
+import useAuth from "../useAuthHook";
 
 const RegisterForm = ({
   onRegister,

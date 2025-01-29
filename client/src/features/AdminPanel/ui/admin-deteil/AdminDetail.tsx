@@ -1,25 +1,26 @@
 import { Steps, Table, Typography, Tag, Button, Space } from "antd";
 import styles from "./AdminDetail.module.scss";
 import { data } from "../../model/item";
+
 import { columns } from "../../model/item";
 import { steps } from "../../model/item";
-
-const { Title, Text } = Typography;
+import Title from "antd/es/typography/Title";
 
 export const AdminDetail = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Title level={2}>Заказ #100605</Title>
-        <Steps current={0}>
+        <h1>Заказ #100605</h1>
+        {/*<Steps current={0}>
           {steps.map((step, index) => (
             <Steps.Step key={index} title={step.title} />
           ))}
         </Steps>
+        */}
       </div>
 
       <div className={styles.details}>
-        <Title level={4}>Детали заказа</Title>
+        <h1>Детали заказа</h1>
         <Table
           columns={columns}
           dataSource={data}
@@ -27,24 +28,22 @@ export const AdminDetail = () => {
           bordered
         />
         <div className={styles.summary}>
-          <Text strong>Подытог: </Text> 14 261,50 ₽
+          <p>Подытог: </p> 14 261,50 ₽
           <br />
-          <Text strong>Итого: </Text> 14 261,50 ₽
+          <p>Итого: </p> 14 261,50 ₽
         </div>
       </div>
 
       <div className={styles.history}>
-        <Title level={4}>История выполнения заказа</Title>
+        <h1>История выполнения заказа</h1>
         <div className={styles.event}>
-          <Text>
+          <p>
             3 декабря 2024, 22:17: Уведомление "Заказ оформлен" отправлено
             администратору магазина.
-          </Text>
+          </p>
         </div>
         <div className={styles.event}>
-          <Text>
-            3 декабря 2024, 22:17: Пользователь 1381456 оформил заказ.
-          </Text>
+          <p>3 декабря 2024, 22:17: Пользователь 1381456 оформил заказ.</p>
         </div>
       </div>
 

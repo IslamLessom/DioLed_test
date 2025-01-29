@@ -12,10 +12,6 @@ const Profile = () => {
     <div className={styles.profileContainer}>
       <UserProfileInfo />
       <OrderStatus />
-      {/*
-      <p>3 - админ видит эту страницу</p>
-      <AdminPage />
-        */}
     </div>
   );
 };

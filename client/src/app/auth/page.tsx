@@ -1,15 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import LoginForm from "../../features/Auth/LoginForm/LoginForm";
 import RegisterForm from "../../features/Auth/RegisterForm/RegisterForm";
-import useAuth from "../../features/Auth/useAuth";
+import useAuthHook from "../../features/Auth/useAuthHook"; // Убедитесь, что вы импортируете правильный хук
 import { Button, Card } from "antd";
 import styles from "./page.module.scss";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Импортируем useRouter
 
 const AuthPage = () => {
-  const { isLoginMode, toggleMode, handleLogin, handleRegister } = useAuth();
+  const {
+    isLoginMode,
+    toggleMode,
+    handleLogin,
+    handleRegister,
+    logout,
+    isAuthenticated,
+    userRole,
+  } = useAuthHook();
+  const router = useRouter(); // Инициализируем router
+
+  useEffect(() => {
+    // Если пользователь уже аутентифицирован, перенаправляем его на профиль или админ-панель
+    if (isAuthenticated) {
+      router.push(
+        isAuthenticated && userRole === "admin" ? "/admin" : "/profile"
+      );
+    }
+  }, [isAuthenticated, router]);
 
   return (
     <div className={styles.authContainer}>

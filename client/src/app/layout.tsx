@@ -1,4 +1,4 @@
-import { AuthProvider } from "@/features/Auth/context/AuthProvider";
+import { AuthProvider } from "../features/Auth/context/AuthProvider";
 import RootLayoutClient from "./RootLayoutClient";
 
 export default function RootLayout({
