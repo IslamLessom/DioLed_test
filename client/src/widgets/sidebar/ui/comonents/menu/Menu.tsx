@@ -14,12 +14,17 @@ const MenuComponent: React.FC = () => {
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
-        items={itemsMenu.map((item) => ({
-          key: item.key,
-          label: <Link href={item.links}>{item.label}</Link>,
-          type: "item",
-        }))}
-      />
+      >
+        {itemsMenu.map((item) => (
+          <Menu.Item key={item.key}>
+            {item.links ? (
+              <Link href={item.links}>{item.label}</Link>
+            ) : (
+              item.label // Если ссылки нет, просто отображаем текст
+            )}
+          </Menu.Item>
+        ))}
+      </Menu>
     </nav>
   );
 };

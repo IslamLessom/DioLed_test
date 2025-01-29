@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import { CiHeart, CiShoppingCart, CiStar } from "react-icons/ci";

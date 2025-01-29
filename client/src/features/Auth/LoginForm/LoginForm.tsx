@@ -16,9 +16,10 @@ const LoginForm = ({ onLogin }: any) => {
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Введите имя пользователя"
       />
-      <Input.Password
+      <Input
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Введите пароль"
+        type="password"
       />
       <Button onClick={handleSubmit} type="primary">
         Войти

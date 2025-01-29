@@ -2,6 +2,7 @@
 
 .profileContainer {
     width: 100vw;
+
     @include mixins.mobile {
         width: 100%;
     }

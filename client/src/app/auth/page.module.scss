@@ -1,5 +1,6 @@
 @use "@/shared/styles/variables" as vars;
 @use "@/shared/styles/mixins" as mixins;
+
 .authContainer {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -15,10 +16,12 @@
     position: relative !important;
     z-index: 5 !important;
     height: 100%;
+
     @include mixins.tablet {
         grid-template-columns: 100%;
         width: 100%;
     }
+
     .imagebody {
         height: 800px;
         width: 100%;
@@ -26,45 +29,53 @@
         image-rendering: optimizeQuality;
         position: relative;
         z-index: 2;
+
         @include mixins.tablet {
-            display: none;
-            grid-template-columns: 100%;
+            display: none; // Скрыть на планшетах
         }
     }
+
     .auth {
         @include mixins.mobile {
-            margin-top: 30px;
+            margin-top: 30px; // Убедитесь, что это значение актуально
         }
+
         width: 100%;
         display: flex;
-        background-color: #ffffff00 !important;
+        background-color: transparent !important; // Измените на transparent вместо #ffffff00
         border: none !important;
+
         @include mixins.tablet {
-            justify-content: center;
+            justify-content: center; // Центрирование на планшетах
         }
+
         .auth__container {
             display: flex;
             flex-direction: column;
-            align-items: left;
+            align-items: flex-start; // Изменено с left на flex-start
         }
+
         .auth__title {
             margin-bottom: 10px;
-            text-align: center;
-            font-family: Helvetica;
+            text-align: left;
+            font-family: Helvetica, sans-serif; // Добавьте запасной шрифт
             font-size: 55px;
             line-height: 63px;
             font-weight: 400;
         }
+
         .auth__input {
             margin-bottom: 10px;
             width: 100%;
             border-radius: 32px;
             height: 44px;
-            font-size: 32;
+            font-size: 32px; // Добавьте px для единиц измерения
         }
+
         .auth__button_container {
             width: 100%;
         }
+
         .auth__button {
             display: flex;
             width: 100%;
@@ -72,11 +83,13 @@
             border-radius: 32px;
             font-size: 20px;
         }
+
         .auth__input_password {
             width: 50%;
         }
+
         .auth__description {
-            text-align: left;
+            text-align: left; // Убедитесь, что это значение актуально
         }
     }
 }

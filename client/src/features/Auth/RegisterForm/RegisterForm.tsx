@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input } from "antd";
 import styles from "./RegisterForm.module.scss";
+import useAuth from "../useAuth";
 
 const RegisterForm = ({
   onRegister,
@@ -27,10 +28,11 @@ const RegisterForm = ({
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <Input.Password
+      <Input
         placeholder="Введите пароль"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        type="password"
       />
       <Button type="primary" onClick={handleSubmit}>
         Зарегистрироваться

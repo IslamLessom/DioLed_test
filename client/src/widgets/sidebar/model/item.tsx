@@ -1,6 +1,6 @@
-import { MenuItem } from "@/widgets/NavMenu/ui/model/types";
+import { CustomMenuItem, MenuItem } from "@/widgets/NavMenu/ui/model/types";
 
-export const itemsMenu: MenuItem[] = [
+export const itemsMenu: CustomMenuItem[] = [
   {
     key: "sub1",
     label: "Люстры",

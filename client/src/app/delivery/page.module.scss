@@ -6,10 +6,12 @@
         width: 100%;
         height: 220px;
         border-radius: 10px;
+
         @include mixins.mobile {
-            margin-top: 40px;
+            margin-top: 40px; // Убедитесь, что это значение актуально
         }
     }
+
     .delivery__description {
         width: 100%;
         height: 150px;
@@ -18,7 +20,7 @@
         padding: 25px 50px;
 
         line-height: 1.2rem;
-        font-size: 16px;
+        font-size: 16px; // Добавьте px для единиц измерения
         margin-top: 10px;
         margin-bottom: 10px;
         display: flex;
@@ -27,18 +29,19 @@
 
         @include mixins.mobile {
             padding: 10px;
-            height: 220px;
+            height: 220px; // Убедитесь, что это значение актуально
             display: flex;
-            justify-content: center;
+            justify-content: center; // Центрирование на мобильных устройствах
         }
 
         @include mixins.tablet {
             padding: 10px;
-            height: 220px;
+            height: 220px; // Убедитесь, что это значение актуально
             display: flex;
-            justify-content: center;
+            justify-content: center; // Центрирование на планшетах
         }
     }
+
     .delivery__sail {
         width: 100%;
         height: 65px;
@@ -46,33 +49,40 @@
         border-radius: 10px;
         padding: 25px 50px;
         margin-bottom: 10px;
-        font-size: 16px;
+        font-size: 16px; // Добавьте px для единиц измерения
+
         @include mixins.mobile {
-            padding: 10px;
+            padding: 10px; // Убедитесь, что это значение актуально
             display: flex;
-            justify-content: center;
+            justify-content: center; // Центрирование на мобильных устройствах
         }
+
         @include mixins.tablet {
-            height: 100%;
+            height: 100%; // Убедитесь, что это значение актуально
         }
     }
+
     .delivery__pricy_about {
         display: flex;
-        justify-content: center;
+        justify-content: center; // Центрирование содержимого
         gap: 20px;
+
         @include mixins.mobile {
-            flex-direction: column;
+            flex-direction: column; // Вертикальная компоновка на мобильных устройствах
         }
     }
+
     .delivery__pricy {
-        font-size: 20px;
+        font-size: 20px; // Добавьте px для единиц измерения
         margin-top: 15px;
         margin-bottom: 15px;
+
         span {
             font-weight: 600;
         }
+
         @include mixins.mobile {
-            text-align: center;
+            text-align: center; // Центрирование текста на мобильных устройствах
         }
     }
 
@@ -81,9 +91,10 @@
         padding: 20px;
         border-radius: 10px;
         line-height: 1.3rem;
+
         span {
             font-weight: 600;
-            font-size: 17px;
+            font-size: 17px; // Добавьте px для единиц измерения
         }
     }
 }

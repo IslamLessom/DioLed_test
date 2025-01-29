@@ -15,12 +15,12 @@
         justify-content: space-around;
         align-items: center;
         padding: 30px 20px;
-        margin: 20px 0px;
+        margin: 20px 0;
         background-color: #fff;
         border-radius: 10px;
+
         @include mixins.mobile {
             text-align: center;
-            display: flex;
             padding: 50px 5px;
             gap: 9px;
         }
@@ -28,74 +28,84 @@
         .guarantee_info {
             text-align: center;
             max-width: 200px;
+
             @include mixins.mobile {
-                text-align: center;
-                height: 150px;
+                height: 150px; // Убедитесь, что это значение актуально
             }
 
             .feature-icon {
                 font-size: 70px;
                 color: #4caf50;
                 margin-bottom: 20px;
+
                 @include mixins.mobile {
-                    font-size: 45px;
+                    font-size: 45px; // Убедитесь, что это значение актуально
                 }
             }
 
             .feature-title {
-                font-size: 18px;
+                font-size: 18px; // Добавьте px для единиц измерения
                 font-weight: bold;
                 margin-bottom: 10px;
+
                 @include mixins.mobile {
-                    font-size: 14px;
+                    font-size: 14px; // Добавьте px для единиц измерения
                 }
             }
 
             .feature-text {
-                font-size: 16px;
+                font-size: 16px; // Добавьте px для единиц измерения
                 color: #555;
             }
         }
     }
+
     .guarantee__rules {
         display: grid;
         grid-template-columns: 49% 49%;
         align-items: flex-start;
         justify-content: space-between;
-        height: 100%;
+
         @include mixins.mobile {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-direction: column; // Вертикальная компоновка на мобильных устройствах
+            gap: 10px; // Убедитесь, что это значение актуально
         }
+
         .guarantee__rules__block {
             background-color: #f6f6f6;
             padding: 20px;
             border-radius: 10px;
             line-height: 1.3rem;
             height: 100%;
+
             .guarantee__rules__block__title {
                 margin-top: 10px;
                 margin-bottom: 10px;
             }
+
             .guarantee__rules__block_line {
                 color: #ff8522;
             }
+
             b {
                 margin-top: 10px;
                 margin-bottom: 10px;
             }
+
             li {
-                list-style: inside;
+                list-style-position: inside; // Изменено на list-style-position для лучшей читаемости
             }
+
             h2 {
                 margin-bottom: 15px;
-                font-size: 22px;
+                font-size: 22px; // Добавьте px для единиц измерения
             }
+
             p {
                 margin-bottom: 8px;
                 margin-top: 8px;
-                font-size: 16px;
+                font-size: 16px; // Добавьте px для единиц измерения
             }
         }
     }

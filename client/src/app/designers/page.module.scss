@@ -10,7 +10,7 @@
 
     .designers_container {
         display: grid;
-        grid-template-columns: 100%;
+        grid-template-columns: repeat(1, 1fr); // Изменено на один столбец по умолчанию
         gap: 20px;
 
         .designers_container_info {
@@ -46,7 +46,7 @@
                     justify-content: center;
                     flex-direction: column;
                     background-color: white;
-                    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0px4px25px0 rgba(0, 0, 0, 0.1);
                     padding: 20px;
                     font-size: 18px;
 
@@ -64,14 +64,14 @@
                     }
                 }
 
-                /* Для первого элемента, который занимает 2 колонки */
+                /* Для первого элемента, который занимает две колонки */
                 .designers_grid_item:nth-child(1) {
-                    grid-column: span 2;
+                    grid-column: span2;
                 }
 
                 /* Для второго элемента */
                 .designers_grid_item:nth-child(2) {
-                    grid-column: span 1;
+                    grid-column: span1;
                 }
 
                 /* Для остальных элементов */
@@ -79,82 +79,63 @@
                 .designers_grid_item:nth-child(5),
                 .designers_grid_item:nth-child(6),
                 .designers_grid_item:nth-child(7) {
-                    grid-column: span 1;
+                    grid-column: span1;
                 }
 
                 /* Стили для шестого элемента (если он есть) */
                 .designers_grid_item:nth-child(6) {
-                    grid-column: span 2;
+                    grid-column: span2;
                     background: white;
-                    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0x4x25x0 rgba(0, 0, 0, 0.1);
                     height: 300px;
                 }
             }
         }
 
-        .designers_container_phone {
-            /* Контейнер для формы контакта */
-        }
-    }
+        /* Мобильная версия */
+        @include mixins.mobile {
+            .designers_container {
+                grid-template-columns: repeat(1, 1fr) !important ; /* Все элементы по одному в строке */
+            }
 
-    /* Мобильная версия */
-    @include mixins.mobile {
-        .designers_container {
-            grid-template-columns: 100% !important;
-        }
+            .designers_grid {
+                grid-template-columns: 1fr !important ; /* Все элементы по одному в строке */
+            }
 
-        .designers_grid {
-            grid-template-columns: 1fr !important; /* Все элементы по одному в строке */
-        }
+            .designers_grid_item:nth-child(1) {
+                grid-column: span1; /* Первый элемент теперь занимает одну колонку */
+            }
 
-        .designers_grid_item:nth-child(1) {
-            grid-column: span 1; /* Первый элемент теперь занимает 1 колонку */
-        }
+            h2 {
+                font-size: 22px;
+            }
 
-        .designers_grid_item:nth-child(6) {
-            grid-column: span 1; /* В мобильной версии элемент 6 тоже занимает 1 колонку */
-        }
-        .designers_grid_item:nth-child(7) {
-            grid-column: span 2 !important; /* В мобильной версии элемент 6 тоже занимает 1 колонку */
-        }
+            .designers_container_info_text_title {
+                font-size: 16px;
+            }
 
-        h2 {
-            font-size: 22px;
+            .designers_container_info_text_description {
+                font-size: 15px;
+            }
         }
 
-        .designers_container_info_text_title {
-            font-size: 16px;
-        }
+        /* Планшетная версия */
+        @include mixins.tablet {
+            .designers_grid {
+                grid-template-columns: repeat(2, 1fr) !important ; /* Две колонки */
+            }
 
-        .designers_container_info_text_description {
-            font-size: 15px;
-        }
-    }
+            h2 {
+                font-size: 24px;
+            }
 
-    /* Планшетная версия */
-    @include mixins.tablet {
-        .designers_grid {
-            grid-template-columns: repeat(2, 1fr) !important; /* 2 колонки */
-        }
+            .designers_container_info_text_title {
+                font-size: 17px;
+            }
 
-        .designers_grid_item:nth-child(1) {
-            grid-column: span 2; /* Первый элемент занимает 2 колонки */
-        }
-
-        .designers_grid_item:nth-child(6) {
-            grid-column: span 2; /* Шестой элемент занимает 2 колонки */
-        }
-
-        h2 {
-            font-size: 24px;
-        }
-
-        .designers_container_info_text_title {
-            font-size: 17px;
-        }
-
-        .designers_container_info_text_description {
-            font-size: 16px;
+            .designers_container_info_text_description {
+                font-size: 16px;
+            }
         }
     }
 }

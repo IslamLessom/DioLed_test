@@ -1,17 +1,31 @@
+"use client";
 import React from "react";
+import Link from "next/link";
+import { useAuth } from "@/features/Auth/context/AuthProvider";
+import { useRouter } from "next/navigation";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+
 import { Badge } from "antd";
 import styles from "./Stub.module.scss";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
-import Link from "next/link";
 
 const Stub = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(max-width: 968px)");
   const isPriceBusket = useMediaQuery("(max-width: 1208px)");
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (isAuthenticated) {
+      router.push("/profile"); // Перенаправление на страницу профиля
+    } else {
+      router.push("/auth"); // Перенаправление на страницу регистрации
+    }
+  };
 
   return (
     <div className={styles.stub}>
@@ -31,9 +45,9 @@ const Stub = () => {
                   <IoPodiumOutline />
                 </Badge>
               </Link>
-              <Link href="/profile">
+              <div onClick={handleClick}>
                 <CiUser />
-              </Link>
+              </div>
             </>
           )}
         </>
