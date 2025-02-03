@@ -1,5 +1,5 @@
 @use "../../../../shared/styles/mixins" as mixins;
-@use "../../../../widgets/" as vars;
+@use "../../../../shared/styles/variables" as vars;
 
 .orderStatus {
     display: flex;
