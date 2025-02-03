@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import LoginForm from "../../features/Auth/LoginForm/LoginForm";
-import RegisterForm from "../../features/Auth/RegisterForm/RegisterForm";
-import useAuthHook from "../../features/Auth/useAuthHook"; // Убедитесь, что вы импортируете правильный хук
+import LoginForm from "../../features/auth/login-form/LoginForm";
+import RegisterForm from "../../features/auth/register-form/RegisterForm";
+import useAuthHook from "../../features/auth/useAuthHook"; // Убедитесь, что вы импортируете правильный хук
 import { Button, Card } from "antd";
 import styles from "./page.module.scss";
 import Image from "next/image";

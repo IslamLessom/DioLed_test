@@ -1,10 +1,10 @@
-import ReviewForm from "@/features/Reviews/ui/ReviewForm/ReviewForm";
-import { FurnitureGrid } from "@/widgets/FurnitureCategories/ui/FurnitureGrid/FurnitureGrid";
-import ContactForm from "@/features/ContactForm/ui/ContactForm";
-import SocialButton from "@/shared/ui/SocialButton/ui/SocialButton";
+import ReviewForm from "@/features/reviews/ui/review-form/ReviewForm";
+import { FurnitureGrid } from "@/widgets/furniture-categories/ui/furniture-grid/FurnitureGrid";
+import ContactForm from "@/features/contact-form/ui/ContactForm";
+import SocialButton from "@/shared/ui/social-button/ui/SocialButton";
 import "./page.css";
-import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
-import Advantages from "@/widgets/Advantages/ui/Advantages/Advantages";
+import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
+import Advantages from "@/widgets/advantages/ui/advantages/Advantages";
 export default function Home() {
   return (
     <>

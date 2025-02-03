@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthProvider } from "../features/Auth/context/AuthProvider";
+import { AuthProvider } from "../features/auth/context/AuthProvider";
 import RootLayoutClient from "./RootLayoutClient"; // Ваш клиентский лэйаут
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import useAuthHook from "../../features/Auth/useAuthHook";
+import useAuthHook from "../../features/auth/useAuthHook";
 
 const ProtectedRoute = ({ children }: any) => {
   const { isAuthenticated, userRole } = useAuthHook();

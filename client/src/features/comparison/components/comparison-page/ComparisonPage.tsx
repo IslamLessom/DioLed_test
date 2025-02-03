@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ComparisonPage.module.scss";
-import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
+import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
 import Filtered from "../filtered/Filtered";
 import ComprasionContainer from "../comprasion-container/ComprasionContainer";
 

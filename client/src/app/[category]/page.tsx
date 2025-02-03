@@ -1,6 +1,6 @@
 import React from "react";
 
-import CategoryPage from "@/widgets/CategoryPage/CategoryPage";
+import CategoryPage from "@/widgets/category-page/CategoryPage";
 
 export const dynamic = "force-dynamic";
 

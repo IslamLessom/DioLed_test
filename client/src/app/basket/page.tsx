@@ -1,5 +1,5 @@
 import React from "react";
-import { CartItem } from "../../features/Cart/ui/cartItem/CartItem";
+import { CartItem } from "../../features/cart/ui/cart-item/CartItem";
 
 const Basket = () => {
   return (

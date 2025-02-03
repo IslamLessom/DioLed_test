@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "@/shared/ui/ProductCard/ProductCard";
+import ProductCard from "@/shared/ui/product-card/ProductCard";
 import { mockData } from "../../api";
 import styles from "./CardProduct.module.scss";
 import { TiDeleteOutline } from "react-icons/ti";

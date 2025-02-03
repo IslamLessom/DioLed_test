@@ -1,4 +1,4 @@
-import { CustomMenuItem, MenuItem } from "@/widgets/NavMenu/ui/model/types";
+import { CustomMenuItem, MenuItem } from "@/widgets/nav-menu/ui/model/types";
 
 export const itemsMenu: CustomMenuItem[] = [
   {

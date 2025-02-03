@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import "../shared/styles/globals.scss";
-import HeaderComponent from "../widgets/Header/Header";
-import FooterComponent from "../widgets/Footer/ui/Footer";
+import HeaderComponent from "../widgets/header/Header";
+import FooterComponent from "../widgets/footer/ui/Footer";
 import { Layout } from "antd";
-import ContentContainerLayout from "@/widgets/ContentContainerLayout/ContentContainerLayout";
+import ContentContainerLayout from "@/widgets/content-container-layout/ContentContainerLayout";
 import "./layout.scss";
 
 export default function RootLayoutClient({

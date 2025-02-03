@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import ContactForm from "@/features/ContactForm/ui/ContactForm";
+import ContactForm from "@/features/contact-form/ui/ContactForm";
 import styles from "./page.module.scss";
-import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
+import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
 
 const Delivery = () => {
   return (
