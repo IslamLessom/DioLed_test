@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { loginUser, registerUser } from "./authAPI";
-import { useRouter } from "next/navigation"; // Импортируем useRouter
-import { useAuth } from "../../features/auth/context/AuthProvider"; // Импортируем контекст
+import { useRouter } from "next/navigation";
+import { useAuth } from "./context/AuthProvider";
 
 const useAuthHook = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);
   const router = useRouter(); // Инициализируем router
-  const { login, logout, isAuthenticated, userRole } = useAuth(); // Получаем метод login из контекста
+  const { login, logout, isAuthenticated, userRole } = useAuth();
 
   const toggleMode = () => {
     setIsLoginMode(!isLoginMode);

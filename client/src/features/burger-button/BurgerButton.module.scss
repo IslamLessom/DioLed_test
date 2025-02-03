@@ -1,5 +1,5 @@
-@use "@/shared/styles/variables" as *;
-@use "@/shared/styles/mixins" as mixins;
+@use "../../shared/styles/variables" as *;
+@use "../../shared/styles/mixins" as mixins;
 
 .burgerButton {
   display: none;
