@@ -6,7 +6,7 @@ import {
   CarOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
-import styles from "../ui/Advantages/Advantages.module.scss";
+import styles from "../ui/advantages/Advantages.module.scss";
 
 export const advantages = [
   {
