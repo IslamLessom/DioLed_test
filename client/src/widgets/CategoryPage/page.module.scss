@@ -1,0 +1,86 @@
+@use "@/shared/styles/mixins" as mixins;
+@use "@/shared/styles/variables" as vars;
+
+.category {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 0;
+    row-gap: 24px;
+    justify-content: space-between;
+
+    @media (max-width: 758px) {
+        justify-content: center;
+    }
+
+    @include mixins.tablet {
+        margin-top: 40px;
+    }
+
+    .category__card {
+        width: 32%;
+        max-width: 365px;
+        position: relative;
+
+        @include mixins.tablet {
+            width: 45%;
+        }
+
+        @include mixins.mobile {
+            width: 100%;
+        }
+
+        .category__card__description {
+            position: absolute;
+            left: -135px; // Убедитесь, что это значение актуально для вашего дизайна
+            top: 0px;
+            background-color: rgba(255, 255, 255);
+            padding: 10px;
+            border-radius: 4px;
+            height: 280px;
+
+            @include mixins.mobile {
+                left: 0px; // Убедитесь, что это значение актуально для вашего дизайна
+                height: 311px;
+            }
+
+            // Перемещаем декларации выше вложенных правил
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0; // Изначально скрыто
+            transform: translateY(10px);
+            pointer-events: none;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+
+            &.visible {
+                // Используем синтаксис & для класса visible
+                opacity: 1; // Показать описание при наличии класса visible
+                transform: translateY(0);
+                pointer-events: auto; // Разрешить взаимодействие
+            }
+
+            .category__card__description_image {
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                img {
+                    width: 100%;
+                    height: auto; // Измените на auto для сохранения пропорций
+                    border-radius: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+
+            .category__card__description_price {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    }
+}

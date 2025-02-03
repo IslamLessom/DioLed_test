@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./AdminSidebarRight.module.scss";
 import { MdDeleteSweep, MdFormatListBulletedAdd } from "react-icons/md";
 import { CsvFormaterButton } from "@/shared/ui/CsvFormaterButton/ImportButton/CsvFormaterButton";
 import { CsvFormaterExportButton } from "@/shared/ui/CsvFormaterButton/ExportButton/CsvFormaterButton";
+import { GrUserAdmin } from "react-icons/gr";
+import { Modal } from "antd";
+import CreateAdminButton from "@/shared/ui/CreateAdminButton/CreateAdminButton";
 
 const AdminSudebarRight = () => {
   return (
@@ -24,6 +27,7 @@ const AdminSudebarRight = () => {
         <MdFormatListBulletedAdd />
         Добавить товары
       </div>
+      <CreateAdminButton />
     </div>
   );
 };

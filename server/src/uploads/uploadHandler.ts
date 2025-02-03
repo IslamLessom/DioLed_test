@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import multer from "multer";
-import csvParser from "csv-parser";
+import csvParser, { Options } from "csv-parser";
 import { Product } from "../models/product";
 import { parseStringPromise } from "xml2js";
 import { Readable } from "stream";
@@ -11,7 +11,7 @@ const router = express.Router();
 // Настройка multer для хранения файла в памяти
 const upload = multer({ storage: multer.memoryStorage() });
 
-const standardFields = {
+const standardFields: { [key: string]: string | number | null | string[] } = {
   product_name: "",
   drawing: "",
   material: "",
@@ -38,9 +38,9 @@ const standardFields = {
   barcode: "",
 };
 
-function standardizeData(dataArray: any) {
+function standardizeData(dataArray: any[]): any[] {
   return dataArray.map((item: any) => {
-    const standardizedItem = { ...standardFields };
+    const standardizedItem: { [key: string]: any } = { ...standardFields };
     for (const key in item) {
       if (standardizedItem.hasOwnProperty(key)) {
         standardizedItem[key] = item[key];
@@ -97,8 +97,8 @@ router.post(
   "/upload-file",
   upload.single("file"),
   async (req: Request, res: Response): Promise<void> => {
-    if (!req.file) {
-      res.status(400).json({ error: "Файл не загружен" });
+    if (!req.file || !req.file.buffer) {
+      res.status(400).json({ error: "Файл не загружен или некорректен" });
       return;
     }
 
@@ -108,18 +108,23 @@ router.post(
     try {
       if (fileExtension === "csv") {
         // Обработка CSV
+        const csvOptions: Options = {
+          separator: ";",
+          quote: '"',
+          mapHeaders: ({ header }) => header.trim(),
+        };
+
         await new Promise((resolve, reject) => {
-          Readable.from(req.file.buffer)
-            .pipe(
-              csvParser({
-                separator: ";",
-                quote: '"',
-                skipEmptyLines: true,
-                mapHeaders: ({ header }) => header.trim(),
-                skipRecordsWithError: true,
-              })
-            )
-            .on("data", (row) => jsonData.push(row))
+          Readable.from(req.file!.buffer)
+            .pipe(csvParser(csvOptions))
+            .on("data", (row) => {
+              try {
+                jsonData.push(row);
+              } catch (error) {
+                console.error("Error processing row:", error);
+                // Пропускаем проблемную запись
+              }
+            })
             .on("end", resolve)
             .on("error", reject);
         });
@@ -137,7 +142,7 @@ router.post(
 
       // Получаем все баркоды из загруженных данных
       const barcodes = standardizedData
-        .map((item) => item.barcode)
+        .map((item: { barcode: string }) => item.barcode)
         .filter(Boolean);
 
       // Получаем существующие товары из базы данных по баркодам

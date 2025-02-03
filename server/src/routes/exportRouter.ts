@@ -1,6 +1,6 @@
 // routes/exportRoutes.ts
 import express from "express";
-import { exportProductsToCsv } from "uploads/exportProducts";
+import { exportProductsToCsv } from "../uploads/exportProducts";
 
 const router = express.Router();
 

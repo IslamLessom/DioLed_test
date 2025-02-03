@@ -6,10 +6,10 @@ interface DbConfig {
 
 const config: DbConfig = {
   development: {
-    username: "ruslanmakiev",
-    password: "",
-    database: "dioled",
-    host: "127.0.0.1",
+    username: process.env.DB_USERNAME || "ruslanmakiev",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME || "dioled",
+    host: process.env.DB_HOST || "db",
     dialect: "postgres",
     define: {
       underscored: true,
@@ -22,10 +22,10 @@ const config: DbConfig = {
     },
   },
   test: {
-    username: "ruslanmakiev",
-    password: "",
-    database: "dioled_test",
-    host: "127.0.0.1",
+    username: process.env.DB_USERNAME || "ruslanmakiev",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME || "dioled_test",
+    host: process.env.DB_HOST || "db",
     dialect: "postgres",
     define: {
       underscored: true,
@@ -35,10 +35,10 @@ const config: DbConfig = {
     },
   },
   production: {
-    username: "ruslanmakiev",
-    password: "",
-    database: "dioled",
-    host: "127.0.0.1",
+    username: process.env.DB_USERNAME || "ruslanmakiev",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME || "dioled",
+    host: process.env.DB_HOST || "db",
     dialect: "postgres",
     define: {
       underscored: true,

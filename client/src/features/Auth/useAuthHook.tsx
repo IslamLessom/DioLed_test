@@ -54,6 +54,7 @@ const useAuthHook = () => {
     handleLogin,
     handleRegister,
     logout,
+    login,
     isAuthenticated,
     userRole,
   };

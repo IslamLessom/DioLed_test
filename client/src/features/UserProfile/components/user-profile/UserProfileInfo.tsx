@@ -2,15 +2,19 @@ import React from "react";
 import Image from "next/image";
 import styles from "./UserProfileInfo.module.scss";
 import { Carousel } from "antd";
+import ProfileSettings from "@/shared/ui/ProfileSettings/ProfileSettings";
 const UserProfileInfo = () => {
   return (
     <div className={styles.profile}>
       <div className={styles.profile__container}>
         <div className={styles.profile__container_left}>
-          <Image src="/bra.jpg" alt="" width={100} height={100} />
-          <div className={styles.profile__info}>
-            <h2>Islam Gasanow</h2>
-            <p>mem.m.1979@mail.ru</p>
+          <ProfileSettings />
+          <div className={styles.profile__container_left__box}>
+            <Image src="/bra.jpg" alt="" width={100} height={100} />
+            <div className={styles.profile__info}>
+              <h2>Islam Gasanow</h2>
+              <p>mem.m.1979@mail.ru</p>
+            </div>
           </div>
         </div>
       </div>

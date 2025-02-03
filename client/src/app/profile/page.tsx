@@ -6,13 +6,16 @@ import UserProfileInfo from "@/features/UserProfile/components/user-profile/User
 import styles from "./page.module.scss";
 import Auth from "../auth/page";
 import { AdminPage } from "@/features/AdminPanel/ui/admin-page/AdminPage";
+import ProtectedRoute from "@/entities/ProtectedRoute/ProtectedRoute";
 
 const Profile = () => {
   return (
-    <div className={styles.profileContainer}>
-      <UserProfileInfo />
-      <OrderStatus />
-    </div>
+    <ProtectedRoute>
+      <div className={styles.profileContainer}>
+        <UserProfileInfo />
+        <OrderStatus />
+      </div>
+    </ProtectedRoute>
   );
 };
 

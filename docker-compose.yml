@@ -1,0 +1,31 @@
+services:
+  frontend:
+    build:
+      context: ./client
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      context: ./server
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://ruslanmakiev:@db:5432/dioled"
+    depends_on:
+      - db
+    volumes:
+      - ./server:/src
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: ruslanmakiev
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: dioled
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
