@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Копируем package.json и package-lock.json и устанавливаем зависимости
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm i -D encoding
 
 # Копируем остальные файлы и собираем приложение
 COPY . .
