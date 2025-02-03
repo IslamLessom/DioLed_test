@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { loginUser, registerUser } from "./authAPI";
 import { useRouter } from "next/navigation"; // Импортируем useRouter
-import { useAuth } from "@/features/auth/context/AuthProvider"; // Импортируем контекст
+import { useAuth } from "../../features/auth/context/AuthProvider"; // Импортируем контекст
 
 const useAuthHook = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);

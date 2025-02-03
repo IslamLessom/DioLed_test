@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ProfileSettings.module.scss";
 import { IoExitOutline } from "react-icons/io5";
-import useAuthHook from "@/features/auth/useAuthHook";
+import useAuthHook from "../../../features/auth/useAuthHook";
 import { useRouter } from "next/navigation";
 import { RiAdminLine } from "react-icons/ri";
 

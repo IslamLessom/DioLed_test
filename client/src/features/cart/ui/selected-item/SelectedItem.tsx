@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./SelectedItem.module.scss";
 import { Checkbox, CheckboxProps } from "antd"; // Импортируем только Checkbox
 import { CartPage } from "../cart-page/CartPage";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../../../shared/hooks/useMediaQuery";
 
 export const SelectedItem = () => {
   const isMobile = useMediaQuery("(max-width: 1230px)");

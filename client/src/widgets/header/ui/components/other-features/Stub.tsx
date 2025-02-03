@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useAuth } from "@/features/auth/context/AuthProvider";
+import { useAuth } from "../../../../../features/auth/context/AuthProvider";
 import { useRouter } from "next/navigation";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../../../../shared/hooks/useMediaQuery";
 
 import { Badge } from "antd";
-import styles from "./Stub.module.scss";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
+import styles from "./Stub.module.scss";
 
 const Stub = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");

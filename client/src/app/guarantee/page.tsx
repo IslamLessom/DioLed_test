@@ -1,10 +1,10 @@
 import React from "react";
-import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
+import TitleInPage from "../../shared/ui/title-in-page/TitleInPage";
 import Image from "next/image";
 import { SiAdguard, SiMoneygram } from "react-icons/si";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import styles from "./page.module.scss";
-import ContactForm from "@/features/contact-form/ui/ContactForm";
+import ContactForm from "../../features/contact-form/ui/ContactForm";
 const Guarantee = () => {
   return (
     <div className={styles.guarantee}>

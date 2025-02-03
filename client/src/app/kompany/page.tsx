@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 import styles from "./page.module.scss";
-import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
+import TitleInPage from "../../shared/ui/title-in-page/TitleInPage";
 const About = () => {
   return (
     <div className={styles.about}>

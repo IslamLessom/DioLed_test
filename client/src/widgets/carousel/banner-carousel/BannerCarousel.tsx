@@ -3,7 +3,7 @@ import React from "react";
 import { Carousel } from "antd";
 import Image from "next/image";
 import styles from "./BannerCarousel.module.scss";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../../shared/hooks/useMediaQuery";
 
 const BannerCarousel = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");

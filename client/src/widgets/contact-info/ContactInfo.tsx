@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "antd";
 import styles from "./ContactInfo.module.scss";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../shared/hooks/useMediaQuery";
 
 export const ContactInfo = () => {
   const isMobile = useMediaQuery("(max-width: 1150px)");

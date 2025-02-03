@@ -1,6 +1,6 @@
 import { Row, Col } from "antd";
 import { FurnitureCategoryCard } from "../furniture-category-card/FurnitureCategoryCard";
-import { FURNITURE_CATEGORIES } from "@/shared/config/FurnitureCategories";
+import { FURNITURE_CATEGORIES } from "../../../../shared/config/FurnitureCategories";
 import styles from "./FurnitureGrid.module.scss";
 
 export const FurnitureGrid = () => {

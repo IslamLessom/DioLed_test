@@ -5,7 +5,7 @@ import "../shared/styles/globals.scss";
 import HeaderComponent from "../widgets/header/Header";
 import FooterComponent from "../widgets/footer/ui/Footer";
 import { Layout } from "antd";
-import ContentContainerLayout from "@/widgets/content-container-layout/ContentContainerLayout";
+import ContentContainerLayout from "../widgets/content-container-layout/ContentContainerLayout";
 import "./layout.scss";
 
 export default function RootLayoutClient({

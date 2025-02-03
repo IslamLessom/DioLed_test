@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Menu } from "antd";
 import { itemsNavMenu } from "./model/constants";
-import { useScrollDirection } from "@/shared/hooks/useScrollDirection";
+import { useScrollDirection } from "../../../shared/hooks/useScrollDirection";
 import Link from "next/link";
 
 import type { MenuProps } from "antd";

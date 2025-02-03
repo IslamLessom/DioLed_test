@@ -1,4 +1,4 @@
-import TitleInPage from "@/shared/ui/title-in-page/TitleInPage";
+import TitleInPage from "../../../../shared/ui/title-in-page/TitleInPage";
 import React from "react";
 import { SelectedItem } from "../selected-item/SelectedItem";
 import CartForm from "../cart-form/CartForm";

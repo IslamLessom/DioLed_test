@@ -1,7 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import Search from "antd/es/transfer/search";
 import React from "react";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../../../../shared/hooks/useMediaQuery";
 import styles from "./Search.module.scss";
 import { CiSearch } from "react-icons/ci";
 const SearchComponents = () => {

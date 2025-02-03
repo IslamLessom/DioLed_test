@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { GrUserAdmin } from "react-icons/gr";
 import { Input, Modal } from "antd";
 import styles from "./CreateAdminButton.module.scss";
-import RegisterForm from "@/features/auth/register-form/RegisterForm";
-import useAuthHook from "@/features/auth/useAuthHook";
+import RegisterForm from "../../../features/auth/register-form/RegisterForm";
+import useAuthHook from "../../../features/auth/useAuthHook";
 
 const CreateAdminButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

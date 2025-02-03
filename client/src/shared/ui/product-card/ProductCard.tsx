@@ -5,7 +5,7 @@ import React from "react";
 import { CiHeart, CiShoppingCart, CiStar } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { Button } from "antd";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../../shared/hooks/useMediaQuery";
 import Image from "next/image";
 
 import styles from "./ProductCard.module.scss";

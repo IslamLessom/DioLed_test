@@ -4,7 +4,7 @@ import { Carousel, Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import ProductSimilarCard from "../product-similar-card/ProductSimilarCard";
 import styles from "./ProductSimilar.module.scss";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "../../../../shared/hooks/useMediaQuery";
 
 const ProductSimilar = ({ products }: any) => {
   const [current, setCurrent] = useState(0);

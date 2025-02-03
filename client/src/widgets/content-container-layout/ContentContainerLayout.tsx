@@ -2,7 +2,7 @@
 import { Content } from "antd/es/layout/layout";
 import React from "react";
 import Sidebar from "../sidebar/ui/Sidebar";
-import StatusBox from "@/shared/ui/status-box/ui/StatusBox";
+import StatusBox from "../../shared/ui/status-box/ui/StatusBox";
 import BannerCarousel from "../carousel/banner-carousel/BannerCarousel";
 import { Layout } from "antd";
 import Sider from "antd/es/layout/Sider";

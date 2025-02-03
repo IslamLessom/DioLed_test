@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./UserProfileInfo.module.scss";
 import { Carousel } from "antd";
-import ProfileSettings from "@/shared/ui/profile-settings/ProfileSettings";
+import ProfileSettings from "../../../../shared/ui/profile-settings/ProfileSettings";
 const UserProfileInfo = () => {
   return (
     <div className={styles.profile}>
