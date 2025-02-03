@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Button, Input } from "antd";
 import styles from "./LoginForm.module.scss";
