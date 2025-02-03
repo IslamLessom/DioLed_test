@@ -1,3 +1,4 @@
+"use client";
 import { Content } from "antd/es/layout/layout";
 import React from "react";
 import Sidebar from "../Sidebar/ui/Sidebar";
