@@ -17,6 +17,7 @@ const Stub = () => {
   const isTablet = useMediaQuery("(max-width: 968px)");
   const isPriceBusket = useMediaQuery("(max-width: 1208px)");
   const { isAuthenticated } = useAuth();
+
   const router = useRouter();
 
   const handleClick = () => {
