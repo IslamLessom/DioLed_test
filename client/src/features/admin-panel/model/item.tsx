@@ -1,7 +1,7 @@
 import { LayoutProfile } from "../components";
 import { AdminDetail } from "../ui/admin-deteil/AdminDetail";
 import AdminListShop from "../ui/admin-list-shop/AdminListShop";
-import AdminAllProduct from "../ui/AdminAllProducts/AdminAllProduct";
+import AdminAllProduct from "../ui/admin-all-products/AdminAllProduct";
 
 export const adminPanel = [
   {
