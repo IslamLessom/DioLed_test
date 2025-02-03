@@ -19,6 +19,7 @@ const AuthPage = () => {
     isAuthenticated,
     userRole,
   } = useAuthHook();
+
   const router = useRouter(); // Инициализируем router
 
   useEffect(() => {
