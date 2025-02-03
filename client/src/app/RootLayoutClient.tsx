@@ -1,17 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Sider from "antd/es/layout/Sider";
 import "../shared/styles/globals.scss";
 import HeaderComponent from "../widgets/Header/Header";
-import Sidebar from "../widgets/Sidebar/ui/Sidebar";
 import FooterComponent from "../widgets/Footer/ui/Footer";
-import BannerCarousel from "../widgets/Carousel/BannerCarousel/BannerCarousel";
-import StatusBox from "../shared/ui/StatusBox/ui/StatusBox";
-import { Content, Footer, Header } from "antd/es/layout/layout";
 import { Layout } from "antd";
-import "./layout.scss";
 import ContentContainerLayout from "@/widgets/ContentContainerLayout/ContentContainerLayout";
+import "./layout.scss";
 
 export default function RootLayoutClient({
   children,

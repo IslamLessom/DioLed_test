@@ -1,7 +1,7 @@
 import TitleInPage from "@/shared/ui/TitleInPage/TitleInPage";
 import React from "react";
-import { SelectedItem } from "../selected-item/SelectedItem";
-import CartForm from "../cart-form/CartForm";
+import { SelectedItem } from "../selectedItem/SelectedItem";
+import CartForm from "../cartForm/CartForm";
 import styled from "./CartItem.module.scss";
 
 export const CartItem = () => {

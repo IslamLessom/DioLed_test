@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./SelectedItem.module.scss";
 import { Checkbox, CheckboxProps } from "antd"; // Импортируем только Checkbox
-import { CartPage } from "../cart-page/CartPage";
+import { CartPage } from "../cartPage/CartPage";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 
 export const SelectedItem = () => {

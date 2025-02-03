@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import MenuComponent from "./comonents/Menu/Menu";
 import Liders from "./comonents/Liders/Liders";
