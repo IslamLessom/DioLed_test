@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # Запускаем приложение
-CMD ["node", "src/index.js"]
+CMD ["npm", "run", "start"]
