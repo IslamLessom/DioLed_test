@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = exports.register = void 0;
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const user_1 = require("../models/user");
 const express_validator_1 = require("express-validator");
@@ -33,7 +33,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     const { username, email, password } = req.body;
     try {
-        const hashedPassword = yield bcrypt_1.default.hash(password, 10);
+        const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
         const user = yield user_1.User.create({
             username,
             email,
@@ -59,7 +59,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
     try {
         const user = yield user_1.User.findOne({ where: { username } });
-        if (!user || !(yield bcrypt_1.default.compare(password, user.password))) {
+        if (!user || !(yield bcryptjs_1.default.compare(password, user.password))) {
             return res.status(401).json({
                 success: false,
                 message: "Неверное имя пользователя или пароль",
