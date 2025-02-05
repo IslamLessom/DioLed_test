@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import styles from "./page.module.scss";
+import styles from "./CategoryPage.module.scss";
 import TitleInPage from "../../shared/ui/title-in-page/TitleInPage";
 
 const CategoryPage = () => {

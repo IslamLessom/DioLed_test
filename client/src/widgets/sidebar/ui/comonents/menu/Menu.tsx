@@ -1,73 +1,55 @@
-import React from "react";
-import { Menu } from "antd";
+import React, { useState } from "react";
 import styles from "./Menu.module.scss";
 import { itemsMenu } from "../../../model/item";
-import Link from "next/link";
-
-const { SubMenu } = Menu;
+import { IoIosArrowDown } from "react-icons/io";
 
 const MenuComponent: React.FC = () => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
+  const toggleMenu = (key: string) => {
+    setOpenMenu(openMenu === key ? null : key);
+  };
+
   return (
     <nav className={styles.menu}>
       <h2 className={styles.menu__title}>Каталог мебели</h2>
 
-      <Menu mode="inline">
-        {itemsMenu.map((item: any) =>
-          item.children ? (
-            <SubMenu
-              key={item.key}
-              title={
-                <span className={styles.icon}>
-                  {item.icon} {item.label}
-                </span>
-              }
+      <ul className={styles.menu__list}>
+        {itemsMenu.map((item) => (
+          <li key={item.key} className={styles.menu__item}>
+            <button
+              className={`${styles.menu__button} ${
+                openMenu === item.key ? styles.active : ""
+              }`}
+              onClick={() => toggleMenu(item.key)}
             >
-              {item.children.map((child: any) =>
-                child.children ? (
-                  <SubMenu
-                    key={child.key}
-                    title={
-                      <span className={styles.icon}>
-                        {child.icon} {child.label}
-                      </span>
-                    }
-                  >
-                    {child.children.map((subChild: any) => (
-                      <Menu.Item key={subChild.key}>
-                        <span className={styles.icon}>
-                          {subChild.icon} {subChild.label}
-                        </span>
-                      </Menu.Item>
-                    ))}
-                  </SubMenu>
-                ) : (
-                  <Menu.Item key={child.key}>
-                    <span className={styles.icon}>
-                      {child.icon} {child.label}
-                    </span>
-                  </Menu.Item>
-                )
-              )}
-            </SubMenu>
-          ) : (
-            <Menu.Item key={item.key}>
-              {item.links ? (
-                <Link href={item.links}>
-                  <span className={styles.icon}>
-                    {item.icon} {item.label}
-                  </span>
-                </Link>
-              ) : (
-                <>
-                  <span className={styles.icon}>
-                    {item.icon} {item.label}
-                  </span>
-                </>
-              )}
-            </Menu.Item>
-          )
-        )}
-      </Menu>
+              <span className={styles.icon}>{item.icon}</span>
+              <span className={styles.label}>{item.label}</span>
+              <span
+                className={`${styles.arrow} ${
+                  openMenu === item.key ? styles.arrowUp : ""
+                }`}
+              >
+                <IoIosArrowDown />
+              </span>
+            </button>
+
+            <div
+              className={`${styles.submenuWrapper} ${
+                openMenu === item.key ? styles.open : ""
+              }`}
+            >
+              <ul className={styles.submenu}>
+                {item.children?.map((child: any) => (
+                  <li key={child.key} className={styles.submenu__item}>
+                    {child.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
