@@ -66,7 +66,9 @@ const CartForm = () => {
           <Input placeholder="Введите комментарий" />
         </Form.Item>
       </Form>
-      <Button htmlType="submit">Оставить заявку</Button>
+      <Button type="primary" htmlType="submit">
+        Оставить заявку
+      </Button>
       <Card bordered={false} className={styles.form__price}>
         <p className={styles.form__price_title}>Итого: </p>
         <h1 className={styles.form__price_actual}>80 000 руб.</h1>

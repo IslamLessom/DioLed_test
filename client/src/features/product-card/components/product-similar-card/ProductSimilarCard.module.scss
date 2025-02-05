@@ -6,7 +6,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    padding: 16px;
     transition: transform 0.3s ease;
     margin-left: 30px;
     margin-bottom: 20px;
@@ -14,22 +13,24 @@
     img {
         height: 150px !important;
         max-height: 150px;
+        width: 100%;
     }
-}
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-.cardContent {
-    text-align: center;
-    p {
-        white-space: nowrap;
+    .card:hover {
+        transform: scale(1.05);
     }
-}
 
-.price {
-    font-weight: bold;
-    color: #f6a800;
-    margin-top: 10px;
+    .cardContent {
+        text-align: left;
+        padding: 10px;
+        p {
+            white-space: nowrap;
+        }
+    }
+
+    .price {
+        font-weight: bold;
+        color: #f6a800;
+        margin-top: 10px;
+    }
 }

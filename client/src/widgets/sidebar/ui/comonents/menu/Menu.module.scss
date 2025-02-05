@@ -1,8 +1,9 @@
 .menu {
-    h2 {
+    .menu__title {
         margin-left: 25px;
         padding-top: 20px;
-        font-size: 18px;
+        margin-bottom: 10px;
+        font-size: 20px;
     }
 
     width: 80% !important;
@@ -11,4 +12,13 @@
     margin-right: auto;
     margin-top: 20px;
     border-radius: 10px;
+    .icon {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        svg {
+            height: 35px !important;
+            width: 35px !important;
+        }
+    }
 }

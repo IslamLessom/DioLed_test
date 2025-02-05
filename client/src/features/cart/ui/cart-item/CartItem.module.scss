@@ -5,10 +5,12 @@
     hr {
         margin-left: 10px;
     }
+    .cart_title {
+        margin-left: 20px;
+    }
     .cart_container {
         display: grid;
         grid-template-columns: 60% 38%;
-        gap: 20px;
         justify-content: center;
         @include mixins.tablet {
             grid-template-columns: 100%;

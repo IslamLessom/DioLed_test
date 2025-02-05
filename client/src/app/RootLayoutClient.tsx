@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "../shared/styles/globals.scss";
 import HeaderComponent from "../widgets/header/Header";
 import FooterComponent from "../widgets/footer/ui/Footer";
 import { Layout } from "antd";
 import ContentContainerLayout from "../widgets/content-container-layout/ContentContainerLayout";
 import "./layout.scss";
+import Advantages from "../widgets/advantages/ui/advantages/Advantages";
+import ContactForm from "../features/contact-form/ui/ContactForm";
 
 export default function RootLayoutClient({
   children,
@@ -14,7 +16,6 @@ export default function RootLayoutClient({
   children: React.ReactNode;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const siderRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -31,12 +32,17 @@ export default function RootLayoutClient({
   }, [isMenuOpen]);
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", zIndex: 1000 }}>
       <HeaderComponent isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <ContentContainerLayout
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         children={children}
+      />
+      <Advantages />
+      <ContactForm
+        title="Остались вопросы"
+        description="Позвоните или напишите нашим менеджерам, они помогут грамотными советами по выбору именно той мебели, которая подойдет вашему помещению больше всего."
       />
       <FooterComponent />
     </Layout>

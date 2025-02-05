@@ -14,8 +14,12 @@ const ProtectedRoute = ({ children }: any) => {
     }
 
     if (userRole !== "admin") {
-      // Если пользователь не админ, перенаправляем на профиль
-      router.push("/profile");
+      if (!isAuthenticated) {
+        router.push("/auth");
+      } else {
+        // Если пользователь не админ, перенаправляем на профиль
+        router.push("/profile");
+      }
     }
   }, []);
 

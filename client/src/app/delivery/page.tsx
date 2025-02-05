@@ -10,10 +10,10 @@ const Delivery = () => {
       <TitleInPage title="Доставка" />
       <Image
         className={styles.delivery__banner}
-        src="/fabric_banner.jpg"
+        src="/delivery_banner_msk.jpg"
         alt="banner"
-        width={100}
-        height={100}
+        width={800}
+        height={200}
       />
       <div className={styles.delivery__description}>
         <p>

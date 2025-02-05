@@ -8,7 +8,12 @@ const Designers = () => {
   return (
     <div className={styles.designers}>
       <TitleInPage title="Партнерская программа DioLed для дизайнеров и архитекторов" />
-      <Image src="/fabric_banner.jpg" width={100} height={100} alt="banner" />
+      <Image
+        src="/delivery_banner_msk.jpg"
+        alt="banner"
+        width={800}
+        height={200}
+      />
       <div className={styles.designers_container}>
         <div className={styles.designers_container_info}>
           <p className={styles.designers_container_info_text_title}>

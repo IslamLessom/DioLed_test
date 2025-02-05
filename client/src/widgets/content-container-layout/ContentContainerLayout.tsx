@@ -16,13 +16,7 @@ const ContentContainerLayout = ({
   const currentPath = usePathname(); // Получаем текущий путь
 
   // Определяем страницы, на которых скрываем компоненты
-  const hideComponents = [
-    "/profile",
-    "/auth",
-    "/admin",
-    "/comparison",
-    "/basket",
-  ];
+  const hideComponents = ["/profile", "/auth", "/admin", "/basket"];
 
   const shouldHideComponents = hideComponents.includes(currentPath);
 
@@ -34,7 +28,7 @@ const ContentContainerLayout = ({
       />
       {!shouldHideComponents && ( // Условный рендеринг Sidebar
         <Sider
-          width={isMenuOpen ? "60%" : "25%"}
+          width={isMenuOpen ? "90%" : "22%"}
           style={{
             backgroundColor: "rgb(245 245 245)",
           }}

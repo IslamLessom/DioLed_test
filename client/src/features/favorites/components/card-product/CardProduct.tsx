@@ -1,8 +1,8 @@
 import React from "react";
-import ProductCard from "../../../../shared/ui/product-card/ProductCard";
 import { mockData } from "../../api";
 import styles from "./CardProduct.module.scss";
 import { TiDeleteOutline } from "react-icons/ti";
+import CardFavorite from "./ui/card-favorite/CardFavorite";
 
 const CardProduct = () => {
   return (
@@ -10,7 +10,7 @@ const CardProduct = () => {
       {mockData.map((item) => {
         return (
           <div key={item.id} className={styles.product_card__container}>
-            <ProductCard />
+            <CardFavorite />
             <div className={styles.product_card__info}>
               <div className={styles.product_card__info_container}>
                 <h2 className={styles.product_card__info__name}>{item.name}</h2>

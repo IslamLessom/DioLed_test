@@ -7,7 +7,9 @@ import styled from "./CartItem.module.scss";
 export const CartItem = () => {
   return (
     <div className={styled.cart}>
-      <TitleInPage title="Оформление заказа" />
+      <div className={styled.cart_title}>
+        <TitleInPage title="Оформление заказа" />
+      </div>
       <div className={styled.cart_container}>
         <SelectedItem />
         <CartForm />

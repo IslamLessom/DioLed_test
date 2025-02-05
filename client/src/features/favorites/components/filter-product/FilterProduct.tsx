@@ -6,33 +6,11 @@ import styles from "./FilterProduct.module.scss";
 const FilterProduct = () => {
   return (
     <div className={styles.filter}>
-      <Badge
-        count={
-          <div className={styles.filter__delete}>
-            <TiDeleteOutline />
-          </div>
-        }
-      >
-        <Button>Люстры</Button>
-      </Badge>
-      <Badge
-        count={
-          <div className={styles.filter__delete}>
-            <TiDeleteOutline />
-          </div>
-        }
-      >
-        <Button>Бра</Button>
-      </Badge>
-      <Badge
-        count={
-          <div className={styles.filter__delete}>
-            <TiDeleteOutline />
-          </div>
-        }
-      >
-        <Button>Торшер</Button>
-      </Badge>
+      <button>Люстры</button>
+
+      <button>Бра</button>
+
+      <button>Торшер</button>
     </div>
   );
 };

@@ -9,10 +9,10 @@ const About = () => {
     <div className={styles.about}>
       <TitleInPage title="О компании - DioLed" />
       <Image
-        src="/fabric_banner.jpg"
+        src="/delivery_banner_msk.jpg"
         alt="banner"
-        width={100}
-        height={100}
+        width={800}
+        height={200}
         className={styles.about__banner}
       />
       <div className={styles.about__description}>

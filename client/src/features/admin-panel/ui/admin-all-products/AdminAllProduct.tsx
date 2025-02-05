@@ -7,86 +7,102 @@ const AdminAllProduct = () => {
     <div className={styles.product}>
       <h2>Все товары</h2>
       <div className={styles.product__all}>
-        <Card>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
               <p>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
-        <Card>
+        </div>
+        <div className={styles.product__all__card}>
           <Image src="/bra.jpg" alt="bra" width={100} height={100} />
           <div className={styles.product__info}>
             <Checkbox />
             <div>
-              <p>Подвестная каскадная люстра</p>
-              <p>3 108 105$</p>
+              <h3 className={styles.product__info__name}>
+                Подвестная каскадная люстра
+              </h3>
+              <p className={styles.product__info__price}>3 108 105$</p>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );

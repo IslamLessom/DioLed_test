@@ -25,14 +25,14 @@
     }
 
     .orderStatus__title {
-        border: 1px solid #198b52;
+        border: 1px solid #e5d9d0;
         border-radius: 20px;
         width: 140px;
         font-family: "Helvetica";
         font-weight: 400;
         font-size: 20px;
         line-height: 22px;
-        color: #198b52;
+        color: #555352db;
         width: 155px;
         height: 38px;
         display: flex;
@@ -72,7 +72,7 @@
 
                     svg {
                         width: 60%;
-                        color: green;
+                        color: #555352db;
                         height: auto;
                     }
                 }
@@ -104,15 +104,18 @@
 
             &.active {
                 .icon {
-                    border-color: #007bff; // Синий цвет для активного статуса
+                    border-color: green; // Синий цвет для активного статуса
+                    svg {
+                        color: green;
+                    }
                 }
 
                 .label {
-                    color: #007bff;
+                    color: green;
                 }
 
                 .description {
-                    color: #007bff;
+                    color: green;
                 }
             }
         }

@@ -11,10 +11,10 @@ const PruductInfo = () => {
     <>
       <h1 className={styles.title}>Бра RENA</h1>
       <Carousel draggable={true}>
-        <Image src="/rena1.jpg" alt="bra1" width={100} height={100} />
-        <Image src="/bra2.jpg" alt="bra2" width={100} height={100} />
-        <Image src="/bra3.jpg" alt="bra3" width={100} height={100} />
-        <Image src="/bra4.jpg" alt="bra4" width={100} height={100} />
+        <Image src="/rena1.jpg" alt="bra1" width={500} height={400} />
+        <Image src="/bra2.jpg" alt="bra2" width={500} height={400} />
+        <Image src="/bra3.jpg" alt="bra3" width={500} height={400} />
+        <Image src="/bra4.jpg" alt="bra4" width={500} height={400} />
       </Carousel>
       <div className={styles.product__function}>
         <div className={styles.product__function__general}>

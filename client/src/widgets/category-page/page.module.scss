@@ -1,6 +1,9 @@
 @use "../../shared/styles/mixins" as mixins;
 @use "../../shared/styles/variables" as vars;
 
+.title {
+    width: 200px;
+}
 .category {
     margin-top: 10px;
     display: flex;
@@ -18,9 +21,12 @@
     }
 
     .category__card {
-        width: 32%;
+        width: 24%;
         max-width: 365px;
         position: relative;
+        a:hover {
+            color: black !important;
+        }
 
         @include mixins.tablet {
             width: 45%;
@@ -69,7 +75,7 @@
 
                 img {
                     width: 100%;
-                    height: auto; // Измените на auto для сохранения пропорций
+                    height: 50px; // Измените на auto для сохранения пропорций
                     border-radius: 10px;
                     margin-left: auto;
                     margin-right: auto;

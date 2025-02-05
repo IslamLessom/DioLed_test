@@ -1,3 +1,97 @@
-.container {
-    margin-top: 30px;
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.gridItem {
+    background: #f4f4f4;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    height: 325px;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    h3 {
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    p {
+        font-weight: bold;
+        text-align: left;
+        background-color: white;
+        padding: 5px;
+        width: 93px;
+        margin-top: -43px;
+        border-radius: 10px;
+        margin-left: -10px;
+        position: relative;
+        z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+        height: auto;
+        padding: 20px;
+    }
+}
+
+/* Делаем "Стеллажи" большим блоком */
+.big {
+    grid-column: span 1;
+    grid-row: span 2;
+    height: 100%;
+
+    @media (max-width: 1024px) {
+        height: 325px;
+    }
+
+    @media (max-width: 600px) {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: auto;
+    }
+}
+
+/* Цвета фонов */
+.yellow {
+    background: #fff5cc;
+}
+.pink {
+    background: #ffe6eb;
+}
+.green {
+    background: #e6ffe6;
+}
+.lightpink {
+    background: #ffe6d5;
+}
+.lightorange {
+    background: #ffe6c4;
+}
+.beige {
+    background: #f5e6cc;
+    grid-column: span 2;
+
+    @media (max-width: 600px) {
+        grid-column: span 1;
+    }
 }

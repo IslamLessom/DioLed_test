@@ -20,36 +20,16 @@ const BannerCarousel = () => {
             effect="fade"
           >
             <div className={styles.bannerCarousel__item}>
-              <Image
-                src="/example.jpg"
-                alt="Image 1"
-                width={100}
-                height={100}
-              />
+              <Image src="/baner2.jpg" alt="Image 1" width={800} height={200} />
             </div>
             <div className={styles.bannerCarousel__item}>
-              <Image
-                src="/example.jpg"
-                alt="Image 2"
-                width={100}
-                height={100}
-              />
+              <Image src="/baner2.jpg" alt="Image 2" width={800} height={200} />
             </div>
             <div className={styles.bannerCarousel__item}>
-              <Image
-                src="/example.jpg"
-                alt="Image 3"
-                width={100}
-                height={100}
-              />
+              <Image src="/baner2.jpg" alt="Image 3" width={800} height={200} />
             </div>
             <div className={styles.bannerCarousel__item}>
-              <Image
-                src="/example.jpg"
-                alt="Image 4"
-                width={100}
-                height={100}
-              />
+              <Image src="/baner2.jpg" alt="Image 4" width={800} height={200} />
             </div>
           </Carousel>
         </div>

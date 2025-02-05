@@ -36,9 +36,9 @@
 
             .designers_grid {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(3, auto);
-                gap: 10px;
+                grid-template-columns: repeat(3, 1fr) !important;
+                grid-template-rows: repeat(3, auto) !important;
+                gap: 10px !important;
 
                 .designers_grid_item {
                     display: flex;
@@ -46,32 +46,31 @@
                     justify-content: center;
                     flex-direction: column;
                     background-color: white;
-                    box-shadow: 0px4px25px0 rgba(0, 0, 0, 0.1);
+                    box-shadow: 0px 4px 25px 0 rgba(0, 0, 0, 0.1);
                     padding: 20px;
                     font-size: 18px;
-
-                    .designers_grid_item_number {
-                        background-color: #e6f4ff;
-                        color: #1677ff;
-                        padding: 5px;
-                        border-radius: 5px;
-                        width: 40px;
-                        text-align: center;
-                    }
-
-                    .designers_grid_item_text {
-                        margin-top: 20px;
-                    }
                 }
 
+                .designers_grid_item_text {
+                    margin-top: 20px;
+                }
+
+                .designers_grid_item_number {
+                    background-color: #e6f4ff;
+                    color: #1677ff;
+                    padding: 5px;
+                    border-radius: 5px;
+                    width: 40px;
+                    text-align: center;
+                }
                 /* Для первого элемента, который занимает две колонки */
                 .designers_grid_item:nth-child(1) {
-                    grid-column: span2;
+                    grid-column: span 2;
                 }
 
                 /* Для второго элемента */
                 .designers_grid_item:nth-child(2) {
-                    grid-column: span1;
+                    grid-column: span 1;
                 }
 
                 /* Для остальных элементов */
@@ -79,14 +78,14 @@
                 .designers_grid_item:nth-child(5),
                 .designers_grid_item:nth-child(6),
                 .designers_grid_item:nth-child(7) {
-                    grid-column: span1;
+                    grid-column: span 1;
                 }
 
                 /* Стили для шестого элемента (если он есть) */
                 .designers_grid_item:nth-child(6) {
-                    grid-column: span2;
+                    grid-column: span 2;
                     background: white;
-                    box-shadow: 0x4x25x0 rgba(0, 0, 0, 0.1);
+                    box-shadow: 0px 4px 25px 0 rgba(0, 0, 0, 0.1);
                     height: 300px;
                 }
             }
@@ -103,7 +102,7 @@
             }
 
             .designers_grid_item:nth-child(1) {
-                grid-column: span1; /* Первый элемент теперь занимает одну колонку */
+                grid-column: span 1; /* Первый элемент теперь занимает одну колонку */
             }
 
             h2 {

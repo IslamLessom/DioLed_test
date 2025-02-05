@@ -11,10 +11,10 @@ const Guarantee = () => {
       <TitleInPage title="Гарантия и возврат мебели" />
       <div className={styles.guarantee__container}>
         <Image
-          src="/fabric_banner.jpg"
+          src="/delivery_banner_msk.jpg"
           alt="banner"
-          width={100}
-          height={100}
+          width={800}
+          height={200}
           className={styles.guarantee__banner}
         />
         <div className={styles.guarantee_infos}>
