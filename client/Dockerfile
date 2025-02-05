@@ -1,21 +1,18 @@
 # Используем официальный образ Node.js
-FROM node:18-alpine AS build
+FROM node:14-alpine
 
 # Устанавливаем рабочую директорию
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Копируем package.json и package-lock.json и устанавливаем зависимости
-COPY package.json package-lock.json ./
-RUN npm i -D encoding
+# Копируем package.json и устанавливаем зависимости
+COPY package*.json ./
+RUN npm install
 
-# Копируем остальные файлы и собираем приложение
+# Копируем остальные файлы приложения
 COPY . .
-RUN CI=false npm run build 
 
-# Используем Nginx для обслуживания статических файлов
-FROM nginx:stable-alpine
-COPY --from=build /app/out /usr/share/nginx/html
+# Открываем порт приложения
+EXPOSE 3000
 
-# Открываем порт 80
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Запускаем приложение
+CMD ["npm", "run", "dev"]

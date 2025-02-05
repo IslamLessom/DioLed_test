@@ -1,21 +1,18 @@
 # Используем официальный образ Node.js
-FROM node:19-alpine
+FROM node:14-alpine
 
 # Устанавливаем рабочую директорию
-WORKDIR /src
+WORKDIR /usr/src/app
 
 # Копируем package.json и устанавливаем зависимости
-COPY package.json package-lock.json ./
+COPY package*.json ./
 RUN npm install
 
-# Устанавливаем ts-node глобально
-RUN npm install -g ts-node
-
-# Копируем остальные файлы
+# Копируем остальные файлы приложения
 COPY . .
 
-# Открываем порт 3000 для Express приложения
-EXPOSE 3000
+# Открываем порт приложения
+EXPOSE 5000
 
-# Запускаем сервер
-CMD ["ts-node", "src/index.ts"]
+# Запускаем приложение
+CMD ["node", "src/index.js"]
