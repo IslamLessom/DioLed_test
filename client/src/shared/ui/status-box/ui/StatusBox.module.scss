@@ -9,9 +9,11 @@
     gap: 10px;
     height: 90px;
     width: 100%;
+    margin-bottom: 60px;
 
     @include mixins.mobile {
         height: 110px;
+        grid-template-columns: 30% 30% 30%;
     }
     .statusBox__item {
         box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
@@ -24,8 +26,9 @@
         border-radius: 10px;
         @media (max-width: 600px) {
             flex-direction: column;
-            height: 135px !important;
+            height: 165px !important;
             font-size: 13px !important;
+
             svg {
                 height: 32px !important;
             }
@@ -35,6 +38,12 @@
             width: 100%;
             text-align: center;
             font-size: 16px;
+            flex-direction: column;
+            height: 150px;
+            margin: 0 !important;
+        }
+        @media (max-width: 1250px) {
+            margin-left: 10px;
         }
         svg {
             font-size: 50px;
@@ -51,6 +60,9 @@
             margin-left: auto;
             margin-right: auto;
             font-size: 15px;
+            @include mixins.mobile {
+                width: 100%;
+            }
         }
     }
 }

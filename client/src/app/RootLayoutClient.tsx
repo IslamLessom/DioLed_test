@@ -9,9 +9,11 @@ import ContentContainerLayout from "../widgets/content-container-layout/ContentC
 import "./layout.scss";
 import Advantages from "../widgets/advantages/ui/advantages/Advantages";
 import ContactForm from "../features/contact-form/ui/ContactForm";
+import { usePathname } from "next/navigation";
+import { useHideComponents } from "../features/selectors/useHideComponents";
 
 export default function RootLayoutClient({
-  children,
+  children = null,
 }: {
   children: React.ReactNode;
 }) {
@@ -39,11 +41,15 @@ export default function RootLayoutClient({
         setIsMenuOpen={setIsMenuOpen}
         children={children}
       />
-      <Advantages />
-      <ContactForm
-        title="Остались вопросы"
-        description="Позвоните или напишите нашим менеджерам, они помогут грамотными советами по выбору именно той мебели, которая подойдет вашему помещению больше всего."
-      />
+      {!useHideComponents() && (
+        <>
+          <Advantages />
+          <ContactForm
+            title="Остались вопросы"
+            description="Позвоните или напишите нашим менеджерам, они помогут грамотными советами по выбору именно той мебели, которая подойдет вашему помещению больше всего."
+          />
+        </>
+      )}
       <FooterComponent />
     </Layout>
   );

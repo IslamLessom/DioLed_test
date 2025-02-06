@@ -6,29 +6,23 @@ import StatusBox from "../../shared/ui/status-box/ui/StatusBox";
 import BannerCarousel from "../carousel/banner-carousel/BannerCarousel";
 import { Layout } from "antd";
 import Sider from "antd/es/layout/Sider";
-import { usePathname } from "next/navigation"; // Импортируем useRouter
+
+import { useHideComponents } from "../../features/selectors/useHideComponents";
 
 const ContentContainerLayout = ({
-  children,
+  children = null,
   isMenuOpen,
   setIsMenuOpen,
 }: any) => {
-  const currentPath = usePathname(); // Получаем текущий путь
-
-  // Определяем страницы, на которых скрываем компоненты
-  const hideComponents = ["/profile", "/auth", "/admin", "/basket"];
-
-  const shouldHideComponents = hideComponents.includes(currentPath);
-
   return (
     <Layout className="layout">
       <div
         className={`overlay ${isMenuOpen ? "visible" : ""}`}
         onClick={() => setIsMenuOpen(false)}
       />
-      {!shouldHideComponents && ( // Условный рендеринг Sidebar
+      {!useHideComponents() && ( // Условный рендеринг Sidebar
         <Sider
-          width={isMenuOpen ? "90%" : "22%"}
+          width={isMenuOpen ? "40%" : "22%"}
           style={{
             backgroundColor: "rgb(245 245 245)",
           }}
@@ -38,7 +32,7 @@ const ContentContainerLayout = ({
         </Sider>
       )}
       <Content className="content">
-        {!shouldHideComponents && ( // Условный рендеринг BannerCarousel и StatusBox
+        {!useHideComponents() && ( // Условный рендеринг BannerCarousel и StatusBox
           <>
             <BannerCarousel />
             <StatusBox />

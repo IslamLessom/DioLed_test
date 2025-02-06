@@ -115,66 +115,6 @@ export const itemsFurnitureMenuOne = [
       "https://www.bestmebelshop.ru/upload/resize_cache/uf/898/700_700_1/898158fc366f38d17b6386fb6211c266.png",
   },
   {
-    id: 7,
-    title: "Стеллажи",
-    link: "/stelagi",
-
-    price: "от 1890 руб.",
-    className: `${styles.pink} ${styles.big}`,
-    image:
-      "https://www.bestmebelshop.ru/upload/resize_cache/uf/e26/700_700_1/e263f150517935158546de5187412719.png",
-  },
-  {
-    id: 8,
-    title: "Комоды и тумбы",
-    link: "/kamod",
-
-    price: "от 1780 руб.",
-    className: styles.yellow,
-    image:
-      "https://www.bestmebelshop.ru/upload/uf/d5c/d5c18e538516c2b95641278d97bc658b.png",
-  },
-  {
-    id: 9,
-    title: "Мебель для спальни",
-    link: "/spalna",
-
-    price: "от 3900 руб.",
-    className: styles.beige,
-    image:
-      "https://www.bestmebelshop.ru/upload/resize_cache/uf/898/700_700_1/898158fc366f38d17b6386fb6211c266.png",
-  },
-  {
-    id: 10,
-    title: "Мебель для детской",
-    link: "/detskay",
-
-    price: "от 3200 руб.",
-    className: styles.green,
-    image:
-      "https://www.bestmebelshop.ru/upload/uf/c14/c145d55fa8a4b7b9037e0851018bd30d.png",
-  },
-  {
-    id: 11,
-    title: "Мебель для кухни",
-    link: "/kyxny",
-
-    price: "от 7850 руб.",
-    className: styles.lightpink,
-    image:
-      "https://www.bestmebelshop.ru/upload/uf/609/6095f81415882e815a5f52adb98b7988.png",
-  },
-  {
-    id: 12,
-    title: "Мебель для офиса",
-    link: "/ofis",
-
-    price: "от 2880 руб.",
-    className: styles.lightorange,
-    image:
-      "https://www.bestmebelshop.ru/upload/uf/3d5/3d5312a09c1f2b777610ba0ccd9cc15b.png",
-  },
-  {
     id: 13,
     title: "Комоды и тумбы",
     price: "от 1780 руб.",
@@ -234,6 +174,67 @@ export const itemsFurnitureMenuOne = [
     className: styles.lightpink,
     image:
       "https://www.bestmebelshop.ru/upload/uf/609/6095f81415882e815a5f52adb98b7988.png",
+  },
+
+  {
+    id: 7,
+    title: "Стеллажи",
+    link: "/stelagi",
+
+    price: "от 1890 руб.",
+    className: `${styles.pink} ${styles.big}`,
+    image:
+      "https://www.bestmebelshop.ru/upload/resize_cache/uf/e26/700_700_1/e263f150517935158546de5187412719.png",
+  },
+  {
+    id: 8,
+    title: "Комоды и тумбы",
+    link: "/kamod",
+
+    price: "от 1780 руб.",
+    className: styles.yellow,
+    image:
+      "https://www.bestmebelshop.ru/upload/uf/d5c/d5c18e538516c2b95641278d97bc658b.png",
+  },
+  {
+    id: 9,
+    title: "Мебель для спальни",
+    link: "/spalna",
+
+    price: "от 3900 руб.",
+    className: styles.beige,
+    image:
+      "https://www.bestmebelshop.ru/upload/resize_cache/uf/898/700_700_1/898158fc366f38d17b6386fb6211c266.png",
+  },
+  {
+    id: 10,
+    title: "Мебель для детской",
+    link: "/detskay",
+
+    price: "от 3200 руб.",
+    className: styles.green,
+    image:
+      "https://www.bestmebelshop.ru/upload/uf/c14/c145d55fa8a4b7b9037e0851018bd30d.png",
+  },
+  {
+    id: 11,
+    title: "Мебель для кухни",
+    link: "/kyxny",
+
+    price: "от 7850 руб.",
+    className: styles.lightpink,
+    image:
+      "https://www.bestmebelshop.ru/upload/uf/609/6095f81415882e815a5f52adb98b7988.png",
+  },
+  {
+    id: 12,
+    title: "Мебель для офиса",
+    link: "/ofis",
+
+    price: "от 2880 руб.",
+    className: styles.lightorange,
+    image:
+      "https://www.bestmebelshop.ru/upload/uf/3d5/3d5312a09c1f2b777610ba0ccd9cc15b.png",
   },
 ];
 

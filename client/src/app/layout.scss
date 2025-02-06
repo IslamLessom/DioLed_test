@@ -43,7 +43,7 @@
   }
 }
 
-@include mixins.mobile {
+@include mixins.tablet {
   .mobile-hidden {
     display: none !important;
   }

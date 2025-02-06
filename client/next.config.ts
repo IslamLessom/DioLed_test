@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["www.bestmebelshop.ru"],
   },
+  reactStrictMode: false,
 };
 
 export default nextConfig;

@@ -9,7 +9,7 @@
     }
 
     @media (max-width: 600px) {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
     }
 }
 
@@ -20,6 +20,41 @@
     text-align: center;
     font-family: Arial, sans-serif;
     height: 325px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 0;
+        height: 0;
+        background: white;
+        border-radius: 50%;
+        transition: all 0.5s ease-out;
+        z-index: 1;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        p {
+            background-color: #ffeca6;
+            color: black;
+        }
+        &::before {
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            right: -100%;
+        }
+    }
+
+    & > * {
+        position: relative;
+        z-index: 2;
+    }
 
     img {
         height: 100%;
@@ -48,6 +83,10 @@
         z-index: 10;
     }
 
+    @media (max-width: 1024px) {
+        height: 325px;
+    }
+
     @media (max-width: 600px) {
         height: auto;
         padding: 20px;
@@ -61,12 +100,12 @@
     height: 100%;
 
     @media (max-width: 1024px) {
+        grid-column: span 1;
+        grid-row: span 1;
         height: 325px;
     }
 
     @media (max-width: 600px) {
-        grid-column: span 1;
-        grid-row: span 1;
         height: auto;
     }
 }
@@ -91,7 +130,40 @@
     background: #f5e6cc;
     grid-column: span 2;
 
-    @media (max-width: 600px) {
+    @media (max-width: 1024px) {
         grid-column: span 1;
+    }
+}
+
+.yellow,
+.pink,
+.green,
+.lightpink,
+.lightorange,
+.beige {
+    transition: transform 0.3s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 0;
+        height: 0;
+        background: white;
+        border-radius: 50%;
+        transition: all 0.5s ease-out;
+        z-index: 1;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+
+        &::before {
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            right: -100%;
+        }
     }
 }

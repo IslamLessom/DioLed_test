@@ -4,7 +4,7 @@ import { AuthProvider } from "../features/auth/context/AuthProvider";
 import RootLayoutClient from "./RootLayoutClient"; // Ваш клиентский лэйаут
 
 export default function RootLayout({
-  children,
+  children = null,
 }: {
   children: React.ReactNode;
 }) {
