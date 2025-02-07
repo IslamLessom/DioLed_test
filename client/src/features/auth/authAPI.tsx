@@ -26,6 +26,7 @@ type RegisterParams = {
   email: string;
   password: string;
 };
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
 
 export const loginUser = async ({
   username,
@@ -33,7 +34,7 @@ export const loginUser = async ({
 }: LoginParams): Promise<LoginResponse> => {
   try {
     const response: AxiosResponse<LoginResponse> = await axios.post(
-      "http://localhost:8001/login",
+      `${apiUrl}/login`,
       {
         username,
         password,
@@ -60,7 +61,7 @@ export const registerUser = async ({
 }: RegisterParams): Promise<RegisterResponse> => {
   try {
     const response: AxiosResponse<RegisterResponse> = await axios.post(
-      "http://localhost:8001/register",
+      `${apiUrl}/register`,
       {
         username,
         email,

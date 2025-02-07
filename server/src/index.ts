@@ -10,7 +10,7 @@ import exportRouter from "./routes/exportRouter";
 import productRouter from "./routes/productRouter";
 
 const app = express();
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
