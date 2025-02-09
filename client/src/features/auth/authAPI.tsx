@@ -26,10 +26,7 @@ type RegisterParams = {
   email: string;
   password: string;
 };
-const apiUrl =
-  typeof process.env.NEXT_PUBLIC_API_URL !== "undefined"
-    ? process.env.NEXT_PUBLIC_API_URL
-    : "";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const loginUser = async ({
   username,
@@ -37,7 +34,7 @@ export const loginUser = async ({
 }: LoginParams): Promise<LoginResponse> => {
   try {
     const response: AxiosResponse<LoginResponse> = await axios.post(
-      `${apiUrl}/login`,
+      `${!!apiUrl ? apiUrl + "/" : ""}login`,
       {
         username,
         password,
