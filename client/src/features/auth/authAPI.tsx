@@ -26,7 +26,10 @@ type RegisterParams = {
   email: string;
   password: string;
 };
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl =
+  typeof process.env.NEXT_PUBLIC_API_URL !== "undefined"
+    ? process.env.NEXT_PUBLIC_API_URL
+    : "";
 
 export const loginUser = async ({
   username,
