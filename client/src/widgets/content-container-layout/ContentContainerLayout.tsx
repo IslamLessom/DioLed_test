@@ -1,13 +1,18 @@
 "use client";
-import { Content } from "antd/es/layout/layout";
 import React from "react";
+import { Content } from "antd/es/layout/layout";
 import Sidebar from "../sidebar/ui/Sidebar";
 import StatusBox from "../../shared/ui/status-box/ui/StatusBox";
 import BannerCarousel from "../carousel/banner-carousel/BannerCarousel";
 import { Layout } from "antd";
 import Sider from "antd/es/layout/Sider";
 
-import { useHideComponents } from "../../features/selectors/useHideComponents";
+import {
+  useHideAdmin,
+  useHideComponents,
+} from "../../features/selectors/useHideComponents";
+import { AdminPage } from "../../features/admin-panel/ui/admin-page/AdminPage";
+import { LayoutProfile } from "../../features/admin-panel/components";
 
 const ContentContainerLayout = ({
   children = null,
@@ -31,6 +36,7 @@ const ContentContainerLayout = ({
           <Sidebar />
         </Sider>
       )}
+      {useHideAdmin() && <LayoutProfile />}
       <Content className="content">
         {!useHideComponents() && ( // Условный рендеринг BannerCarousel и StatusBox
           <>

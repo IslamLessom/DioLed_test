@@ -61,7 +61,7 @@ export const registerUser = async ({
 }: RegisterParams): Promise<RegisterResponse> => {
   try {
     const response: AxiosResponse<RegisterResponse> = await axios.post(
-      `${apiUrl}/register`,
+      `${!!apiUrl ? apiUrl + "/" : ""}register`,
       {
         username,
         email,

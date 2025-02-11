@@ -2,41 +2,8 @@ import { LayoutProfile } from "../components";
 import { AdminDetail } from "../ui/admin-deteil/AdminDetail";
 import AdminListShop from "../ui/admin-list-shop/AdminListShop";
 import AdminAllProduct from "../ui/admin-all-products/AdminAllProduct";
-
-export const adminPanel = [
-  {
-    key: "1",
-    label: "Заказы",
-    children: (
-      <>
-        {" "}
-        <LayoutProfile
-          children={
-            <div style={{ display: "grid", gridTemplateColumns: "30% 70%" }}>
-              <AdminListShop />
-              <AdminDetail />
-            </div>
-          }
-        />
-      </>
-    ),
-  },
-  {
-    key: "2",
-    label: "Товары",
-    children: (
-      <>
-        <LayoutProfile
-          children={
-            <>
-              <AdminAllProduct />
-            </>
-          }
-        />
-      </>
-    ),
-  },
-];
+import ApplicationsForm from "../components/applications-form/ApplicationsForm";
+import { AdminContent } from "../components/admin-contant/AdminContent";
 
 export const steps = [
   { title: "Новый", status: "process" },

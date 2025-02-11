@@ -1,16 +1,51 @@
 "use client";
-import React from "react";
-import { Button, Form, Input } from "antd";
+import React, { useState } from "react";
+import { Button, Form, Input, message } from "antd";
 import { PhoneOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import styles from "./ContactForm.module.scss";
 import { ContactFormProps } from "../model/type";
+import axios from "axios";
 
 const { TextArea } = Input;
 
-const ContactForm: React.FC<ContactFormProps> = ({ title, description }) => {
-  const onFinish = (values: any) => {
-    console.log("Form values:", values);
+const phoneRegex =
+  /^(\+7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+const ContactForm: React.FC<ContactFormProps> = ({
+  title,
+  description,
+}: any) => {
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = async (values: any) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(`${!!apiUrl ? apiUrl + "/" : ""}form`, {
+        name: values.name,
+        phone_number: values.phone,
+        preferred_call_time: values.time,
+        description: values.message,
+      });
+      if (!phoneRegex.test(values.phone)) {
+        message.error("Пожалуйста, введите корректный номер телефона");
+        return;
+      }
+      if (response.status === 201) {
+        message.success("Заявка успешно отправлена!");
+        form.resetFields();
+      } else {
+        message.error("Произошла ошибка при отправке заявки.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      message.error("Произошла ошибка при отправке заявки.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -27,7 +62,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, description }) => {
         </div>
 
         <div className={styles.formSection}>
-          <Form layout="vertical" onFinish={onFinish} className={styles.form}>
+          <Form
+            form={form}
+            layout="vertical"
+            onFinish={onFinish}
+            className={styles.form}
+          >
+            {" "}
             <Form.Item
               name="name"
               rules={[
@@ -36,13 +77,22 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, description }) => {
             >
               <Input placeholder="Ваше имя" className={styles.input} />
             </Form.Item>
-
             <Form.Item
               name="phone"
               rules={[
                 {
                   required: true,
                   message: "Пожалуйста, введите номер телефона",
+                },
+                {
+                  validator: (_, value) =>
+                    phoneRegex.test(value)
+                      ? Promise.resolve()
+                      : Promise.reject(
+                          new Error(
+                            "Пожалуйста, введите корректный номер телефона"
+                          )
+                        ),
                 },
               ]}
             >
@@ -51,14 +101,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, description }) => {
                 className={styles.input}
               />
             </Form.Item>
-
             <Form.Item name="time">
               <Input
                 placeholder="Удобное время для звонка"
                 className={styles.input}
               />
             </Form.Item>
-
             <Form.Item name="message">
               <TextArea
                 placeholder="Сообщение"
@@ -66,17 +114,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, description }) => {
                 className={styles.textarea}
               />
             </Form.Item>
-
             <Form.Item>
               <Button
                 type="primary"
                 htmlType="submit"
                 className={styles.submitButton}
+                loading={loading}
               >
                 Оставить заявку
               </Button>
             </Form.Item>
-
             <div className={styles.agreement}>
               Нажимая на кнопку «Оставить заявку», вы соглашаетесь с условиями{" "}
               <Link href="/privacy" className={styles.link}>

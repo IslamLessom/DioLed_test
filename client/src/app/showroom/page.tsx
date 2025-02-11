@@ -3,14 +3,14 @@ import styles from "./page.module.scss";
 import { Carousel } from "antd";
 import Image from "next/image";
 import MapBlock from "../../widgets/map/Map";
+import TitleInPage from "../../shared/ui/title-in-page/TitleInPage";
 
 const ShowRoom = () => {
   return (
     <div className={styles.showroom}>
       <div className={styles.showroom_container}>
         <div className={styles.title}>
-          <h1>Шоурум DioLed</h1>
-          <hr />
+          <TitleInPage title="Шоурум DioLed" />
         </div>
         <div className={styles.container_description}>
           <p className={styles.description}>

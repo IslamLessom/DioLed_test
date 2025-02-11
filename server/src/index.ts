@@ -8,6 +8,7 @@ import authRoutes from "./routes/authRoutes";
 import categoryRouter from "./routes/categoryRouter";
 import exportRouter from "./routes/exportRouter";
 import productRouter from "./routes/productRouter";
+import formRouter from "routes/formRouter";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +23,7 @@ initializeModels();
 app.use("/", authRoutes);
 app.use("/", uploadRoutes);
 app.use("/", exportRouter);
+app.use("/", formRouter);
 app.use("/products", productRouter);
 app.use("/categories", categoryRouter);
 

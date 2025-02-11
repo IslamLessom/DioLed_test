@@ -7,6 +7,7 @@ import { initializeOrderItemModel, OrderItem } from "./orderItem";
 import { initializeOrderModel, Order } from "./order";
 import { initializeComparisonModel, Comparison } from "./comparison";
 import { initializeProductModel, Product } from "./product";
+import { initializeApplicationFormModel, ApplicationForm } from "./form";
 
 export const initializeModels = () => {
   // Инициализация моделей
@@ -18,6 +19,7 @@ export const initializeModels = () => {
   initializeOrderModel(sequelize);
   initializeOrderItemModel(sequelize);
   initializeComparisonModel(sequelize);
+  initializeApplicationFormModel(sequelize);
 
   // Инициализация ассоциаций
   const models = {
@@ -28,6 +30,7 @@ export const initializeModels = () => {
     Favorite,
     Order,
     OrderItem,
+    ApplicationForm,
     Comparison,
   };
 

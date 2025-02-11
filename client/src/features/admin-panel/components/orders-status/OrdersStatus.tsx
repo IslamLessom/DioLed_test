@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./OrdersStatus.module.scss";
 import { MdOutlineNewReleases } from "react-icons/md";
+import Link from "next/link";
 export const OrdersStatus = () => {
   return (
     <div className={styles.status}>
@@ -66,6 +67,18 @@ export const OrdersStatus = () => {
           <div className={styles.status__container__menu__box}>
             <MdOutlineNewReleases />
             <p>Готов к выдаче</p>
+          </div>
+          <p className={styles.status__container__menu__continer}>100</p>
+        </div>
+      </div>
+      <h2 className={styles.status__title}>Заявки</h2>
+      <div className={styles.status__container}>
+        <div className={styles.status__container__menu}>
+          <div className={styles.status__container__menu__box}>
+            <MdOutlineNewReleases />
+            <Link href={"/admin/application"}>
+              <p>Заявка</p>
+            </Link>
           </div>
           <p className={styles.status__container__menu__continer}>100</p>
         </div>

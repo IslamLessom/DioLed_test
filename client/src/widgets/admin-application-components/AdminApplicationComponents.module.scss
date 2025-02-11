@@ -1,0 +1,21 @@
+.container {
+    margin: 10px;
+
+    .container_application {
+        border: 1px solid #00000030;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px #0000002b;
+        margin-bottom: 7px;
+        .container_application_nameblock {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            svg {
+                width: 20px;
+                height: 20px;
+                color: red;
+            }
+        }
+    }
+}

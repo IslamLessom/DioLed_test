@@ -34,7 +34,12 @@ export default function RootLayoutClient({
   }, [isMenuOpen]);
 
   return (
-    <Layout style={{ minHeight: "100vh", zIndex: 1000 }}>
+    <Layout
+      style={{
+        minHeight: "100vh",
+        zIndex: 1000,
+      }}
+    >
       <HeaderComponent isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <ContentContainerLayout
         isMenuOpen={isMenuOpen}
