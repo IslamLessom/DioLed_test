@@ -57,6 +57,7 @@ const sequelize = new Sequelize({
   username: dbConfig.username,
   password: dbConfig.password,
   host: dbConfig.host,
+
   dialect: dbConfig.dialect,
   define: dbConfig.define,
 });
