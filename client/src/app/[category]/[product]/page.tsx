@@ -1,15 +1,15 @@
-import React from "react";
+import { Metadata } from "next";
 import ProductPage from "../../../features/product-card/components/product-page/ProductPage";
 import { productsMockDate } from "../../../../mockDate";
 import styles from "./page.module.scss";
 
-interface Props {
-  params: {
-    product: string;
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  return {
+    title: `Product ${params.product}`,
   };
 }
 
-const Product = ({ params }: Props) => {
+const Page = ({ params }: any) => {
   const product = productsMockDate.find(
     (item) => item.id === Number(params.product)
   );
@@ -21,4 +21,4 @@ const Product = ({ params }: Props) => {
   return <ProductPage product={product} />;
 };
 
-export default Product;
+export default Page;

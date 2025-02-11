@@ -11,7 +11,6 @@ import {
   useHideAdmin,
   useHideComponents,
 } from "../../features/selectors/useHideComponents";
-import { AdminPage } from "../../features/admin-panel/ui/admin-page/AdminPage";
 import { LayoutProfile } from "../../features/admin-panel/components";
 
 const ContentContainerLayout = ({
