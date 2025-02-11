@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAuth } from "../../../../../features/auth/context/AuthProvider";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "../../../../../shared/hooks/useMediaQuery";
+import { useFavoriteCount } from "../../../../../shared/hooks/useFavoriteCount";
 
 import { Badge } from "antd";
 import { CiShoppingCart } from "react-icons/ci";
@@ -17,6 +18,7 @@ const Stub = () => {
   const isTablet = useMediaQuery("(max-width: 968px)");
   const isPriceBusket = useMediaQuery("(max-width: 1208px)");
   const { isAuthenticated } = useAuth();
+  const favoriteCount = useFavoriteCount();
 
   const router = useRouter();
 
@@ -36,7 +38,7 @@ const Stub = () => {
           {!isTablet && (
             <>
               <Link href="/favorites">
-                <Badge count={5}>
+                <Badge count={favoriteCount}>
                   <CiHeart />
                 </Badge>
               </Link>

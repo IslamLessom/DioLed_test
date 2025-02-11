@@ -39,13 +39,13 @@
 
         .category__card__description {
             position: absolute;
-            left: -135px; // Убедитесь, что это значение актуально для вашего дизайна
+            left: -200px; // Убедитесь, что это значение актуально для вашего дизайна
             top: 0px;
             background-color: rgba(255, 255, 255);
             padding: 10px;
             border-radius: 4px;
-            height: 280px;
-
+            height: 320px;
+            width: 200px;
             @include mixins.mobile {
                 left: 0px; // Убедитесь, что это значение актуально для вашего дизайна
                 height: 311px;

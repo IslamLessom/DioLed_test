@@ -1,0 +1,108 @@
+@use "../../../../shared/styles/mixins" as mixins;
+
+.favorite_card {
+    margin-top: 20px;
+
+    .favorite_card__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+        margin: 10px 0px;
+        padding: 20px;
+        border-radius: 10px;
+        height: 520px;
+        gap: 1%;
+
+        @include mixins.mobile {
+            grid-template-columns: 100%;
+        }
+
+        .image_container {
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 170px;
+                border-radius: 8px;
+            }
+
+            .rating {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 5px;
+                border-radius: 4px;
+            }
+        }
+
+        .favorite_card__info {
+            .favorite_card__info_container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .favorite_card__info__name {
+                    font-size: 20px;
+                    color: #333;
+                    margin: 0;
+                    cursor: pointer;
+                    transition: color 0.2s;
+
+                    &:hover {
+                        color: #f16530;
+                    }
+                }
+
+                .delete_icon {
+                    font-size: 24px;
+                    color: #f16530;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            .info {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                gap: 10px;
+                margin-bottom: 10px;
+                background-color: #e7e6e64a;
+                padding: 10px;
+                border-radius: 4px;
+
+                p {
+                    margin: 0;
+                    &:first-child {
+                        color: #666;
+                    }
+                    &:last-child {
+                        color: #333;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .price_info {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .price {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #f16530;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

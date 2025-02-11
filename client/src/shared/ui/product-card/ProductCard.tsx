@@ -7,10 +7,11 @@ import { IoPodiumOutline } from "react-icons/io5";
 import { Button, Rate } from "antd";
 import { useMediaQuery } from "../../../shared/hooks/useMediaQuery";
 import Image from "next/image";
+import { FaHeart } from "react-icons/fa";
 
 import styles from "./ProductCard.module.scss";
 
-interface productsMockDate {
+interface ProductCardProps {
   id: number;
   name: string;
   price: string;
@@ -31,25 +32,34 @@ interface productsMockDate {
   };
   rating: number;
   image: string;
+  isFavorite?: boolean;
+  onFavoriteClick?: (e: React.MouseEvent) => void;
 }
 
-const ProductCard = (props: productsMockDate) => {
+const ProductCard = ({
+  name,
+  price,
+  rating,
+  isFavorite = false,
+  onFavoriteClick,
+}: ProductCardProps) => {
   const isMobile = useMediaQuery("(max-width: 1200px)");
 
   return (
     <div className={styles.card}>
       <Image src="/example.jpg" alt="" width={100} height={100} />
       <div className={styles.card__info}>
-        <p className={styles.card__info__price}>{props.price}</p>
-        <p className={styles.card__info__name}>{props.name}</p>
+        <p className={styles.card__info__price}>{price}</p>
+        <p className={styles.card__info__name}>{name}</p>
         <div className={styles.card__details_container}>
           <div className={styles.card__stars}>
-            <Rate allowHalf defaultValue={props.rating} />
+            <Rate allowHalf defaultValue={rating} />
           </div>
           <div className={styles.card__options}>
             <div className={styles.card__options__icons}>
-              <CiHeart />
-              <IoPodiumOutline />
+              <div className={styles.favorite_icon} onClick={onFavoriteClick}>
+                {isFavorite ? <FaHeart color="red" /> : <CiHeart />}
+              </div>
               <CiShoppingCart />
             </div>
             {!isMobile && <Button>Подробнее</Button>}

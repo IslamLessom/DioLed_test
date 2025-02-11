@@ -34,7 +34,28 @@ interface productsMockDate {
 
 const CategoryPage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const pathname = usePathname(); // Получаем текущий путь
+
+  const [favorites, setFavorites] = useState<number[]>([]);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Загружаем избранное при монтировании
+    const savedFavorites = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+    setFavorites(savedFavorites);
+  }, []);
+
+  const toggleFavorite = (e: React.MouseEvent, productId: number) => {
+    e.preventDefault(); // Предотвращаем переход по ссылке
+    const newFavorites = favorites.includes(productId)
+      ? favorites.filter((id) => id !== productId)
+      : [...favorites, productId];
+
+    setFavorites(newFavorites);
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
+    window.dispatchEvent(new Event("favoritesUpdated"));
+  };
 
   return (
     <>
@@ -50,7 +71,11 @@ const CategoryPage = () => {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <Link href={`${pathname}/${product.id}`}>
-              <ProductCard {...product} />
+              <ProductCard
+                {...product}
+                isFavorite={favorites.includes(product.id)}
+                onFavoriteClick={(e) => toggleFavorite(e, product.id)}
+              />
             </Link>
             <div
               className={`${styles.category__card__description} ${

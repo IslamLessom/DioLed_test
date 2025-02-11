@@ -5,6 +5,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
+
+    &__general {
+        display: flex;
+        gap: 20px;
+        font-size: 24px;
+    }
+
+    &__favorite {
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        svg {
+            font-size: 24px;
+        }
+    }
 
     .product__function__rating {
         svg {
