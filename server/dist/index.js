@@ -12,7 +12,7 @@ const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
 const categoryRouter_1 = __importDefault(require("./routes/categoryRouter"));
 const exportRouter_1 = __importDefault(require("./routes/exportRouter"));
 const productRouter_1 = __importDefault(require("./routes/productRouter"));
-const formRouter_1 = __importDefault(require("routes/formRouter"));
+const formRouter_1 = __importDefault(require("./routes/formRouter"));
 const app = (0, express_1.default)();
 const PORT = Number(process.env.PORT) || 3001;
 app.use((0, cors_1.default)());

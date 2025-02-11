@@ -7,7 +7,7 @@ const config = {
         username: process.env.DB_USERNAME || "ruslanmakiev",
         password: process.env.DB_PASSWORD || "",
         database: process.env.DB_NAME || "dioled",
-        host: process.env.DB_HOST || "localhost",
+        host: process.env.DB_HOST || "db",
         dialect: "postgres",
         define: {
             underscored: true,
