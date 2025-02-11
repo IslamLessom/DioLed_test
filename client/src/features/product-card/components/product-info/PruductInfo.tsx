@@ -6,10 +6,36 @@ import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import styles from "./ProductInfo.module.scss";
-const PruductInfo = () => {
+
+interface ProductInfoProps {
+  product: {
+    id: number;
+    name: string;
+    price: string;
+    materialBody: string;
+    materialFacade: string;
+    manufacturer: string;
+    productionTime: string;
+    warranty: string;
+    lifting: boolean;
+    assembly: boolean;
+    article: string;
+    deliveryMoscow: string;
+    deliveryDate: string;
+    description: string;
+    reviews: {
+      average: number;
+      count: number;
+    };
+    rating: number;
+    image: string;
+  };
+}
+
+const PruductInfo = ({ product }: ProductInfoProps) => {
   return (
     <>
-      <h1 className={styles.title}>Бра RENA</h1>
+      <h1 className={styles.title}>{product.name}</h1>
       <Carousel draggable={true}>
         <Image src="/rena1.jpg" alt="bra1" width={500} height={400} />
         <Image src="/bra2.jpg" alt="bra2" width={500} height={400} />

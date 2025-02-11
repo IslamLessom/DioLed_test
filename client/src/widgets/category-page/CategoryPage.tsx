@@ -5,21 +5,36 @@ import ProductCard from "../../shared/ui/product-card/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { productsMockDate } from "../../../mockDate";
 import styles from "./CategoryPage.module.scss";
 import TitleInPage from "../../shared/ui/title-in-page/TitleInPage";
+
+interface productsMockDate {
+  id: number;
+  name: string;
+  price: string;
+  materialBody: string;
+  materialFacade: string;
+  manufacturer: string;
+  productionTime: string;
+  warranty: string;
+  lifting: boolean;
+  assembly: boolean;
+  article: string;
+  deliveryMoscow: string;
+  deliveryDate: string;
+  description: string;
+  reviews: {
+    average: number;
+    count: number;
+  };
+  rating: number;
+  image: string;
+}
 
 const CategoryPage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const pathname = usePathname(); // Получаем текущий путь
-
-  const products = [
-    { id: 1, name: "Товар 1", price: 13322 },
-    { id: 2, name: "Товар 2", price: 15000 },
-    { id: 3, name: "Товар 3", price: 20000 },
-    { id: 4, name: "Товар 4", price: 25000 },
-    { id: 5, name: "Товар 5", price: 30000 },
-  ];
 
   return (
     <>
@@ -27,7 +42,7 @@ const CategoryPage = () => {
         <TitleInPage title="Лампы" />
       </div>
       <div className={styles.category}>
-        {products.map((product, index) => (
+        {productsMockDate.map((product: productsMockDate, index) => (
           <div
             key={product.id}
             className={styles.category__card}
@@ -35,7 +50,7 @@ const CategoryPage = () => {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <Link href={`${pathname}/${product.id}`}>
-              <ProductCard />
+              <ProductCard {...product} />
             </Link>
             <div
               className={`${styles.category__card__description} ${
@@ -48,10 +63,10 @@ const CategoryPage = () => {
                 <Image src="/bra.jpg" width={100} height={100} alt="bra" />
               </div>
               <div className={styles.category__card__description_price}>
-                <p>Высота: {product.price}</p>
-                <p>Ширина: {product.price}</p>
-                <p>Материал: {product.price}</p>
-                <p>Кол. ламп: {product.price}</p>
+                <p>Высота: {product.manufacturer}</p>
+                <p>Ширина: {product.name}</p>
+                <p>Материал: {product.article}</p>
+                <p>Кол. ламп: {product.assembly}</p>
               </div>
             </div>
           </div>

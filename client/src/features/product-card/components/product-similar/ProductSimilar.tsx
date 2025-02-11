@@ -6,7 +6,32 @@ import ProductSimilarCard from "../product-similar-card/ProductSimilarCard";
 import styles from "./ProductSimilar.module.scss";
 import { useMediaQuery } from "../../../../shared/hooks/useMediaQuery";
 
-const ProductSimilar = ({ products }: any) => {
+interface ProductSimilarProps {
+  products: Array<{
+    id: number;
+    name: string;
+    price: string;
+    materialBody: string;
+    materialFacade: string;
+    manufacturer: string;
+    productionTime: string;
+    warranty: string;
+    lifting: boolean;
+    assembly: boolean;
+    article: string;
+    deliveryMoscow: string;
+    deliveryDate: string;
+    description: string;
+    reviews: {
+      average: number;
+      count: number;
+    };
+    rating: number;
+    image: string;
+  }>;
+}
+
+const ProductSimilar = ({ products }: ProductSimilarProps) => {
   const [current, setCurrent] = useState(0);
   const carouselRef = useRef<any>(null); // Ссылка на компонент Carousel
   const isMobile = useMediaQuery("(max-width: 600px)");

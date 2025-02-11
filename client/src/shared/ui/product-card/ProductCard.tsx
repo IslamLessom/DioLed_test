@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { CiHeart, CiShoppingCart, CiStar } from "react-icons/ci";
+import { CiHeart, CiShoppingCart } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { Button, Rate } from "antd";
 import { useMediaQuery } from "../../../shared/hooks/useMediaQuery";
@@ -10,18 +10,41 @@ import Image from "next/image";
 
 import styles from "./ProductCard.module.scss";
 
-const ProductCard = () => {
+interface productsMockDate {
+  id: number;
+  name: string;
+  price: string;
+  materialBody: string;
+  materialFacade: string;
+  manufacturer: string;
+  productionTime: string;
+  warranty: string;
+  lifting: boolean;
+  assembly: boolean;
+  article: string;
+  deliveryMoscow: string;
+  deliveryDate: string;
+  description: string;
+  reviews: {
+    average: number;
+    count: number;
+  };
+  rating: number;
+  image: string;
+}
+
+const ProductCard = (props: productsMockDate) => {
   const isMobile = useMediaQuery("(max-width: 1200px)");
 
   return (
     <div className={styles.card}>
       <Image src="/example.jpg" alt="" width={100} height={100} />
       <div className={styles.card__info}>
-        <p className={styles.card__info__price}>25 000$</p>
-        <p className={styles.card__info__name}>Комод Шайн 23 глянцевый BMS</p>
+        <p className={styles.card__info__price}>{props.price}</p>
+        <p className={styles.card__info__name}>{props.name}</p>
         <div className={styles.card__details_container}>
           <div className={styles.card__stars}>
-            <Rate allowHalf defaultValue={2.5} />
+            <Rate allowHalf defaultValue={props.rating} />
           </div>
           <div className={styles.card__options}>
             <div className={styles.card__options__icons}>

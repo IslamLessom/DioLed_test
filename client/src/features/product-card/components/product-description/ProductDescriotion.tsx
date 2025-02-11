@@ -4,22 +4,37 @@ import styles from "./ProductDescription.module.scss";
 import ProductComment from "../product-comment/ProductComment";
 import ReviewForm from "../product-review-form/ReviewForm";
 
-const ProductDescription = () => {
+interface ProductDescriptionProps {
+  product: {
+    id: number;
+    name: string;
+    price: string;
+    materialBody: string;
+    materialFacade: string;
+    manufacturer: string;
+    productionTime: string;
+    warranty: string;
+    lifting: boolean;
+    assembly: boolean;
+    article: string;
+    deliveryMoscow: string;
+    deliveryDate: string;
+    description: string;
+    reviews: {
+      average: number;
+      count: number;
+    };
+    rating: number;
+    image: string;
+  };
+}
+
+const ProductDescription = ({ product }: ProductDescriptionProps) => {
   const items = [
     {
       key: "1",
       label: "Описание товара",
-      children: (
-        <div className={styles.content}>
-          Галошница 3.0 BMS – небольшая, но при этом достаточно вместительная,
-          поможет вам легко поддерживать порядок в прихожей. Три откидных лотка
-          обеспечат обуви удобное хранение, защитив от пыли и домашних животных,
-          а на столешнице будут всегда под рукой необходимые средства ухода и
-          аксессуары. Природный древесный оттенок добавит минималистичному
-          современному интерьеру уюта. Купить Галошницу 3.0 BMS приглашаем в наш
-          интернет-магазин с выбором цвета и размеров.
-        </div>
-      ),
+      children: <div className={styles.content}>{product.description}</div>,
     },
     {
       key: "2",
