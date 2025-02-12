@@ -34,6 +34,8 @@ interface ProductCardProps {
   image: string;
   isFavorite?: boolean;
   onFavoriteClick?: (e: React.MouseEvent) => void;
+  isBusket?: boolean;
+  onBusketClick?: (e: React.MouseEvent) => void;
 }
 
 const ProductCard = ({
@@ -42,6 +44,8 @@ const ProductCard = ({
   rating,
   isFavorite = false,
   onFavoriteClick,
+  isBusket = false,
+  onBusketClick,
 }: ProductCardProps) => {
   const isMobile = useMediaQuery("(max-width: 1200px)");
 
@@ -60,7 +64,9 @@ const ProductCard = ({
               <div className={styles.favorite_icon} onClick={onFavoriteClick}>
                 {isFavorite ? <FaHeart color="red" /> : <CiHeart />}
               </div>
-              <CiShoppingCart />
+              <div className={styles.shoping_icon} onClick={onBusketClick}>
+                {isBusket ? <CiShoppingCart color="red" /> : <CiShoppingCart />}
+              </div>
             </div>
             {!isMobile && <Button>Подробнее</Button>}
           </div>

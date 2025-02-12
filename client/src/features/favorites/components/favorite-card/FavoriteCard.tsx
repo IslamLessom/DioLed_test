@@ -5,7 +5,7 @@ import Link from "next/link";
 import { TiDeleteOutline } from "react-icons/ti";
 import styles from "./FavoriteCard.module.scss";
 
-interface FavoriteCardProps {
+export interface FavoriteCardProps {
   product: {
     id: number;
     name: string;

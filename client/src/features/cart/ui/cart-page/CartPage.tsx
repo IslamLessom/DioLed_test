@@ -3,8 +3,20 @@ import React from "react";
 import styles from "./CartPage.module.scss";
 import Image from "next/image";
 import { CiTrash } from "react-icons/ci";
+import { FavoriteCardProps } from "../../../favorites/components/favorite-card/FavoriteCard";
 
-export const CartPage = () => {
+export const CartPage = ({ product, onRemove }: FavoriteCardProps) => {
+  // Состояние для хранения текущего количества
+  const [quantity, setQuantity] = React.useState(1);
+
+  const cleanPrice = product.price.replace(/\s/g, "").replace(",", ".");
+
+  const totalSum = Number(cleanPrice) * quantity;
+
+  // Обработчик изменения значения Select
+  const handleQuantityChange = (value: any) => {
+    setQuantity(value);
+  };
   return (
     <div className={styles.card_page__container}>
       <div className={styles.selected__card}>
@@ -17,12 +29,12 @@ export const CartPage = () => {
                 className={styles.selected__card_item_description_content_desc}
               >
                 <p className={styles.item_name}>
-                  <b>Люстра - название люстры</b>
+                  <b>{product.name}</b>
                 </p>
                 <p className={styles.item_desc}>Особые параменты товара</p>
                 <div className={styles.item_settings}>
                   <Select
-                    defaultValue="1"
+                    value={`${quantity}`}
                     style={{ width: 80 }}
                     options={[
                       { value: "1", label: "1" },
@@ -30,9 +42,15 @@ export const CartPage = () => {
                       { value: "3", label: "3" },
                       { value: "4", label: "4", disabled: true },
                     ]}
+                    onChange={(value) => handleQuantityChange(parseInt(value))}
                   />
                   <Button>
-                    <CiTrash />
+                    <CiTrash
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onRemove(product.id);
+                      }}
+                    />
                   </Button>
                 </div>
               </div>
@@ -40,10 +58,10 @@ export const CartPage = () => {
           </div>
           <div className={styles.selected_info}>
             <p className={styles.price}>
-              <b>40 000</b>
+              <b>{product.price}</b>
             </p>
             <p className={styles.summa}>
-              <b>80 000 руб</b>
+              <b>{totalSum.toLocaleString()}</b>
             </p>
           </div>
         </div>

@@ -36,6 +36,8 @@ const CategoryPage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [busket, setBusket] = useState<number[]>([]);
+
   const pathname = usePathname();
 
   useEffect(() => {
@@ -44,6 +46,9 @@ const CategoryPage = () => {
       localStorage.getItem("favorites") || "[]"
     );
     setFavorites(savedFavorites);
+
+    const savedBusket = JSON.parse(localStorage.getItem("busket") || "[]");
+    setBusket(savedBusket);
   }, []);
 
   const toggleFavorite = (e: React.MouseEvent, productId: number) => {
@@ -55,6 +60,17 @@ const CategoryPage = () => {
     setFavorites(newFavorites);
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
     window.dispatchEvent(new Event("favoritesUpdated"));
+  };
+
+  const toggleBusket = (e: React.MouseEvent, productId: number) => {
+    e.preventDefault();
+    const newBuskets = busket.includes(productId)
+      ? busket.filter((id) => id !== productId)
+      : [...busket, productId];
+
+    setBusket(newBuskets);
+    localStorage.setItem("busket", JSON.stringify(newBuskets));
+    window.dispatchEvent(new Event("busketUpdated"));
   };
 
   return (
@@ -75,6 +91,8 @@ const CategoryPage = () => {
                 {...product}
                 isFavorite={favorites.includes(product.id)}
                 onFavoriteClick={(e) => toggleFavorite(e, product.id)}
+                isBusket={busket.includes(product.id)}
+                onBusketClick={(e) => toggleBusket(e, product.id)}
               />
             </Link>
             <div

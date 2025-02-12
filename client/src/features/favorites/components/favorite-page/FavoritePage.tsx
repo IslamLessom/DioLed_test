@@ -7,7 +7,7 @@ import FavoriteCard from "../favorite-card/FavoriteCard";
 import { productsMockDate } from "../../../../../mockDate";
 import styles from "./FavoritePage.module.scss";
 
-interface Product {
+export interface Product {
   id: number;
   name: string;
   price: string;
