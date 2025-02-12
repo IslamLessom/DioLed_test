@@ -5,7 +5,13 @@ import Image from "next/image";
 import { CiTrash } from "react-icons/ci";
 import { FavoriteCardProps } from "../../../favorites/components/favorite-card/FavoriteCard";
 
-export const CartPage = ({ product, onRemove }: FavoriteCardProps) => {
+export const CartPage = ({
+  product,
+  onRemove,
+  onQuantityChange,
+}: FavoriteCardProps & {
+  onQuantityChange: (id: number, quantity: number) => void;
+}) => {
   // Состояние для хранения текущего количества
   const [quantity, setQuantity] = React.useState(1);
 
@@ -14,8 +20,9 @@ export const CartPage = ({ product, onRemove }: FavoriteCardProps) => {
   const totalSum = Number(cleanPrice) * quantity;
 
   // Обработчик изменения значения Select
-  const handleQuantityChange = (value: any) => {
+  const handleQuantityChange = (value: number) => {
     setQuantity(value);
+    onQuantityChange(product.id, value);
   };
   return (
     <div className={styles.card_page__container}>

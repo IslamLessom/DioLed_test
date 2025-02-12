@@ -5,43 +5,19 @@ import styles from "./SelectedItem.module.scss";
 import { Checkbox, CheckboxProps } from "antd"; // Импортируем только Checkbox
 import { CartPage } from "../cart-page/CartPage";
 import { useMediaQuery } from "../../../../shared/hooks/useMediaQuery";
-import { Product } from "../../../favorites/components/favorite-page/FavoritePage";
-import { productsMockDate } from "../../../../../mockDate";
-import TitleInPage from "../../../../shared/ui/title-in-page/TitleInPage";
 
-export const SelectedItem = () => {
+export const SelectedItem = ({
+  busketProduct,
+  handleRemoveFromFavorites,
+  onQuantityChange,
+}: any) => {
   const isMobile = useMediaQuery("(max-width: 1230px)");
-  const [busketProduct, setBusketProduct] = useState<Product[]>([]);
 
-  const loadBusket = () => {
-    const favorites = JSON.parse(localStorage.getItem("busket") || "[]");
-    const favoriteItems = productsMockDate.filter((product) =>
-      favorites.includes(product.id)
-    );
-    setBusketProduct(favoriteItems);
-  };
+  const [products, setProducts] = useState(busketProduct);
 
   useEffect(() => {
-    loadBusket();
-  }, []);
-
-  const handleRemoveFromFavorites = (productId: number) => {
-    const buskets = JSON.parse(localStorage.getItem("busket") || "[]");
-    const newFavorites = buskets.filter((id: number) => id !== productId);
-    localStorage.setItem("busket", JSON.stringify(newFavorites));
-    loadBusket();
-
-    // Вызываем событие обновления избранного
-    window.dispatchEvent(new Event("busketUpdated"));
-  };
-
-  if (busketProduct.length === 0) {
-    return (
-      <div className={styles.empty}>
-        <p>В корзине пока нет товаров</p>
-      </div>
-    );
-  }
+    setProducts(busketProduct);
+  }, [busketProduct]);
 
   const onChange: CheckboxProps["onChange"] = (e) => {
     console.log(`checked = ${e.target.checked}`);
@@ -73,11 +49,12 @@ export const SelectedItem = () => {
             )}
             {isMobile && <Checkbox onChange={onChange}>Выбрать все</Checkbox>}
           </div>
-          {busketProduct.map((product) => (
+          {busketProduct.map((product: any) => (
             <CartPage
               key={product.id}
               product={product}
               onRemove={handleRemoveFromFavorites}
+              onQuantityChange={onQuantityChange}
             />
           ))}
         </div>

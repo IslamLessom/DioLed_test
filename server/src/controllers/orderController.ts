@@ -71,3 +71,41 @@ export const deleteOrder = async (
     res.status(500).json({ error: "Ошибка при удалении заказа" });
   }
 };
+
+export const createOrder = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { customerInfo, comments, products, total_sum, user_id } = req.body;
+
+    const order = await Order.create({
+      user_id: user_id || null, // Добавьте это поле
+      username: customerInfo.username,
+      firstname: customerInfo.firstname,
+      phone: customerInfo.phone,
+      address: customerInfo.address,
+      comments,
+      total_sum,
+      status: "pending",
+    });
+
+    // Создаем элементы заказа
+    const orderItems = await Promise.all(
+      products.map((product: any) =>
+        OrderItem.create({
+          order_id: order.id,
+          product_id: product.id,
+          quantity: product.quantity,
+          price: product.price,
+        })
+      )
+    );
+
+    res.status(201).json({ order, orderItems });
+  } catch (error) {
+    console.error("Error creating order:", error);
+    res.status(500).json({ error: "Ошибка при создании заказа" });
+  }
+};

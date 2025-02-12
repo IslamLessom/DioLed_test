@@ -1,14 +1,16 @@
 import { Model, DataTypes, Optional } from "sequelize";
 import { Sequelize } from "sequelize/types";
-import { User } from "./user";
-import { OrderItem } from "./orderItem";
 
 interface OrderAttributes {
   id: number;
-  order_date?: Date;
+  user_id: number; // Добавьте это поле
+  username: string;
+  firstname: string;
+  phone: string;
+  address: string;
+  comments: string;
+  total_sum: number;
   status: "pending" | "completed" | "cancelled";
-  total_amount: number;
-  shipping_address: string;
 }
 
 interface OrderCreationAttributes extends Optional<OrderAttributes, "id"> {}
@@ -18,10 +20,16 @@ export class Order
   implements OrderAttributes
 {
   public id!: number;
-  public order_date?: Date;
+  public user_id!: number; // Добавьте это поле
+  public username!: string;
+  public firstname!: string;
+  public phone!: string;
+  public address!: string;
+  public comments!: string;
+  public total_sum!: number;
   public status!: "pending" | "completed" | "cancelled";
-  public total_amount!: number;
-  public shipping_address!: string;
+  public created_at!: Date;
+  public updated_at!: Date;
 
   static associate(models: any) {
     Order.belongsTo(models.User, { foreignKey: "user_id" });
@@ -37,21 +45,37 @@ export const initializeOrderModel = (sequelize: Sequelize) => {
         autoIncrement: true,
         primaryKey: true,
       },
-      order_date: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      firstname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      comments: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      total_sum: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
       },
       status: {
         type: DataTypes.ENUM("pending", "completed", "cancelled"),
         defaultValue: "pending",
-      },
-      total_amount: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      },
-      shipping_address: {
-        type: DataTypes.STRING,
-        allowNull: false,
       },
     },
     {
