@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { main } from "../controllers/saveProduct"; // Укажи путь к файлу с `main()`
-import { Product } from "models/product";
+import { Product } from "../models/product";
 
 const router = express.Router();
 
