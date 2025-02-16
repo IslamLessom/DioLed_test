@@ -14,7 +14,7 @@ const exportRouter_1 = __importDefault(require("./routes/exportRouter"));
 const productsRouter_1 = __importDefault(require("./routes/productsRouter"));
 const formRouter_1 = __importDefault(require("./routes/formRouter"));
 const orderRouter_1 = __importDefault(require("./routes/orderRouter"));
-const saveProduct_1 = require("controllers/saveProduct");
+const saveProduct_1 = require("./controllers/saveProduct");
 const app = (0, express_1.default)();
 const PORT = Number(process.env.PORT) || 3001;
 app.use((0, cors_1.default)());
