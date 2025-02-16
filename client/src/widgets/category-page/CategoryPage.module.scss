@@ -4,6 +4,33 @@
 .title {
     width: 200px;
 }
+
+.loading {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin-top: 50px;
+}
+
+.loading::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 .category {
     margin-top: 10px;
     display: flex;
@@ -11,7 +38,6 @@
     min-width: 0;
     row-gap: 24px;
     justify-content: space-between;
-
     @media (max-width: 758px) {
         justify-content: center;
     }
@@ -25,6 +51,7 @@
         width: 24%;
         max-width: 365px;
         position: relative;
+        height: 324px;
         a:hover {
             color: black !important;
         }
@@ -39,13 +66,13 @@
 
         .category__card__description {
             position: absolute;
-            left: -200px; // Убедитесь, что это значение актуально для вашего дизайна
+            left: -250px; // Убедитесь, что это значение актуально для вашего дизайна
             top: 0px;
             background-color: rgba(255, 255, 255);
             padding: 10px;
             border-radius: 4px;
             height: 320px;
-            width: 200px;
+            width: 250px;
             @include mixins.mobile {
                 left: 0px; // Убедитесь, что это значение актуально для вашего дизайна
                 height: 311px;
@@ -76,7 +103,7 @@
 
                 img {
                     width: 100%;
-                    height: 50px; // Измените на auto для сохранения пропорций
+                    height: 85px; // Измените на auto для сохранения пропорций
                     border-radius: 10px;
                     margin-left: auto;
                     margin-right: auto;

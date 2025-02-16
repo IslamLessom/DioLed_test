@@ -3,6 +3,7 @@
 
 .about__title {
     margin-bottom: 20px;
+    width: 700px;
     @include mixins.mobile {
         margin-top: 30px;
     }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Product = exports.initializeProductModel = void 0;
+exports.initializeProductModel = exports.Product = void 0;
 const sequelize_1 = require("sequelize");
 class Product extends sequelize_1.Model {
 }
@@ -24,41 +24,70 @@ const initializeProductModel = (sequelize) => {
             type: sequelize_1.DataTypes.STRING,
             allowNull: false,
         },
-        drawing: sequelize_1.DataTypes.STRING,
-        material: sequelize_1.DataTypes.STRING,
-        mounting_type: sequelize_1.DataTypes.STRING,
-        type: sequelize_1.DataTypes.STRING,
-        connection: sequelize_1.DataTypes.STRING,
-        luminous_flux: sequelize_1.DataTypes.STRING,
-        power_consumption_per_meter: sequelize_1.DataTypes.STRING,
-        luminous_flux_per_meter: sequelize_1.DataTypes.STRING,
-        socket_type: sequelize_1.DataTypes.STRING,
-        lamp_type: sequelize_1.DataTypes.STRING,
-        color_rendering: sequelize_1.DataTypes.STRING,
-        beam_angle: sequelize_1.DataTypes.STRING,
-        ip_rating: sequelize_1.DataTypes.STRING,
-        output_voltage: sequelize_1.DataTypes.STRING,
-        light_source: sequelize_1.DataTypes.STRING,
-        power: sequelize_1.DataTypes.STRING,
-        color: sequelize_1.DataTypes.STRING,
-        color_temperature: sequelize_1.DataTypes.STRING,
-        dimming: sequelize_1.DataTypes.STRING,
-        base_price: {
-            type: sequelize_1.DataTypes.FLOAT,
+        vendor_code: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
+            type: sequelize_1.DataTypes.TEXT,
             allowNull: true,
         },
-        announcement_image_url: sequelize_1.DataTypes.STRING,
+        brand: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: true,
+        },
+        base_price: {
+            type: sequelize_1.DataTypes.FLOAT,
+            allowNull: false,
+        },
+        announcement_image_url: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: true,
+        },
         additional_images: {
             type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
             defaultValue: [],
         },
-        barcode: sequelize_1.DataTypes.STRING,
+        url: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: false,
+        },
+        store: {
+            type: sequelize_1.DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        pickup: {
+            type: sequelize_1.DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        delivery: {
+            type: sequelize_1.DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        params: {
+            type: sequelize_1.DataTypes.JSONB,
+            allowNull: true,
+            defaultValue: {},
+        },
+        created_at: {
+            type: sequelize_1.DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize_1.Sequelize.literal("CURRENT_TIMESTAMP"), // Устанавливаем дефолтное значение
+        },
+        updated_at: {
+            type: sequelize_1.DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize_1.Sequelize.literal("CURRENT_TIMESTAMP"), // Устанавливаем дефолтное значение
+        },
     }, {
         sequelize,
         modelName: "Product",
         tableName: "products",
-        underscored: true,
-        timestamps: true,
+        timestamps: false, // Можешь оставить, если не нужны другие временные метки
+        freezeTableName: true,
     });
     return Product;
 };

@@ -1,68 +1,64 @@
 import React from "react";
 import styles from "./ComprasionContainer.module.scss";
 import Image from "next/image";
+import { TiDeleteOutline } from "react-icons/ti";
 
-const ComprasionContainer = () => {
+const ComprasionContainer = ({ comparisonProducts, onRemove }: any) => {
+  console.log(comparisonProducts);
   return (
-    <div className={styles.comprasion}>
-      <div className={styles.comprasion__container}>
-        <p>
-          <b>Название</b>
-        </p>
-        <p>Прихожая ПМ-13 BMS</p>
-        <p>Прихожая Флай 12 BMS</p>
+    <div className={styles.comparsion}>
+      <div className={styles.comparison_container_title}>
+        <p>Название</p>
+        <p className={styles.comparison_container_title_image}>Фото товара</p>
+        <p>Цена</p>
+        <p>Бренд</p>
+        <p>Количество ламп</p>
+        <p>Материал декора</p>
+        <p>Материал плафона</p>
+        <p>Основной цвет</p>
+        <p>Пульт управления</p>
+        <p>Серия</p>
+        <p>Тип установки</p>
+        <p>Цоколь лампы</p>
       </div>
-      <div className={styles.comprasion__container}>
-        <p>
-          <b>Фото товара</b>
-        </p>
-        <Image width={100} height={100} alt="" src="/bra.jpg" />
-        <Image width={100} height={100} alt="" src="/bra.jpg" />
-      </div>
-      <div className={styles.comprasion__container}>
-        <p>
-          <b>Цена</b>
-        </p>
-        <p>3000</p>
-        <p>5000</p>
-      </div>
-      <div className={styles.comprasion__container}>
-        <p>
-          <b>Ширина</b>
-        </p>
-        <p>100 mm</p>
-        <p>200 mm</p>
-      </div>
-      <div className={styles.comprasion__container}>
-        <p>
-          <b>Высота</b>
-        </p>
-        <p>50</p>
-        <p>100</p>
-      </div>
-      <div className={styles.comprasion__container}>
-        {" "}
-        <p>
-          <b>Цвет</b>
-        </p>
-        <p>Синий</p>
-        <p>Голубой</p>
-      </div>
-      <div className={styles.comprasion__container}>
-        {" "}
-        <p>
-          <b>Материал</b>
-        </p>
-        <p>Хрусталь</p>
-        <p>Стекло</p>
-      </div>
-      <div className={styles.comprasion__container}>
-        {" "}
-        <p>
-          <b>Материал лампы</b>
-        </p>
-        <p>Стекло</p>
-        <p>Хрусталь</p>
+      <div className={styles.comparison_containers}>
+        {comparisonProducts.map((product: any) => (
+          <div className={styles.comparison_container_container}>
+            <p className={styles.comparison_container_container_name}>
+              <>
+                {product.product_name && product.product_name.length > 40
+                  ? product.product_name.slice(0, 40) + "..."
+                  : product.product_name}
+                <TiDeleteOutline
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onRemove(product.id);
+                  }}
+                  color="red"
+                  className={styles.delete_icon}
+                  style={{ fontSize: "24px" }}
+                />
+              </>
+            </p>
+            <Image
+              src={product.announcement_image_url}
+              width={200}
+              height={200}
+              alt="image"
+              className={styles.comparison_container_title_image}
+            />
+            <p>{product.base_price}</p>
+            <p>{product.brand}</p>
+            <p>{product.params?.["Количество ламп"]}</p>
+            <p>{product.params?.["Материал декора"]}</p>
+            <p>{product.params?.["Материал плафона"]}</p>
+            <p>{product.params?.["Основной цвет"]}</p>
+            <p>{product.params?.["Пульт управления"]}</p>
+            <p>{product.params?.["Серия"]}</p>
+            <p>{product.params?.["Тип установки"]}</p>
+            <p>{product.params?.["Цвет свечения"]}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

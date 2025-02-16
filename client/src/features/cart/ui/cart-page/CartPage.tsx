@@ -9,14 +9,18 @@ export const CartPage = ({
   product,
   onRemove,
   onQuantityChange,
-}: FavoriteCardProps & {
+}: any & {
   onQuantityChange: (id: number, quantity: number) => void;
 }) => {
   // Состояние для хранения текущего количества
   const [quantity, setQuantity] = React.useState(1);
 
-  const cleanPrice = product.price.replace(/\s/g, "").replace(",", ".");
-
+  const cleanPrice =
+    typeof product.base_price === "string"
+      ? product.base_price.replace(/\s/g, "").replace(",", ".")
+      : typeof product.base_price === "number"
+      ? product.base_price.toFixed(2) // Если число, форматируем в строку
+      : "0";
   const totalSum = Number(cleanPrice) * quantity;
 
   // Обработчик изменения значения Select
@@ -31,12 +35,22 @@ export const CartPage = ({
           <div className={styles.selected__card_item_description}>
             <Checkbox />
             <div className={styles.selected__card_item_description_content}>
-              <Image src="/bra.jpg" width={100} height={100} alt="lustra" />
+              <Image
+                src={product.announcement_image_url}
+                width={100}
+                height={100}
+                alt="lustra"
+              />
               <div
                 className={styles.selected__card_item_description_content_desc}
               >
                 <p className={styles.item_name}>
-                  <b>{product.name}</b>
+                  <b>
+                    {" "}
+                    {product.product_name && product.product_name.length > 40
+                      ? product.product_name.slice(0, 40) + "..."
+                      : product.product_name}
+                  </b>
                 </p>
                 <p className={styles.item_desc}>Особые параменты товара</p>
                 <div className={styles.item_settings}>
@@ -65,10 +79,10 @@ export const CartPage = ({
           </div>
           <div className={styles.selected_info}>
             <p className={styles.price}>
-              <b>{product.price}</b>
+              <b>{product.base_price}₽</b>
             </p>
             <p className={styles.summa}>
-              <b>{totalSum.toLocaleString()}</b>
+              <b>{totalSum.toLocaleString()}₽</b>
             </p>
           </div>
         </div>

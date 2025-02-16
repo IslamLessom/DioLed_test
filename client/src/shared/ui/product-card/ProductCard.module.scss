@@ -13,6 +13,8 @@
     .card__info {
         padding: 10px;
         height: 70px;
+        position: relative;
+
         .card__info__price {
             font-size: 16px;
         }
@@ -40,6 +42,8 @@
             align-items: center;
             gap: 20px;
             height: 100%;
+            position: absolute;
+            bottom: -95px;
             svg {
                 font-size: 25px;
             }

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteOrder = exports.updateOrder = exports.getOrderById = exports.getAllOrders = void 0;
+exports.createOrder = exports.deleteOrder = exports.updateOrder = exports.getOrderById = exports.getAllOrders = void 0;
 const order_1 = require("../models/order");
 const orderItem_1 = require("../models/orderItem");
 // Получить все заказы
@@ -70,3 +70,31 @@ const deleteOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.deleteOrder = deleteOrder;
+const createOrder = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { customerInfo, comments, products, total_sum, user_id } = req.body;
+        const order = yield order_1.Order.create({
+            user_id: user_id || null, // Добавьте это поле
+            username: customerInfo.username,
+            firstname: customerInfo.firstname,
+            phone: customerInfo.phone,
+            address: customerInfo.address,
+            comments,
+            total_sum,
+            status: "pending",
+        });
+        // Создаем элементы заказа
+        const orderItems = yield Promise.all(products.map((product) => orderItem_1.OrderItem.create({
+            order_id: order.id,
+            product_id: product.id,
+            quantity: product.quantity,
+            price: product.price,
+        })));
+        res.status(201).json({ order, orderItems });
+    }
+    catch (error) {
+        console.error("Error creating order:", error);
+        res.status(500).json({ error: "Ошибка при создании заказа" });
+    }
+});
+exports.createOrder = createOrder;

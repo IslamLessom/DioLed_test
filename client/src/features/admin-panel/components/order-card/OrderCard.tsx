@@ -15,11 +15,11 @@ export const OrderCard: React.FC<OrderCardProps> = ({ order, onClick }) => {
         <Image src="/bra.jpg" height={100} width={100} alt="ava" />
         <div className={styles.card__info}>
           <div className={styles.card__info_container}>
-            <p className={styles.card__info_container_number}>{order.number}</p>
-            <p>{order.totalPrice}$</p>
+            <p className={styles.card__info_container_number}>{order.id}</p>
+            <p>{order.total_sum}₽</p>
           </div>
           <p>{order.username}</p>
-          <p>{order.date}</p>
+          <p>{order.created_at.toLocaleString()}</p>
         </div>
       </div>
     </div>

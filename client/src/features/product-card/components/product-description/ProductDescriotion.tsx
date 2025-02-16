@@ -4,32 +4,7 @@ import styles from "./ProductDescription.module.scss";
 import ProductComment from "../product-comment/ProductComment";
 import ReviewForm from "../product-review-form/ReviewForm";
 
-interface ProductDescriptionProps {
-  product: {
-    id: number;
-    name: string;
-    price: string;
-    materialBody: string;
-    materialFacade: string;
-    manufacturer: string;
-    productionTime: string;
-    warranty: string;
-    lifting: boolean;
-    assembly: boolean;
-    article: string;
-    deliveryMoscow: string;
-    deliveryDate: string;
-    description: string;
-    reviews: {
-      average: number;
-      count: number;
-    };
-    rating: number;
-    image: string;
-  };
-}
-
-const ProductDescription = ({ product }: ProductDescriptionProps) => {
+const ProductDescription = ({ product }: any) => {
   const items = [
     {
       key: "1",

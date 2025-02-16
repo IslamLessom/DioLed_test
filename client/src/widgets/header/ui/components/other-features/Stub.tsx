@@ -13,6 +13,7 @@ import { CiUser } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import styles from "./Stub.module.scss";
+import { useComparisonCount } from "../../../../../shared/hooks/useComparisonCount";
 
 const Stub = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -21,6 +22,7 @@ const Stub = () => {
   const { isAuthenticated } = useAuth();
   const favoriteCount = useFavoriteCount();
   const busketCount = useBusketCount();
+  const comparisionCount = useComparisonCount();
 
   const router = useRouter();
 
@@ -46,7 +48,7 @@ const Stub = () => {
               </Link>
 
               <Link href="/comparison">
-                <Badge count={5}>
+                <Badge count={comparisionCount}>
                   <IoPodiumOutline />
                 </Badge>
               </Link>
@@ -63,7 +65,7 @@ const Stub = () => {
             <CiShoppingCart />
           </Link>
         </Badge>
-        {!isPriceBusket && <p className={styles.stub__cart_price}>1000 руб</p>}
+        {/* {!isPriceBusket && <p className={styles.stub__cart_price}>1000 руб</p>}*/}
       </div>
     </div>
   );

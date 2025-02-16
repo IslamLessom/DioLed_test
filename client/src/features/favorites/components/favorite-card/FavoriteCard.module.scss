@@ -40,8 +40,8 @@
 
         .favorite_card__info {
             .favorite_card__info_container {
-                display: flex;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: 90% 10%;
                 align-items: center;
                 margin-bottom: 20px;
 

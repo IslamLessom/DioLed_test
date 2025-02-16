@@ -4,70 +4,74 @@ import TitleInPage from "../../../../shared/ui/title-in-page/TitleInPage";
 import React, { useEffect, useState } from "react";
 import FilterProduct from "../filter-product/FilterProduct";
 import FavoriteCard from "../favorite-card/FavoriteCard";
-import { productsMockDate } from "../../../../../mockDate";
 import styles from "./FavoritePage.module.scss";
+import axios from "axios";
 
 export interface Product {
+  quantity: number;
   id: number;
   name: string;
   price: string;
-  materialBody: string;
-  materialFacade: string;
-  manufacturer: string;
-  productionTime: string;
-  warranty: string;
-  lifting: boolean;
-  assembly: boolean;
-  article: string;
-  deliveryMoscow: string;
-  deliveryDate: string;
-  description: string;
+  image: string;
   reviews: {
     average: number;
     count: number;
   };
   rating: number;
-  image: string;
 }
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const FavoritePage = () => {
   const [favoriteProducts, setFavoriteProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          `${apiUrl ? apiUrl + "/" : ""}products/random-products`
+        );
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Ошибка загрузки товаров:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    loadFavorites();
+  }, [products]);
 
   const loadFavorites = () => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    const favoriteItems = productsMockDate.filter((product) =>
+    const favoriteItems = products.filter((product) =>
       favorites.includes(product.id)
     );
     setFavoriteProducts(favoriteItems);
   };
 
-  useEffect(() => {
-    loadFavorites();
-  }, []);
-
+  // Функция удаления товара из избранного
   const handleRemoveFromFavorites = (productId: number) => {
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     const newFavorites = favorites.filter((id: number) => id !== productId);
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
-    loadFavorites();
+
+    // Обновляем список избранных товаров вручную
+    setFavoriteProducts((prev) =>
+      prev.filter((product) => product.id !== productId)
+    );
 
     // Вызываем событие обновления избранного
     window.dispatchEvent(new Event("favoritesUpdated"));
   };
 
-  if (favoriteProducts.length === 0) {
-    return (
-      <div className={styles.empty}>
-        <TitleInPage title="Избранные товары" />
-        <p>В избранном пока нет товаров</p>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.container}>
       <TitleInPage title="Избранные товары" />
-      <FilterProduct />
+      {/*<FilterProduct />*/}
       <div className={styles.products}>
         {favoriteProducts.map((product) => (
           <FavoriteCard

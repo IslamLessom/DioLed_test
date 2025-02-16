@@ -16,21 +16,37 @@ const initializeOrderModel = (sequelize) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        order_date: {
-            type: sequelize_1.DataTypes.DATE,
-            defaultValue: sequelize_1.DataTypes.NOW,
+        user_id: {
+            type: sequelize_1.DataTypes.INTEGER,
+            allowNull: true,
+        },
+        username: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: false,
+        },
+        firstname: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: false,
+        },
+        phone: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: false,
+        },
+        address: {
+            type: sequelize_1.DataTypes.STRING,
+            allowNull: false,
+        },
+        comments: {
+            type: sequelize_1.DataTypes.TEXT,
+            allowNull: true,
+        },
+        total_sum: {
+            type: sequelize_1.DataTypes.FLOAT,
+            allowNull: false,
         },
         status: {
             type: sequelize_1.DataTypes.ENUM("pending", "completed", "cancelled"),
             defaultValue: "pending",
-        },
-        total_amount: {
-            type: sequelize_1.DataTypes.FLOAT,
-            allowNull: false,
-        },
-        shipping_address: {
-            type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
         },
     }, {
         sequelize,

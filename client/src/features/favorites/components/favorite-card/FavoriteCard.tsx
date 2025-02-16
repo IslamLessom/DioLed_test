@@ -31,14 +31,15 @@ export interface FavoriteCardProps {
   onRemove: (id: number) => void;
 }
 
-const FavoriteCard = ({ product, onRemove }: FavoriteCardProps) => {
+const FavoriteCard = ({ product, onRemove }: any) => {
+  console.log(product);
   return (
     <div className={styles.favorite_card}>
       <div className={styles.favorite_card__container}>
         <div className={styles.image_container}>
           <Image
-            src="/example.jpg"
-            alt={product.name}
+            src={product.announcement_image_url}
+            alt={product.product_name}
             width={200}
             height={200}
           />
@@ -47,7 +48,9 @@ const FavoriteCard = ({ product, onRemove }: FavoriteCardProps) => {
           <div className={styles.favorite_card__info_container}>
             <Link href={`/catalog/${product.id}`}>
               <h2 className={styles.favorite_card__info__name}>
-                {product.name}
+                {product.product_name && product.product_name.length > 40
+                  ? product.product_name.slice(0, 40) + "..."
+                  : product.product_name}
               </h2>
             </Link>
             <TiDeleteOutline
@@ -56,27 +59,28 @@ const FavoriteCard = ({ product, onRemove }: FavoriteCardProps) => {
                 onRemove(product.id);
               }}
               className={styles.delete_icon}
+              style={{ fontSize: "24px" }}
             />
           </div>
           <div className={styles.info}>
-            <p>Материал корпуса:</p>
-            <p>{product.materialBody}</p>
+            <p>Бренд:</p>
+            <p>{product.params?.["Бренд"]}</p>
           </div>
           <div className={styles.info}>
-            <p>Материал фасадов:</p>
-            <p>{product.materialFacade}</p>
+            <p>Тип установки:</p>
+            <p>{product.params?.["Тип установки"]}</p>
           </div>
           <div className={styles.info}>
-            <p>Производитель:</p>
-            <p>{product.manufacturer}</p>
+            <p>Основной цвет:</p>
+            <p>{product.params?.["Основной цвет"]}</p>
           </div>
           <div className={styles.info}>
-            <p>Артикул:</p>
-            <p>{product.article}</p>
+            <p>Серия:</p>
+            <p>{product.params?.["Серия"]}</p>
           </div>
 
           <div className={styles.price_info}>
-            <p className={styles.price}>{product.price} ₽</p>
+            <p className={styles.price}>{product.base_price} ₽</p>
             <Rate
               disabled
               defaultValue={product.rating}

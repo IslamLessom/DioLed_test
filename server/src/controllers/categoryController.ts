@@ -13,19 +13,6 @@ export const getCategory = async (req: Request, res: Response) => {
   }
 };
 
-export const postCategory = async (req: Request, res: Response) => {
-  const { category_name } = req.body;
-  try {
-    const newCategory = await Category.create({ category_name });
-    res.status(201).json(newCategory);
-  } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error instanceof Error ? error.message : "Ошибка",
-    });
-  }
-};
-
 export const getCategoryId = async (req: Request, res: Response) => {
   const categoryId = parseInt(req.params.id);
   const category = await Category.findByPk(categoryId);

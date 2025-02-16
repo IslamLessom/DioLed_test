@@ -6,32 +6,8 @@ import ProductSimilar from "../product-similar/ProductSimilar";
 import ProductPayForm from "../product-pay-form/ProductPayForm";
 import { productsMockDate } from "../../../../../mockDate";
 
-interface ProductPageProps {
-  product: {
-    id: number;
-    name: string;
-    price: string;
-    materialBody: string;
-    materialFacade: string;
-    manufacturer: string;
-    productionTime: string;
-    warranty: string;
-    lifting: boolean;
-    assembly: boolean;
-    article: string;
-    deliveryMoscow: string;
-    deliveryDate: string;
-    description: string;
-    reviews: {
-      average: number;
-      count: number;
-    };
-    rating: number;
-    image: string;
-  };
-}
-
-const ProductPage = ({ product }: ProductPageProps) => {
+const ProductPage = ({ product }: any) => {
+  console.log(product);
   return (
     <div className={styles.product}>
       <div className={styles.product__card_container}>
@@ -41,7 +17,7 @@ const ProductPage = ({ product }: ProductPageProps) => {
       <div className={styles.product__pay_container}>
         <ProductPayForm product={product} />
       </div>
-      <ProductSimilar products={productsMockDate} />
+      <ProductSimilar />
     </div>
   );
 };

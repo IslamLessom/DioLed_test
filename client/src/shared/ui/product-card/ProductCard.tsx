@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { CiHeart, CiShoppingCart } from "react-icons/ci";
 import { IoPodiumOutline } from "react-icons/io5";
@@ -11,53 +11,63 @@ import { FaHeart } from "react-icons/fa";
 
 import styles from "./ProductCard.module.scss";
 
-interface ProductCardProps {
+interface Product {
   id: number;
-  name: string;
-  price: string;
-  materialBody: string;
-  materialFacade: string;
-  manufacturer: string;
-  productionTime: string;
-  warranty: string;
-  lifting: boolean;
-  assembly: boolean;
-  article: string;
-  deliveryMoscow: string;
-  deliveryDate: string;
+  product_name: string;
+  brand: string;
+  category_id: number;
+  base_price: number;
   description: string;
-  reviews: {
-    average: number;
-    count: number;
+  url: string;
+  vendor_code: string;
+  delivery: boolean;
+  pickup: boolean;
+  store: boolean;
+  created_at: string;
+  updated_at: string;
+  announcement_image_url: string;
+  additional_images: string[];
+  params: {
+    Бренд: string;
+    "Основной цвет": string;
+    "Цвет свечения": string;
+    "Цоколь лампы": string;
   };
-  rating: number;
-  image: string;
   isFavorite?: boolean;
   onFavoriteClick?: (e: React.MouseEvent) => void;
   isBusket?: boolean;
   onBusketClick?: (e: React.MouseEvent) => void;
+  isComparision?: boolean;
+  onComparisionClick?: (e: React.MouseEvent) => void;
 }
 
 const ProductCard = ({
-  name,
-  price,
-  rating,
+  product_name,
+  base_price,
+  announcement_image_url,
   isFavorite = false,
   onFavoriteClick,
   isBusket = false,
   onBusketClick,
-}: ProductCardProps) => {
+  isComparision,
+  onComparisionClick,
+}: Product) => {
   const isMobile = useMediaQuery("(max-width: 1200px)");
-
   return (
     <div className={styles.card}>
-      <Image src="/example.jpg" alt="" width={100} height={100} />
+      <Image src={announcement_image_url} alt="" width={100} height={100} />
       <div className={styles.card__info}>
-        <p className={styles.card__info__price}>{price}</p>
-        <p className={styles.card__info__name}>{name}</p>
+        <p className={styles.card__info__price}>{base_price}</p>
+        <p className={styles.card__info__name}>
+          <p>
+            {product_name && product_name.length > 40
+              ? product_name.slice(0, 40) + "..."
+              : product_name}
+          </p>
+        </p>
         <div className={styles.card__details_container}>
           <div className={styles.card__stars}>
-            <Rate allowHalf defaultValue={rating} />
+            <Rate allowHalf defaultValue={3} />
           </div>
           <div className={styles.card__options}>
             <div className={styles.card__options__icons}>
@@ -66,6 +76,13 @@ const ProductCard = ({
               </div>
               <div className={styles.shoping_icon} onClick={onBusketClick}>
                 {isBusket ? <CiShoppingCart color="red" /> : <CiShoppingCart />}
+              </div>
+              <div className={styles.shoping_icon} onClick={onComparisionClick}>
+                {isComparision ? (
+                  <IoPodiumOutline color="red" />
+                ) : (
+                  <IoPodiumOutline />
+                )}
               </div>
             </div>
             {!isMobile && <Button>Подробнее</Button>}

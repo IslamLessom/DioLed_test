@@ -4,24 +4,15 @@ import {
   editCategory,
   getCategory,
   getCategoryId,
-  postCategory,
 } from "../controllers/categoryController";
 
 const router = express.Router();
 
-router.get("/cat", async (req: Request, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
   try {
     await getCategory(req, res);
   } catch (error) {
     res.status(500).json({ message: "Error retrieving categories", error });
-  }
-});
-
-router.post("/", async (req: Request, res: Response) => {
-  try {
-    await postCategory(req, res);
-  } catch (error) {
-    res.status(400).json({ message: "Error creating category", error });
   }
 });
 

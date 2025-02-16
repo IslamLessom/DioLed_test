@@ -1,24 +1,28 @@
 import { Metadata } from "next";
-import ProductPage from "../../../features/product-card/components/product-page/ProductPage";
-import { productsMockDate } from "../../../../mockDate";
-import styles from "./page.module.scss";
+import ProductPageClient from "./ProductPageClient";
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  return {
-    title: `Product ${params.product}`,
-  };
+  console.log(params.product);
+  try {
+    const response = await fetch(
+      `${apiUrl ? apiUrl + "/" : ""}products/${params.product}`
+    );
+    const data = await response.json();
+    return {
+      title: `Product ${data.product_name}`,
+    };
+  } catch (error) {
+    console.error("Ошибка получения данных о товаре", error);
+    return {
+      title: "Товар не найден",
+    };
+  }
 }
 
 const Page = ({ params }: any) => {
-  const product = productsMockDate.find(
-    (item) => item.id === Number(params.product)
-  );
-
-  if (!product) {
-    return <div>Товар не найден</div>;
-  }
-
-  return <ProductPage product={product} />;
+  return <ProductPageClient productData={params.productData} params={params} />;
 };
 
 export default Page;

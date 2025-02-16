@@ -1,53 +1,63 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Carousel, Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import ProductSimilarCard from "../product-similar-card/ProductSimilarCard";
+import axios from "axios";
 import styles from "./ProductSimilar.module.scss";
 import { useMediaQuery } from "../../../../shared/hooks/useMediaQuery";
+import Link from "next/link";
 
-interface ProductSimilarProps {
-  products: Array<{
-    id: number;
-    name: string;
-    price: string;
-    materialBody: string;
-    materialFacade: string;
-    manufacturer: string;
-    productionTime: string;
-    warranty: string;
-    lifting: boolean;
-    assembly: boolean;
-    article: string;
-    deliveryMoscow: string;
-    deliveryDate: string;
-    description: string;
-    reviews: {
-      average: number;
-      count: number;
-    };
-    rating: number;
-    image: string;
-  }>;
-}
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-const ProductSimilar = ({ products }: ProductSimilarProps) => {
+const ProductSimilar = () => {
   const [current, setCurrent] = useState(0);
+  const [randomProducts, setRandomProducts] = useState<any[]>([]);
   const carouselRef = useRef<any>(null); // Ссылка на компонент Carousel
   const isMobile = useMediaQuery("(max-width: 600px)");
 
+  const shuffleArray = (array: any[]) => {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    return shuffledArray;
+  };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          `${apiUrl ? apiUrl + "/" : ""}products/random-products`
+        );
+        const products = response.data;
+        const shuffledProducts = shuffleArray(products);
+        setRandomProducts(shuffledProducts.slice(0, 10));
+      } catch (error) {
+        console.error("Ошибка получения данных о товарах", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   const handleNext = () => {
     if (carouselRef.current) {
-      const nextIndex = (current + 1) % products.length;
-      carouselRef.current.goTo(nextIndex); // Используем goTo для перехода к следующему слайду
+      const nextIndex = (current + 1) % randomProducts.length;
+      carouselRef.current.goTo(nextIndex);
       setCurrent(nextIndex);
     }
   };
 
   const handlePrev = () => {
     if (carouselRef.current) {
-      const prevIndex = (current - 1 + products.length) % products.length;
-      carouselRef.current.goTo(prevIndex); // Используем goTo для перехода к предыдущему слайду
+      const prevIndex =
+        (current - 1 + randomProducts.length) % randomProducts.length;
+      carouselRef.current.goTo(prevIndex);
       setCurrent(prevIndex);
     }
   };
@@ -56,11 +66,12 @@ const ProductSimilar = ({ products }: ProductSimilarProps) => {
     setCurrent(currentSlide);
   };
 
+  console.log(randomProducts);
   return (
     <div className={styles.carouselWrapper}>
       <h1>Возможно вам понравится - </h1>
       <Carousel
-        ref={carouselRef} // Передаем ссылку на Carousel
+        ref={carouselRef}
         className={styles.carousel}
         slidesToShow={!isMobile ? 2 : 1}
         beforeChange={(from, to) => setCurrent(to)}
@@ -69,14 +80,15 @@ const ProductSimilar = ({ products }: ProductSimilarProps) => {
         infinite
         draggable={true}
       >
-        {products.map((product: any, index: any) => (
+        {randomProducts.map((product: any, index: any) => (
           <div key={index}>
-            <ProductSimilarCard product={product} />
+            <Link href={`/catalog/${product.id}`}>
+              <ProductSimilarCard product={product} />
+            </Link>
           </div>
         ))}
       </Carousel>
 
-      {/* Навигационные кнопки */}
       <div className={styles.navButtons}>
         <Button
           icon={<LeftOutlined />}
@@ -90,9 +102,8 @@ const ProductSimilar = ({ products }: ProductSimilarProps) => {
         />
       </div>
 
-      {/* Счетчик слайдов */}
       <div className={styles.counter}>
-        {current + 1}/{products.length}
+        {current + 1}/{randomProducts.length}
       </div>
     </div>
   );

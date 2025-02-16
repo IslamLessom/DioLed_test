@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Menu.module.scss";
-import { itemsMenu } from "../../../model/item";
 import { IoIosArrowDown } from "react-icons/io";
+import axios from "axios";
+import Link from "next/link";
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const MenuComponent: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [categories, setCategories] = useState<any[]>([]);
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const toggleMenu = (key: string, hasChildren: boolean) => {
     if (hasChildren) {
@@ -12,12 +17,32 @@ const MenuComponent: React.FC = () => {
     }
   };
 
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(
+          `${apiUrl ? apiUrl + "/" : ""}categories`
+        );
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error fetching categories", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  const categoriesToShow = showAll ? categories : categories.slice(0, 20);
+
   return (
     <nav className={styles.menu}>
       <h2 className={styles.menu__title}>Каталог мебели</h2>
-
       <ul className={styles.menu__list}>
-        {itemsMenu.map((item) => {
+        {categoriesToShow.map((item) => {
           const hasChildren = item.children && item.children.length > 0;
 
           return (
@@ -28,8 +53,12 @@ const MenuComponent: React.FC = () => {
                 } ${hasChildren ? styles.hasChildren : ""}`}
                 onClick={() => toggleMenu(item.key, hasChildren)}
               >
-                <span className={styles.icon}>{item.icon}</span>
-                <span className={styles.label}>{item.label}</span>
+                <Link href={`${item.id}`}>
+                  <span className={styles.label}>
+                    {item.category_name.charAt(0).toUpperCase() +
+                      item.category_name.slice(1).toLowerCase()}
+                  </span>
+                </Link>
                 {hasChildren && (
                   <span
                     className={`${styles.arrow} ${
@@ -60,6 +89,27 @@ const MenuComponent: React.FC = () => {
           );
         })}
       </ul>
+
+      {categories.length > 20 && (
+        <div
+          className={styles.showMoreWrapper}
+          onClick={toggleShowAll}
+          style={{
+            textAlign: "center",
+            marginTop: "10px",
+            cursor: "pointer",
+          }}
+        >
+          <IoIosArrowDown
+            className={`${styles.arrow} ${showAll ? styles.arrowUp : ""}`}
+            style={{
+              fontSize: "20px",
+              transition: "transform 0.3s ease",
+              transform: showAll ? "rotate(180deg)" : "rotate(0deg)",
+            }}
+          />
+        </div>
+      )}
     </nav>
   );
 };

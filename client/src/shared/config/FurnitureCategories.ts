@@ -57,7 +57,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 1,
     title: "Комоды и тумбы",
-    link: "/kamod",
+    link: "/218",
 
     price: "от 1780 руб.",
     className: styles.yellow,
@@ -67,7 +67,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 2,
     title: "Стеллажи",
-    link: "/stelaj",
+    link: "/218",
 
     price: "от 1890 руб.",
     className: `${styles.pink} ${styles.big}`,
@@ -77,7 +77,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 3,
     title: "Мебель для детской",
-    link: "/detskay",
+    link: "/218",
 
     price: "от 3200 руб.",
     className: styles.green,
@@ -87,7 +87,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 4,
     title: "Мебель для кухни",
-    link: "/kyxna",
+    link: "/218",
 
     price: "от 7850 руб.",
     className: styles.lightpink,
@@ -97,7 +97,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 5,
     title: "Мебель для офиса",
-    link: "/ofis",
+    link: "/218",
 
     price: "от 2880 руб.",
     className: styles.lightorange,
@@ -107,7 +107,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 6,
     title: "Мебель для спальни",
-    link: "/spalna",
+    link: "/218",
 
     price: "от 3900 руб.",
     className: styles.beige,
@@ -118,7 +118,7 @@ export const itemsFurnitureMenuOne = [
     id: 13,
     title: "Комоды и тумбы",
     price: "от 1780 руб.",
-    link: "/kamod",
+    link: "/218",
 
     className: styles.yellow,
     image:
@@ -129,7 +129,7 @@ export const itemsFurnitureMenuOne = [
     id: 14,
     title: "Мебель для детской",
     price: "от 1890 руб.",
-    link: "/detskay",
+    link: "/218",
 
     className: `${styles.pink}`,
     image:
@@ -139,7 +139,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 15,
     title: "Cтеллажи",
-    link: "/stelagi",
+    link: "/218",
     price: "от 3200 руб.",
     className: `${styles.green} ${styles.big}`,
     image:
@@ -149,7 +149,7 @@ export const itemsFurnitureMenuOne = [
     id: 16,
     title: "Мебель для офиса",
     price: "от 3900 руб.",
-    link: "/ofis",
+    link: "/218",
 
     className: styles.lightorange,
     image:
@@ -159,7 +159,7 @@ export const itemsFurnitureMenuOne = [
     id: 17,
     title: "Мебель для спальни",
     price: "от 3900 руб.",
-    link: "/spalna",
+    link: "/218",
     className: styles.beige,
     image:
       "https://www.bestmebelshop.ru/upload/resize_cache/uf/898/700_700_1/898158fc366f38d17b6386fb6211c266.png",
@@ -169,7 +169,7 @@ export const itemsFurnitureMenuOne = [
     id: 18,
     title: "Мебель для кухни",
     price: "от 7850 руб.",
-    link: "/kyxny",
+    link: "/218",
 
     className: styles.lightpink,
     image:
@@ -179,7 +179,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 7,
     title: "Стеллажи",
-    link: "/stelagi",
+    link: "/218",
 
     price: "от 1890 руб.",
     className: `${styles.pink} ${styles.big}`,
@@ -189,7 +189,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 8,
     title: "Комоды и тумбы",
-    link: "/kamod",
+    link: "/218",
 
     price: "от 1780 руб.",
     className: styles.yellow,
@@ -199,7 +199,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 9,
     title: "Мебель для спальни",
-    link: "/spalna",
+    link: "/218",
 
     price: "от 3900 руб.",
     className: styles.beige,
@@ -209,7 +209,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 10,
     title: "Мебель для детской",
-    link: "/detskay",
+    link: "/218",
 
     price: "от 3200 руб.",
     className: styles.green,
@@ -219,7 +219,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 11,
     title: "Мебель для кухни",
-    link: "/kyxny",
+    link: "/218",
 
     price: "от 7850 руб.",
     className: styles.lightpink,
@@ -229,7 +229,7 @@ export const itemsFurnitureMenuOne = [
   {
     id: 12,
     title: "Мебель для офиса",
-    link: "/ofis",
+    link: "/218",
 
     price: "от 2880 руб.",
     className: styles.lightorange,

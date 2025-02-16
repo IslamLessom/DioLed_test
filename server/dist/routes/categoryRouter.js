@@ -15,20 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const categoryController_1 = require("../controllers/categoryController");
 const router = express_1.default.Router();
-router.get("/cat", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield (0, categoryController_1.getCategory)(req, res);
     }
     catch (error) {
         res.status(500).json({ message: "Error retrieving categories", error });
-    }
-}));
-router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield (0, categoryController_1.postCategory)(req, res);
-    }
-    catch (error) {
-        res.status(400).json({ message: "Error creating category", error });
     }
 }));
 router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

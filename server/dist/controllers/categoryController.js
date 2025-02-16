@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteCategory = exports.editCategory = exports.getCategoryId = exports.postCategory = exports.getCategory = void 0;
+exports.deleteCategory = exports.editCategory = exports.getCategoryId = exports.getCategory = void 0;
 const category_1 = require("../models/category");
 const getCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -24,20 +24,6 @@ const getCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.getCategory = getCategory;
-const postCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { category_name } = req.body;
-    try {
-        const newCategory = yield category_1.Category.create({ category_name });
-        res.status(201).json(newCategory);
-    }
-    catch (error) {
-        res.status(400).json({
-            success: false,
-            message: error instanceof Error ? error.message : "Ошибка",
-        });
-    }
-});
-exports.postCategory = postCategory;
 const getCategoryId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const categoryId = parseInt(req.params.id);
     const category = yield category_1.Category.findByPk(categoryId);

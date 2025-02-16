@@ -9,34 +9,9 @@ import { IoPodiumOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
 import styles from "./ProductInfo.module.scss";
 
-interface ProductInfoProps {
-  product: {
-    id: number;
-    name: string;
-    price: string;
-    materialBody: string;
-    materialFacade: string;
-    manufacturer: string;
-    productionTime: string;
-    warranty: string;
-    lifting: boolean;
-    assembly: boolean;
-    article: string;
-    deliveryMoscow: string;
-    deliveryDate: string;
-    description: string;
-    reviews: {
-      average: number;
-      count: number;
-    };
-    rating: number;
-    image: string;
-  };
-}
-
-const PruductInfo = ({ product }: ProductInfoProps) => {
+const PruductInfo = ({ product }: any) => {
   const [isFavorite, setIsFavorite] = useState(false);
-
+  const [isBusket, setIsBusket] = useState(false);
   useEffect(() => {
     // Проверяем localStorage при монтировании компонента
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -60,14 +35,44 @@ const PruductInfo = ({ product }: ProductInfoProps) => {
     window.dispatchEvent(new Event("favoritesUpdated"));
   };
 
+  const toggleBusket = () => {
+    const busket = JSON.parse(localStorage.getItem("busket") || "[]");
+    let newBusket;
+
+    if (isBusket) {
+      newBusket = busket.filter((id: number) => id !== product.id);
+    } else {
+      newBusket = [...busket, product.id];
+    }
+    localStorage.setItem("busket", JSON.stringify(newBusket));
+    setIsBusket(!isBusket);
+
+    // Вызываем событие обновления избранного
+    window.dispatchEvent(new Event("busketUpdated"));
+  };
+
   return (
     <>
-      <h1 className={styles.title}>{product.name}</h1>
+      <h1 className={styles.title}>{product.product_name}</h1>
       <Carousel draggable={true}>
-        <Image src="/rena1.jpg" alt="bra1" width={500} height={400} />
-        <Image src="/bra2.jpg" alt="bra2" width={500} height={400} />
-        <Image src="/bra3.jpg" alt="bra3" width={500} height={400} />
-        <Image src="/bra4.jpg" alt="bra4" width={500} height={400} />
+        <Image
+          src={product.announcement_image_url}
+          alt="bra1"
+          width={500}
+          height={400}
+        />
+        <Image
+          src={product?.additional_images[0]}
+          alt="bra2"
+          width={500}
+          height={400}
+        />
+        <Image
+          src={product?.additional_images[1]}
+          alt="bra3"
+          width={500}
+          height={400}
+        />
       </Carousel>
       <div className={styles.product__function}>
         <div className={styles.product__function__general}>
@@ -79,7 +84,13 @@ const PruductInfo = ({ product }: ProductInfoProps) => {
             {isFavorite ? <FaHeart color="red" /> : <CiHeart />}
           </div>
           <IoPodiumOutline />
-          <CiShoppingCart />
+          <div
+            onClick={toggleBusket}
+            className={styles.product__function__favorite}
+            style={{ cursor: "pointer" }}
+          >
+            {isBusket ? <CiShoppingCart color="red" /> : <CiShoppingCart />}
+          </div>
         </div>
         <div className={styles.product__function__rating}>
           <Rate allowHalf defaultValue={product.rating} />

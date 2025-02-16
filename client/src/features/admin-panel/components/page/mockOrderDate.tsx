@@ -1,22 +1,29 @@
 export interface Order {
-  id: string;
-  number: string;
-  totalPrice: number;
+  OrderItems: [
+    {
+      created_at: Date;
+      id: number;
+      order_id: number;
+      price: number | null;
+      product_id: number;
+      quantity: number;
+      updated_at: Date;
+    }
+  ];
+  comments: string;
+  address: string;
+  created_at: Date;
+  firstname: string;
+  id: number;
+  phone: string;
+  status: string;
+  total_sum: number;
+  updated_at: Date;
+  user_id: number;
   username: string;
-  date: string;
-  status: "new" | "paid" | "shipped" | "completed";
-  items: {
-    product: string;
-    quantity: number;
-    total: number;
-  }[];
-  history: {
-    date: string;
-    event: string;
-  }[];
 }
 
-export const mockOrders: Order[] = [
+export const mockOrders: any[] = [
   {
     id: "1",
     number: "#100612305",

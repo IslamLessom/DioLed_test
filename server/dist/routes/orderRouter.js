@@ -41,6 +41,7 @@ const orderController = __importStar(require("../controllers/orderController"));
 const orderItemController = __importStar(require("../controllers/orderItemController"));
 const router = express_1.default.Router();
 // Заказы
+router.post("/orders", orderController.createOrder);
 router.get("/orders", orderController.getAllOrders);
 router.get("/orders/:id", orderController.getOrderById);
 router.put("/orders/:id", orderController.updateOrder);

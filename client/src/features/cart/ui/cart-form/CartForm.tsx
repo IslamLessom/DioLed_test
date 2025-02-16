@@ -27,7 +27,7 @@ const CartForm: React.FC<CartFormProps> = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
-
+  console.log(products);
   const onFinish = useCallback(
     async (values: FieldType) => {
       setLoading(true);
@@ -41,8 +41,11 @@ const CartForm: React.FC<CartFormProps> = ({
         comments: values.comments,
         products: products.map((p) => ({
           id: p.id,
-          name: p.name,
-          price: p.price,
+          name: p.product_name,
+          price: parseInt(
+            (p.base_price || "0").toString().replace(/\s/g, ""),
+            10
+          ),
           quantity: p.quantity || 1,
         })),
         total_sum: totalSum,
@@ -54,6 +57,7 @@ const CartForm: React.FC<CartFormProps> = ({
           `${apiUrl ? apiUrl + "/" : ""}orders`,
           order
         );
+        console.log(response);
         message.success("Заказ успешно оформлен!");
         form.resetFields();
 

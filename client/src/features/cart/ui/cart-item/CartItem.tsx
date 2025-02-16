@@ -4,21 +4,28 @@ import React, { useEffect, useState, useCallback } from "react";
 import { SelectedItem } from "../selected-item/SelectedItem";
 import CartForm from "../cart-form/CartForm";
 import styled from "./CartItem.module.scss";
-import { productsMockDate } from "../../../../../mockDate";
 import { Product } from "../../../favorites/components/favorite-page/FavoritePage";
+import axios from "axios";
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const CartItem = () => {
-  const [busketProduct, setBusketProduct] = useState<Product[]>([]);
+  const [busketProduct, setBusketProduct] = useState([]);
   const [totalSum, setTotalSum] = useState<number>(0);
   const [cartUpdateTrigger, setCartUpdateTrigger] = useState(0);
 
-  const calculateTotalSum = useCallback((products: Product[]) => {
-    const sum = products.reduce((acc, product: any) => {
-      const cleanPrice = product.price.replace(/\s/g, "").replace(",", ".");
-      return acc + Number(cleanPrice) * (product.quantity || 1);
+  const calculateTotalSum = useCallback(() => {
+    const sum = busketProduct.reduce((acc: number, product: any) => {
+      const cleanPrice = parseFloat(
+        (product.base_price || "0")
+          .toString()
+          .replace(/\s/g, "")
+          .replace(",", ".")
+      );
+      return acc + cleanPrice * (product.quantity ?? 1);
     }, 0);
     setTotalSum(sum);
-  }, []);
+  }, [busketProduct]);
 
   const updateCart = useCallback(() => {
     setBusketProduct([]);
@@ -29,41 +36,58 @@ export const CartItem = () => {
   }, []);
 
   const loadBusket = useCallback(() => {
-    const favorites = JSON.parse(localStorage.getItem("busket") || "[]");
-    const favoriteItems = productsMockDate
-      .filter((product) => favorites.includes(product.id))
-      .map((product) => ({ ...product, quantity: 1 }));
-    setBusketProduct(favoriteItems);
-    calculateTotalSum(favoriteItems);
-  }, [calculateTotalSum]);
+    const storedBusket = JSON.parse(localStorage.getItem("busket") || "[]");
+    axios
+      .get(`${apiUrl ? apiUrl + "/" : ""}products/random-products`)
+      .then((response) => {
+        const products = response.data.filter((product: Product) =>
+          storedBusket.includes(product.id)
+        );
+        setBusketProduct(
+          products.map((product: any) => ({ ...product, quantity: 1 }))
+        );
+      })
+      .catch((error) => {
+        console.error("Ошибка загрузки товаров:", error);
+      });
+  }, []);
 
   useEffect(() => {
     loadBusket();
-  }, [loadBusket, cartUpdateTrigger]);
+  }, [cartUpdateTrigger, loadBusket]);
+
+  useEffect(() => {
+    calculateTotalSum();
+  }, [busketProduct]);
 
   useEffect(() => {
     const handleStorageChange = () => {
       loadBusket();
     };
-
     window.addEventListener("busketUpdated", handleStorageChange);
     return () =>
       window.removeEventListener("busketUpdated", handleStorageChange);
   }, [loadBusket]);
 
-  const handleRemoveFromFavorites = (productId: number) => {
-    const buskets = JSON.parse(localStorage.getItem("busket") || "[]");
-    const newFavorites = buskets.filter((id: number) => id !== productId);
-    localStorage.setItem("busket", JSON.stringify(newFavorites));
-    updateCart();
+  const handleRemoveFromBusket = (productId: any) => {
+    const updatedBusket = busketProduct.filter(
+      (product: any) => product.id !== productId
+    );
+    localStorage.setItem(
+      "busket",
+      JSON.stringify(updatedBusket.map((p: any) => p.id))
+    );
+    setBusketProduct(updatedBusket);
+    calculateTotalSum();
+    window.dispatchEvent(new Event("busketUpdated"));
   };
 
   const handleQuantityChange = (productId: number, newQuantity: number) => {
-    const updatedProducts = busketProduct.map((product) =>
+    const updatedProducts: any = busketProduct.map((product: any) =>
       product.id === productId ? { ...product, quantity: newQuantity } : product
     );
     setBusketProduct(updatedProducts);
-    calculateTotalSum(updatedProducts);
+    calculateTotalSum();
   };
 
   if (busketProduct.length === 0) {
@@ -83,7 +107,7 @@ export const CartItem = () => {
       <div className={styled.cart_container}>
         <SelectedItem
           busketProduct={busketProduct}
-          handleRemoveFromFavorites={handleRemoveFromFavorites}
+          handleRemoveFromFavorites={handleRemoveFromBusket}
           onQuantityChange={handleQuantityChange}
           updateCart={updateCart}
         />
