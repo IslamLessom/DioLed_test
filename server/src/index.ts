@@ -10,7 +10,7 @@ import exportRouter from "./routes/exportRouter";
 import productsRouter from "./routes/productsRouter";
 import formRouter from "./routes/formRouter";
 import orderRouter from "./routes/orderRouter";
-import { main } from "controllers/saveProduct";
+import { main } from "./controllers/saveProduct";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
