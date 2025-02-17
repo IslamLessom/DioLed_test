@@ -17,7 +17,7 @@ interface ProductAttributes {
   delivery: boolean;
   params: Record<string, string>;
   created_at: Date;
-  updated_at: Date; // Добавляем поле
+  updated_at: Date;
 }
 
 interface ProductCreationAttributes
@@ -41,8 +41,8 @@ export class Product
   public pickup!: boolean;
   public delivery!: boolean;
   public params!: Record<string, string>;
-  public created_at!: Date; // Добавляем поле для временной метки
-  public updated_at!: Date; // Добавляем поле для временной метки
+  public created_at!: Date;
+  public updated_at!: Date;
 }
 
 export const initializeProductModel = (sequelize: Sequelize) => {
@@ -116,19 +116,19 @@ export const initializeProductModel = (sequelize: Sequelize) => {
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"), // Устанавливаем дефолтное значение
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
       updated_at: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"), // Устанавливаем дефолтное значение
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
       },
     },
     {
       sequelize,
       modelName: "Product",
       tableName: "products",
-      timestamps: false, // Можешь оставить, если не нужны другие временные метки
+      timestamps: false,
       freezeTableName: true,
     }
   );

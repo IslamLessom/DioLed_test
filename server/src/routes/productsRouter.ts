@@ -32,12 +32,57 @@ router.get("/", async (req, res) => {
     });
 
     res.json({
-      products: rows, // Возвращаем товары
-      total: count, // Возвращаем общее количество товаров
+      products: rows,
+      total: count,
     });
   } catch (error) {
     console.error("Ошибка при получении продуктов:", error);
     res.status(500).json({ error: "Ошибка при получении списка продуктов" });
+  }
+});
+router.post("/", async (req: any, res: any) => {
+  try {
+    const {
+      product_name,
+      vendor_code,
+      description,
+      brand,
+      base_price,
+      announcement_image_url,
+      additional_images,
+      url,
+      store,
+      pickup,
+      delivery,
+      category_id,
+      params,
+    } = req.body;
+
+    if (!product_name || !vendor_code || !base_price || !url) {
+      return res.status(400).json({ message: "Заполните обязательные поля" });
+    }
+
+    const newProduct = await Product.create({
+      product_name,
+      vendor_code,
+      description,
+      brand,
+      base_price,
+      announcement_image_url,
+      additional_images: additional_images || [],
+      url,
+      store,
+      pickup,
+      delivery,
+      category_id,
+      params: params || {},
+      updated_at: new Date(),
+    });
+
+    res.status(201).json(newProduct);
+  } catch (error) {
+    console.error("Ошибка при добавлении товара:", error);
+    res.status(500).json({ message: "Ошибка сервера", error });
   }
 });
 
@@ -52,7 +97,6 @@ router.get("/random-products", async (req, res) => {
   }
 });
 
-// Получить продукт по ID
 router.get("/:id", async (req: any, res: any) => {
   try {
     const productId = parseInt(req.params.id, 10);
@@ -70,7 +114,6 @@ router.get("/:id", async (req: any, res: any) => {
   }
 });
 
-// Обновить продукт по ID
 router.put("/:id", async (req: any, res: any) => {
   try {
     const productId = parseInt(req.params.id, 10);
@@ -79,17 +122,17 @@ router.put("/:id", async (req: any, res: any) => {
       return res.status(404).json({ message: "Продукт не найден" });
     }
 
-    // Обновляем продукт новыми данными из тела запроса
     const updatedProduct = await product.update(req.body);
 
-    res.json(updatedProduct); // Возвращаем обновленный продукт
+    res.json(updatedProduct);
   } catch (error) {
     console.error("Ошибка при обновлении продукта:", error);
     res.status(500).json({ message: "Ошибка при обновлении продукта" });
   }
 });
 
-// Удалить продукт по ID
+import { OrderItem } from "../models/orderItem";
+
 router.delete("/:id", async (req: any, res: any) => {
   try {
     const productId = parseInt(req.params.id, 10);
@@ -98,7 +141,8 @@ router.delete("/:id", async (req: any, res: any) => {
       return res.status(404).json({ message: "Продукт не найден" });
     }
 
-    // Удаляем продукт
+    await OrderItem.destroy({ where: { product_id: productId } });
+
     await product.destroy();
     res.json({ message: "Продукт удален" });
   } catch (error) {

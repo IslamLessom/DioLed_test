@@ -12,6 +12,7 @@ import styles from "./ProductInfo.module.scss";
 const PruductInfo = ({ product }: any) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isBusket, setIsBusket] = useState(false);
+  const [isComparision, setIsComparision] = useState(false);
   useEffect(() => {
     // Проверяем localStorage при монтировании компонента
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
@@ -51,6 +52,21 @@ const PruductInfo = ({ product }: any) => {
     window.dispatchEvent(new Event("busketUpdated"));
   };
 
+  const toggleComprasion = () => {
+    const comprasion = JSON.parse(localStorage.getItem("comparison") || "[]");
+    let newComprasion;
+
+    if (isBusket) {
+      newComprasion = comprasion.filter((id: number) => id !== product.id);
+    } else {
+      newComprasion = [...comprasion, product.id];
+    }
+    localStorage.setItem("comparison", JSON.stringify(newComprasion));
+    setIsComparision(!isComparision);
+
+    window.dispatchEvent(new Event("comparisonUpdated"));
+  };
+
   return (
     <>
       <h1 className={styles.title}>{product.product_name}</h1>
@@ -83,7 +99,17 @@ const PruductInfo = ({ product }: any) => {
           >
             {isFavorite ? <FaHeart color="red" /> : <CiHeart />}
           </div>
-          <IoPodiumOutline />
+          <div
+            onClick={toggleComprasion}
+            style={{ cursor: "pointer" }}
+            className={styles.product__function__favorite}
+          >
+            {isComparision ? (
+              <IoPodiumOutline color="red" />
+            ) : (
+              <IoPodiumOutline />
+            )}
+          </div>
           <div
             onClick={toggleBusket}
             className={styles.product__function__favorite}

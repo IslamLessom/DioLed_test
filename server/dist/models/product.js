@@ -75,18 +75,18 @@ const initializeProductModel = (sequelize) => {
         created_at: {
             type: sequelize_1.DataTypes.DATE,
             allowNull: false,
-            defaultValue: sequelize_1.Sequelize.literal("CURRENT_TIMESTAMP"), // Устанавливаем дефолтное значение
+            defaultValue: sequelize_1.Sequelize.literal("CURRENT_TIMESTAMP"),
         },
         updated_at: {
             type: sequelize_1.DataTypes.DATE,
             allowNull: false,
-            defaultValue: sequelize_1.Sequelize.literal("CURRENT_TIMESTAMP"), // Устанавливаем дефолтное значение
+            defaultValue: sequelize_1.Sequelize.literal("CURRENT_TIMESTAMP"),
         },
     }, {
         sequelize,
         modelName: "Product",
         tableName: "products",
-        timestamps: false, // Можешь оставить, если не нужны другие временные метки
+        timestamps: false,
         freezeTableName: true,
     });
     return Product;

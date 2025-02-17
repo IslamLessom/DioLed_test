@@ -18,15 +18,6 @@ const AdminSudebarRight = () => {
       <div className={styles.csv}>
         <CsvFormaterExportButton />
       </div>
-
-      <div className={styles.csv}>
-        <MdDeleteSweep />
-        Удалить товары
-      </div>
-      <div className={styles.csv}>
-        <MdFormatListBulletedAdd />
-        Добавить товары
-      </div>
       <CreateAdminButton />
     </div>
   );

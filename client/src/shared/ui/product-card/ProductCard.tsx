@@ -10,6 +10,7 @@ import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
 
 import styles from "./ProductCard.module.scss";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -42,6 +43,7 @@ interface Product {
 }
 
 const ProductCard = ({
+  id,
   product_name,
   base_price,
   announcement_image_url,
@@ -57,14 +59,17 @@ const ProductCard = ({
     <div className={styles.card}>
       <Image src={announcement_image_url} alt="" width={100} height={100} />
       <div className={styles.card__info}>
-        <p className={styles.card__info__price}>{base_price}</p>
-        <p className={styles.card__info__name}>
-          <p>
-            {product_name && product_name.length > 40
-              ? product_name.slice(0, 40) + "..."
-              : product_name}
+        <Link key={id} href={`/category/${id}`}>
+          <p className={styles.card__info__price}>{base_price}</p>
+          <p className={styles.card__info__name}>
+            <p>
+              {product_name && product_name.length > 40
+                ? product_name.slice(0, 40) + "..."
+                : product_name}
+            </p>
           </p>
-        </p>
+        </Link>
+
         <div className={styles.card__details_container}>
           <div className={styles.card__stars}>
             <Rate allowHalf defaultValue={3} />
@@ -85,7 +90,14 @@ const ProductCard = ({
                 )}
               </div>
             </div>
-            {!isMobile && <Button>Подробнее</Button>}
+            {!isMobile && (
+              <Button>
+                {" "}
+                <Link key={id} href={`/category/${id}`}>
+                  Подробнее
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

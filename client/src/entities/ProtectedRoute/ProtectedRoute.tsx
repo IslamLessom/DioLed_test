@@ -9,7 +9,6 @@ const ProtectedRoute = ({ children = null }: any) => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      // Если не аутентифицирован, перенаправляем на страницу входа
       router.push("/auth");
     }
 
@@ -17,13 +16,12 @@ const ProtectedRoute = ({ children = null }: any) => {
       if (!isAuthenticated) {
         router.push("/auth");
       } else {
-        // Если пользователь не админ, перенаправляем на профиль
         router.push("/profile");
       }
     }
   }, []);
 
-  return children; // Рендерим детей если все проверки пройдены
+  return children;
 };
 
 export default ProtectedRoute;

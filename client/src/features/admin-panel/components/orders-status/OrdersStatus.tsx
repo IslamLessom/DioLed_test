@@ -83,6 +83,18 @@ export const OrdersStatus = () => {
           <p className={styles.status__container__menu__continer}>100</p>
         </div>
       </div>
+      <h2 className={styles.status__title}>Товары</h2>
+      <div className={styles.status__container}>
+        <div className={styles.status__container__menu}>
+          <div className={styles.status__container__menu__box}>
+            <MdOutlineNewReleases />
+            <Link href={"/admin/allproduct"}>
+              <p>Все товары</p>
+            </Link>
+          </div>
+          <p className={styles.status__container__menu__continer}>100</p>
+        </div>
+      </div>
     </div>
   );
 };

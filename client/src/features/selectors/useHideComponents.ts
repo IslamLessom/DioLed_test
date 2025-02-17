@@ -8,6 +8,7 @@ export const useHideComponents = () => {
     "/auth",
     "/admin",
     "/admin/application",
+    "/admin/allproduct",
     "/admin/order",
     "/basket",
   ];
@@ -16,6 +17,11 @@ export const useHideComponents = () => {
 
 export const useHideAdmin = () => {
   const currentPath = usePathname();
-  const hideComponents = ["/admin", "/admin/application", "/admin/order"];
+  const hideComponents = [
+    "/admin",
+    "/admin/application",
+    "/admin/order",
+    "/admin/allproduct",
+  ];
   return hideComponents.includes(currentPath);
 };
