@@ -19,7 +19,7 @@ const ProductPageClient = ({ params }: any) => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `${apiUrl ? apiUrl + "/" : ""}products/${productId}`
+          `http://188.225.77.249:3001/products/${productId}`
         );
         const data = await response.json();
         setProduct(data);

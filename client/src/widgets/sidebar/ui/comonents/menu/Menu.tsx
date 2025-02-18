@@ -25,7 +25,7 @@ const MenuComponent: React.FC = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl ? apiUrl + "/" : ""}categories`
+          `http://188.225.77.249:3001/categories`
         );
         setCategories(response.data);
       } catch (error) {

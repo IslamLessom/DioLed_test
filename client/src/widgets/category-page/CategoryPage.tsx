@@ -44,7 +44,7 @@ const CategoryPage = () => {
         if (!categoryId || isNaN(Number(categoryId))) return;
 
         const response = await axios.get(
-          `${apiUrl ? apiUrl + "/" : ""}products?category_id=${Number(
+          `http://188.225.77.249:3001/products?category_id=${Number(
             categoryId
           )}&page=${currentPage}&page_size=12`
         );

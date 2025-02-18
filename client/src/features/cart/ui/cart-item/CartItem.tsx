@@ -38,7 +38,7 @@ export const CartItem = () => {
   const loadBusket = useCallback(() => {
     const storedBusket = JSON.parse(localStorage.getItem("busket") || "[]");
     axios
-      .get(`${apiUrl ? apiUrl + "/" : ""}products/random-products`)
+      .get(`http://188.225.77.249:3001/products/random-products`)
       .then((response) => {
         const products = response.data.filter((product: Product) =>
           storedBusket.includes(product.id)

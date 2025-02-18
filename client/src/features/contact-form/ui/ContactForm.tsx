@@ -24,7 +24,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const onFinish = async (values: any) => {
     setLoading(true);
     try {
-      const response = await axios.post(`${!!apiUrl ? apiUrl + "/" : ""}form`, {
+      const response = await axios.post(`http://188.225.77.249:3001/form`, {
         name: values.name,
         phone_number: values.phone,
         preferred_call_time: values.time,

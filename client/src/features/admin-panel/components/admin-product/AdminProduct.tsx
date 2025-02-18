@@ -37,9 +37,7 @@ const AdminProduct = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `${
-            apiUrl ? apiUrl + "/" : ""
-          }products?page=${currentPage}&page_size=12`
+          `http://188.225.77.249:3001/products?page=${currentPage}&page_size=12`
         );
         setProducts(response.data.products);
         setTotalProducts(response.data.total);
@@ -56,7 +54,7 @@ const AdminProduct = () => {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`${apiUrl}/products/${id}`);
+      await axios.delete(`http://188.225.77.249:3001/products/${id}`);
       setProducts(products.filter((p: any) => p.id !== id));
     } catch (error) {
       console.log("Ошибка при удалении товара:", error);
@@ -71,7 +69,7 @@ const AdminProduct = () => {
   const handleSave = async () => {
     try {
       await axios.put(
-        `${apiUrl}/products/${editingProduct.id}`,
+        `http://188.225.77.249:3001/products/${editingProduct.id}`,
         editingProduct
       );
       setProducts(
@@ -99,7 +97,7 @@ const AdminProduct = () => {
         socket: newProduct.socket,
       };
 
-      const response = await axios.post(`${apiUrl}/products`, {
+      const response = await axios.post(`http://188.225.77.249:3001/products`, {
         product_name: newProduct.product_name,
         vendor_code: newProduct.vendor_code,
         description: newProduct.description,

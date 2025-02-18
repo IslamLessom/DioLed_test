@@ -30,7 +30,7 @@ const FavoritePage = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl ? apiUrl + "/" : ""}products/random-products`
+          `http://188.225.77.249:3001/products/random-products`
         );
         setProducts(response.data);
       } catch (error) {

@@ -34,7 +34,7 @@ export const loginUser = async ({
 }: LoginParams): Promise<LoginResponse> => {
   try {
     const response: AxiosResponse<LoginResponse> = await axios.post(
-      `${!!apiUrl ? apiUrl + "/" : ""}login`,
+      `http://188.225.77.249:3001/login`,
       {
         username,
         password,
@@ -61,7 +61,7 @@ export const registerUser = async ({
 }: RegisterParams): Promise<RegisterResponse> => {
   try {
     const response: AxiosResponse<RegisterResponse> = await axios.post(
-      `${!!apiUrl ? apiUrl + "/" : ""}register`,
+      `http://188.225.77.249:3001/register`,
       {
         username,
         email,

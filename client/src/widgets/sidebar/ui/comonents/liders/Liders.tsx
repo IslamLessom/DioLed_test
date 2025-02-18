@@ -27,7 +27,7 @@ const Liders = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl ? apiUrl + "/" : ""}products/random-products`
+          `http://188.225.77.249:3001/products/random-products`
         );
         const shuffled = response.data.sort(() => 0.5 - Math.random());
         setProducts(shuffled.slice(0, 3));

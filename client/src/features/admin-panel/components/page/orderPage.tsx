@@ -19,7 +19,7 @@ const OrderPageComponents = () => {
       setError(null);
 
       try {
-        const response = await axios.get(`${apiUrl ? apiUrl + "/" : ""}orders`);
+        const response = await axios.get(`http://188.225.77.249:3001/orders`);
 
         setOrders([...response.data]);
       } catch (error: any) {

@@ -54,7 +54,7 @@ const CartForm: React.FC<CartFormProps> = ({
 
       try {
         const response = await axios.post(
-          `${apiUrl ? apiUrl + "/" : ""}orders`,
+          `http://188.225.77.249:3001/orders`,
           order
         );
         console.log(response);

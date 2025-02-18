@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   console.log(params.product);
   try {
     const response = await fetch(
-      `${apiUrl ? apiUrl + "/" : ""}products/${params.product}`
+      `http://188.225.77.249:3001/products/${params.product}`
     );
     const data = await response.json();
     return {

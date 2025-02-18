@@ -25,7 +25,7 @@ export const AdminDetail: React.FC<AdminDetailProps> = ({
         const productPromises = order.OrderItems.map(async (item: any) => {
           try {
             const response = await axios.get(
-              `${apiUrl ? apiUrl + "/" : ""}products/${item.product_id}`
+              `http://188.225.77.249:3001/products/${item.product_id}`
             );
             return { [item.product_id]: response.data };
           } catch (error) {
@@ -77,7 +77,7 @@ export const AdminDetail: React.FC<AdminDetailProps> = ({
 
   const handleDeleteOrder = async () => {
     try {
-      await axios.delete(`${apiUrl ? apiUrl + "/" : ""}orders/${order.id}`); // Замените на ваш API-endpoint
+      await axios.delete(`http://188.225.77.249:3001/orders/${order.id}`); // Замените на ваш API-endpoint
       message.success(`Заказ ${order.id} успешно удален`);
       if (onOrderDeleted) {
         onOrderDeleted(order.id); // Вызываем коллбэк, чтобы сообщить родителю об удалении

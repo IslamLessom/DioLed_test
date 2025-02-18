@@ -19,7 +19,7 @@ const AdminApplicationComponents = () => {
   const fetchApplications = async () => {
     try {
       const response = await axios.get<ApplicationType[]>(
-        `${apiUrl ? apiUrl + "/" : ""}form`
+        `http://188.225.77.249:3001/form`
       );
       setApplications(response.data);
     } catch (error) {
@@ -39,7 +39,7 @@ const AdminApplicationComponents = () => {
 
   const deleteApplication = async (id: string) => {
     try {
-      await axios.delete(`${apiUrl ? apiUrl + "/" : ""}form/${id}`);
+      await axios.delete(`http://188.225.77.249:3001/form/${id}`);
       setApplications(applications.filter((app) => app.id !== id));
     } catch (error) {
       console.error("Error deleting application:", error);
