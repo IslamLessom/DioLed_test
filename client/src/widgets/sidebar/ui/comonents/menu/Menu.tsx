@@ -1,15 +1,23 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./Menu.module.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import axios from "axios";
 import Link from "next/link";
+import { CiUser } from "react-icons/ci";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../../../../../features/auth/context/AuthProvider";
+import MenuFeauteres from "../../../../../shared/ui/menu-feauteres/MenuFeauteres";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-const MenuComponent: React.FC = () => {
+const MenuComponent = ({ isMenuOpen }: any) => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [categories, setCategories] = useState<any[]>([]);
   const [showAll, setShowAll] = useState<boolean>(false);
+  const { isAuthenticated } = useAuth();
+
+  const router = useRouter();
 
   const toggleMenu = (key: string, hasChildren: boolean) => {
     if (hasChildren) {
@@ -36,81 +44,98 @@ const MenuComponent: React.FC = () => {
     fetchCategories();
   }, []);
 
+  const handleClick = () => {
+    if (isAuthenticated) {
+      router.push("/profile"); // Перенаправление на страницу профиля
+    } else {
+      router.push("/auth"); // Перенаправление на страницу регистрации
+    }
+  };
+
   const categoriesToShow = showAll ? categories : categories.slice(0, 20);
 
   return (
-    <nav className={styles.menu}>
-      <h2 className={styles.menu__title}>Каталог мебели</h2>
-      <ul className={styles.menu__list}>
-        {categoriesToShow.map((item) => {
-          const hasChildren = item.children && item.children.length > 0;
+    <>
+      <nav className={styles.menu}>
+        <h2 className={styles.menu__title}>Каталог мебели</h2>
+        <ul className={styles.menu__list}>
+          {categoriesToShow.map((item) => {
+            const hasChildren = item.children && item.children.length > 0;
 
-          return (
-            <li key={item.key} className={styles.menu__item}>
-              <button
-                className={`${styles.menu__button} ${
-                  openMenu === item.key ? styles.active : ""
-                } ${hasChildren ? styles.hasChildren : ""}`}
-                onClick={() => toggleMenu(item.key, hasChildren)}
-              >
-                <Link href={`${item.id}`}>
-                  <span className={styles.label}>
-                    {item.category_name.charAt(0).toUpperCase() +
-                      item.category_name.slice(1).toLowerCase()}
-                  </span>
-                </Link>
+            return (
+              <li key={item.key} className={styles.menu__item}>
+                <button
+                  className={`${styles.menu__button} ${
+                    openMenu === item.key ? styles.active : ""
+                  } ${hasChildren ? styles.hasChildren : ""}`}
+                  onClick={() => toggleMenu(item.key, hasChildren)}
+                >
+                  <Link href={`${item.id}`}>
+                    <span className={styles.label}>
+                      {item.category_name.charAt(0).toUpperCase() +
+                        item.category_name.slice(1).toLowerCase()}
+                    </span>
+                  </Link>
+                  {hasChildren && (
+                    <span
+                      className={`${styles.arrow} ${
+                        openMenu === item.key ? styles.arrowUp : ""
+                      }`}
+                    >
+                      <IoIosArrowDown />
+                    </span>
+                  )}
+                </button>
+
                 {hasChildren && (
-                  <span
-                    className={`${styles.arrow} ${
-                      openMenu === item.key ? styles.arrowUp : ""
+                  <div
+                    className={`${styles.submenuWrapper} ${
+                      openMenu === item.key ? styles.open : ""
                     }`}
                   >
-                    <IoIosArrowDown />
-                  </span>
+                    <ul className={styles.submenu}>
+                      {item.children.map((child: any) => (
+                        <li key={child.key} className={styles.submenu__item}>
+                          {child.label}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
-              </button>
+              </li>
+            );
+          })}
+        </ul>
 
-              {hasChildren && (
-                <div
-                  className={`${styles.submenuWrapper} ${
-                    openMenu === item.key ? styles.open : ""
-                  }`}
-                >
-                  <ul className={styles.submenu}>
-                    {item.children.map((child: any) => (
-                      <li key={child.key} className={styles.submenu__item}>
-                        {child.label}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-
-      {categories.length > 20 && (
-        <div
-          className={styles.showMoreWrapper}
-          onClick={toggleShowAll}
-          style={{
-            textAlign: "center",
-            marginTop: "10px",
-            cursor: "pointer",
-          }}
-        >
-          <IoIosArrowDown
-            className={`${styles.arrow} ${showAll ? styles.arrowUp : ""}`}
+        {categories.length > 20 && (
+          <div
+            className={styles.showMoreWrapper}
+            onClick={toggleShowAll}
             style={{
-              fontSize: "20px",
-              transition: "transform 0.3s ease",
-              transform: showAll ? "rotate(180deg)" : "rotate(0deg)",
+              textAlign: "center",
+              marginTop: "10px",
+              cursor: "pointer",
             }}
-          />
+          >
+            <IoIosArrowDown
+              className={`${styles.arrow} ${showAll ? styles.arrowUp : ""}`}
+              style={{
+                fontSize: "20px",
+                transition: "transform 0.3s ease",
+                transform: showAll ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            />
+          </div>
+        )}
+      </nav>
+      {isMenuOpen ? (
+        <div className={styles.menuFunction}>
+          <MenuFeauteres />{" "}
         </div>
+      ) : (
+        <></>
       )}
-    </nav>
+    </>
   );
 };
 

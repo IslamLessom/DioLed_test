@@ -4,8 +4,10 @@
 .about__title {
     margin-bottom: 20px;
     width: 700px;
-    @include mixins.mobile {
+    @include mixins.tablet {
         margin-top: 30px;
+        width: 100%;
+        margin-left: 10px;
     }
     h1 {
         font-size: 41px;

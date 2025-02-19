@@ -12,7 +12,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1500px;
+    max-width: 1750px;
     padding: 20px;
     height: 60px;
     margin: 0 auto;
@@ -36,16 +36,36 @@
         }
 
         img {
-            width: 130px;
+            width: 215px;
             height: 90px;
             @include mixins.mobile {
-                width: 100px;
+                width: 150px;
             }
+        }
+
+        .logo {
+            height: 50px;
         }
 
         .header__search {
             text-align: center;
-            width: 258px;
+            width: 400px;
+            span {
+                height: 40px;
+                padding: 0px;
+                color: black;
+                display: flex;
+                align-items: center;
+                flex-direction: row-reverse;
+                svg {
+                    margin-right: 5px;
+                    font-size: 20px;
+                }
+                ::placeholder {
+                    color: #a4a4a4;
+                }
+            }
+
             @media (max-width: 768px) {
                 width: 30px;
                 span {

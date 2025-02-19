@@ -4,6 +4,8 @@
 .phone__number {
     display: flex;
     flex-direction: column;
+    width: 175px;
+
     @include mixins.mobile {
         width: 100%;
     }
@@ -11,20 +13,12 @@
 
 .phone__number_text {
     margin-bottom: 5px;
-    font-weight: 800;
-    font-size: 17spx;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .phone__mail {
     font-size: 14px;
     color: #999;
     margin: 0 !important;
-}
-
-.phone__button {
-    margin-left: 10px;
-
-    @include mixins.tablet {
-        display: none;
-    }
 }

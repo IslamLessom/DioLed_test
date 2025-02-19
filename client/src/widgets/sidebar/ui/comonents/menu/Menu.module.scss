@@ -1,11 +1,12 @@
 .menu {
-    width: 270px;
-    max-width: 400px;
+    width: 100%;
+    max-width: 280px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
     margin-top: 20px;
+    margin-right: auto;
 
     .menu__title {
         font-size: 20px;
@@ -121,4 +122,9 @@
             border-radius: 5px;
         }
     }
+}
+
+.menuFunction {
+    display: flex;
+    gap: 10px;
 }

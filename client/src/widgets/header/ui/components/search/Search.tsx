@@ -10,7 +10,7 @@ const SearchComponents = () => {
   return (
     <div>
       {!isMobile ? (
-        <Search placeholder="Search" />
+        <Search placeholder="Поиск среди 1000 изделий" />
       ) : (
         <CiSearch className={styles.search__icon} />
       )}

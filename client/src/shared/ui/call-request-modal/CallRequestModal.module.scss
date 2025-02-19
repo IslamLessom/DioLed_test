@@ -1,0 +1,18 @@
+@use "../../../shared/styles/mixins.scss" as mixins;
+
+.phone__button {
+    margin-left: 10px;
+    height: 40px;
+    width: 150px;
+    font-size: 12px;
+    background-color: #ffdf82;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @include mixins.tablet {
+        display: none;
+    }
+}

@@ -46,7 +46,13 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
             <BurgerButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />
           </div>
           <Link href={"/"}>
-            <Image src="/logo.svg" alt="logo" width={100} height={100} />
+            <Image
+              className={styles.logo}
+              src="/logo.svg"
+              alt="logo"
+              width={100}
+              height={100}
+            />
           </Link>
           <div className={styles.header__search}>
             <SearchComponents />

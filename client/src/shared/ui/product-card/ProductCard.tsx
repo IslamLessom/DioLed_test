@@ -54,7 +54,7 @@ const ProductCard = ({
   isComparision,
   onComparisionClick,
 }: Product) => {
-  const isMobile = useMediaQuery("(max-width: 1200px)");
+  const isMobile = useMediaQuery("(max-width: 1520px)");
   return (
     <div className={styles.card}>
       <Image src={announcement_image_url} alt="" width={100} height={100} />
@@ -63,8 +63,12 @@ const ProductCard = ({
           <p className={styles.card__info__price}>{base_price}</p>
           <p className={styles.card__info__name}>
             <p>
-              {product_name && product_name.length > 40
-                ? product_name.slice(0, 40) + "..."
+              {isMobile
+                ? product_name && product_name.length > 40
+                  ? product_name.slice(0, 40) + "..."
+                  : product_name
+                : product_name && product_name.length > 30
+                ? product_name.slice(0, 30) + "..."
                 : product_name}
             </p>
           </p>

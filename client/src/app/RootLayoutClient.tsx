@@ -38,6 +38,7 @@ export default function RootLayoutClient({
       style={{
         minHeight: "100vh",
         zIndex: 1000,
+        background: "white",
       }}
     >
       <HeaderComponent isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

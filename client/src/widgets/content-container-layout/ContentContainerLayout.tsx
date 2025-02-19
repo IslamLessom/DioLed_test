@@ -19,24 +19,39 @@ const ContentContainerLayout = ({
   setIsMenuOpen,
 }: any) => {
   return (
-    <Layout className="layout">
+    <Layout
+      className="layout"
+      style={{
+        backgroundColor: "white",
+        maxWidth: "1710px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
       <div
         className={`overlay ${isMenuOpen ? "visible" : ""}`}
         onClick={() => setIsMenuOpen(false)}
       />
       {!useHideComponents() && ( // Условный рендеринг Sidebar
         <Sider
-          width={isMenuOpen ? "40%" : "22%"}
+          width={isMenuOpen ? "50%" : "20%"}
           style={{
-            backgroundColor: "rgb(245 245 245)",
+            backgroundColor: "white",
           }}
           className={isMenuOpen ? "mobile-visible" : "mobile-hidden"}
         >
-          <Sidebar />
+          <Sidebar isMenuOpen={isMenuOpen} />
         </Sider>
       )}
       {useHideAdmin() && <LayoutProfile />}
-      <Content className="content">
+      <Content
+        className="content"
+        style={{
+          backgroundColor: "white",
+          maxWidth: "1350px",
+          width: "65%",
+        }}
+      >
         {!useHideComponents() && ( // Условный рендеринг BannerCarousel и StatusBox
           <>
             <BannerCarousel />

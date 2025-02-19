@@ -1,9 +1,7 @@
 @use "../../../../../shared/styles/_variables.scss";
 @use "../../../../../shared/styles/_mixins.scss";
 .lider {
-    width: 80% !important;
     background-color: white;
-    margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     border-radius: 10px;
@@ -12,6 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: 280px;
     h3 {
         margin-bottom: 5px;
         margin-left: 10px;

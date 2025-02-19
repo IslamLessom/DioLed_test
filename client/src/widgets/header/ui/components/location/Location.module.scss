@@ -4,16 +4,16 @@
 .location {
     display: flex;
     flex-direction: column;
+    width: 171px;
     .location__city {
         font-size: 16px;
         font-weight: 600;
-        margin-bottom: 5px;
     }
 
     .location__time {
-        font-size: 14px;
-        font-weight: 400;
+        font-size: 12px;
         margin-top: 5px;
+        color: #828282;
         display: flex;
         align-items: center;
     }
