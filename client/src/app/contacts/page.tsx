@@ -41,9 +41,7 @@ const Contacts = () => {
               <p>Менеджер</p>
             </div>
           </div>
-          <Button type="primary" className={styles.contacts__button}>
-            Задать вопрос
-          </Button>
+
           <div className={styles.contacts__adress}>
             <p>или напишите на почту info@verolight.ru</p>
             <p>Г.Москва ул.Островского 23</p>

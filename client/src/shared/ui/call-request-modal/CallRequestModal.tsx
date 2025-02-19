@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { Modal, Form, Input, Button, message } from "antd";
 import axios from "axios";
-import styles from "./CallRequestModal.module.scss"; // Подключи свои стили
+import styles from "./CallRequestModal.module.scss";
 
-const phoneRegex = /^[0-9]{10,15}$/; // Регулярка для номера
+const phoneRegex = /^[0-9]{10,15}$/;
 
 const CallRequestModal = ({ isMobile }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +17,7 @@ const CallRequestModal = ({ isMobile }: any) => {
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    form.resetFields(); // Очистка формы при закрытии
+    form.resetFields();
   };
 
   const onFinish = async (values: any) => {
@@ -38,7 +38,7 @@ const CallRequestModal = ({ isMobile }: any) => {
       if (response.status === 201) {
         message.success("Заявка успешно отправлена!");
         form.resetFields();
-        setIsModalOpen(false); // Закрываем модалку после успешной отправки
+        setIsModalOpen(false);
       } else {
         message.error("Произошла ошибка при отправке заявки.");
       }

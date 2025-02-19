@@ -34,6 +34,7 @@
         padding: 30px;
         border-radius: 10px;
         line-height: 25px;
+        width: 100%;
 
         p {
             margin: 15px;
@@ -64,6 +65,8 @@
         background-color: vars.$container_bac;
         margin: 0;
         padding: 30px;
+        max-width: 1000px !important;
+        margin: 0 auto;
 
         border-radius: 15px;
 
