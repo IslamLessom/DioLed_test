@@ -63,15 +63,6 @@ const AuthPage = () => {
           </>
         )}
       </Card>
-      <div className={styles.div}>
-        <Image
-          className={styles.imagebody}
-          src={"/auth.png"}
-          alt=""
-          width={100}
-          height={100}
-        />
-      </div>
     </div>
   );
 };

@@ -2,66 +2,46 @@
 @use "../../shared/styles/mixins" as mixins;
 
 .authContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    width: 100vw;
-    background-color: #f5f5f5 !important;
-    align-items: center;
-    justify-items: center;
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url("../../../public/Vector133.png");
-    background-repeat: no-repeat;
-    position: relative !important;
-    z-index: 5 !important;
     height: 100%;
+    width: 500px;
 
-    @include mixins.tablet {
-        grid-template-columns: 100%;
-        width: 100%;
-    }
-
-    .imagebody {
-        height: 800px;
-        width: 100%;
-        border-radius: 18px;
-        image-rendering: optimizeQuality;
-        position: relative;
-        z-index: 2;
-
-        @include mixins.tablet {
-            display: none; // Скрыть на планшетах
-        }
+    @include mixins.mobile {
+        width: 330px;
     }
 
     .auth {
         @include mixins.mobile {
-            margin-top: 30px; // Убедитесь, что это значение актуально
+            margin-top: 30px;
         }
 
         width: 100%;
         display: flex;
-        background-color: transparent !important; // Измените на transparent вместо #ffffff00
+        background-color: transparent !important;
         border: none !important;
+        height: 80vh;
+        align-items: center;
+        justify-content: center;
 
         @include mixins.tablet {
-            justify-content: center; // Центрирование на планшетах
+            justify-content: center;
         }
 
         .auth__container {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; // Изменено с left на flex-start
+            align-items: flex-start;
         }
 
         .auth__title {
             margin-bottom: 10px;
             text-align: left;
-            font-family: Helvetica, sans-serif; // Добавьте запасной шрифт
+            font-family: Helvetica, sans-serif;
             font-size: 55px;
             line-height: 63px;
             font-weight: 400;
+            @include mixins.mobile {
+                font-size: 40px;
+            }
         }
 
         .auth__input {
@@ -69,7 +49,7 @@
             width: 100%;
             border-radius: 32px;
             height: 44px;
-            font-size: 32px; // Добавьте px для единиц измерения
+            font-size: 32px;
         }
 
         .auth__button_container {
@@ -89,7 +69,13 @@
         }
 
         .auth__description {
-            text-align: left; // Убедитесь, что это значение актуально
+            text-align: left;
         }
     }
+}
+
+.authImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
